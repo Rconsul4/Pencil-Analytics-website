@@ -104,6 +104,17 @@
       to {opacity: 1; transform: translateY(0);}
     }
 
+  
+    /* Brief glow feedback on logo click */
+    @keyframes logoGlowPulse {
+      0%   { filter: drop-shadow(0 0 0 rgba(255,106,0,0)); transform: scale(1); }
+      50%  { filter: drop-shadow(0 0 10px rgba(255,106,0,.55)) drop-shadow(0 0 16px rgba(30,102,255,.45)); transform: scale(1.03); }
+      100% { filter: drop-shadow(0 0 0 rgba(255,106,0,0)); transform: scale(1); }
+    }
+    .logo img.glow-once {
+      animation: logoGlowPulse 0.9s ease;
+    }
+
   </style>
 </head>
 <body>
@@ -323,6 +334,24 @@
         if (insDiv) insDiv.style.display = (key==='ins') ? '' : 'none';
         if (hrDiv)  hrDiv.style.display  = (key==='hr')  ? '' : 'none';
       }
+    })();
+
+
+    // Enable theme toggle when clicking the top-right logo image (only)
+    (function(){
+      const logoImg = document.querySelector('.logo img');
+      if (!logoImg) return;
+      logoImg.addEventListener('click', () => {
+        const isDark = document.body.getAttribute('data-theme') === 'dark';
+        document.body.setAttribute('data-theme', isDark ? '' : 'dark');
+        // brief glow feedback
+        logoImg.classList.remove('glow-once');
+        // Force reflow to restart animation if clicked repeatedly
+        void logoImg.offsetWidth;
+        logoImg.classList.add('glow-once');
+        // remove class at the end to keep DOM clean
+        setTimeout(()=>logoImg.classList.remove('glow-once'), 950);
+      });
     })();
 
 </script>
