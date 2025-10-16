@@ -7,27 +7,16 @@
   <style>
     :root{
       --orange-800:#CC5500;
-      --blue:#1E66FF;
-      --red:#E53935;
-      --yellow:#FFCA28;
-      --orange:#FF6A00;
-      --teal1:#009688;
-      --teal2:#00BFA5;
-      --teal3:#4DB6AC;
-      --bg:#ffffff;
-      --text:#222222;
-      --card:#f9f9f9;
-      --muted:#555555;
-      --shadow:0 4px 12px rgba(0,0,0,.06);
-      --border:#e7e7e7;
+      --blue:#1E66FF; --red:#E53935; --yellow:#FFCA28; --orange:#FF6A00;
+      --teal1:#009688; --teal2:#00BFA5; --teal3:#4DB6AC;
+      --deep1:#0B3D91; --deep2:#0D47A1; --deep3:#1565C0;
+      --bg:#ffffff; --text:#222; --card:#f9f9f9; --muted:#555;
+      --shadow:0 4px 12px rgba(0,0,0,.06); --border:#e7e7e7;
     }
     [data-theme="dark"]{
       --bg:linear-gradient(180deg,#0E0F11,#14161A);
-      --text:#F7F7F8;
-      --card:#171A1F;
-      --muted:#9AA5B1;
-      --shadow:0 16px 40px rgba(0,0,0,.35);
-      --border:rgba(255,255,255,.1);
+      --text:#F7F7F8; --card:#171A1F; --muted:#9AA5B1;
+      --shadow:0 16px 40px rgba(0,0,0,.35); --border:rgba(255,255,255,.1);
     }
     @keyframes wave{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     html{-webkit-text-size-adjust:100%}
@@ -38,55 +27,83 @@
     .bar{display:flex;align-items:center;justify-content:space-between;padding:12px clamp(14px,3.6vw,28px);}
     .left{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
     .brand{font-weight:800;text-transform:uppercase;font-size:1.1rem;color:var(--orange-800);cursor:pointer;user-select:none;transition:transform .2s,color .3s;}
-    .brand:hover{transform:scale(1.02);}
-    [data-theme="dark"] .brand{color:#FFCA28;}
+    .brand:hover{transform:scale(1.02);} [data-theme="dark"] .brand{color:#FFCA28;}
     .tabs{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
     .tab-btn{position:relative;background:transparent;border:1px solid var(--border);padding:8px 14px;border-radius:10px;cursor:pointer;color:var(--text);font-weight:600;letter-spacing:.2px;transition:transform .2s,box-shadow .2s,border-color .2s;background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue)) border-box;background-size:auto,300% 100%;background-position:center,0% 50%;will-change:background-position,transform;}
-    .tab-btn:hover{transform:translateY(-1px);border-color:transparent;animation:wave 6s linear infinite;background-position:center,100% 50%;box-shadow:0 8px 22px rgba(0,0,0,.12);}
-    [data-theme="dark"] .tab-btn:hover{box-shadow:0 12px 32px rgba(0,0,0,.45);}
-    .tab-btn.active{border-color:transparent;animation:wave 8s linear infinite;background-position:center,50% 50%;box-shadow:0 6px 16px rgba(0,0,0,.10),0 0 0 1px rgba(0,0,0,0.02) inset;}
-    [data-theme="dark"] .tab-btn.active{box-shadow:0 10px 26px rgba(0,0,0,.35);}
+    .tab-btn:hover{transform:translateY(-1px);border-color:transparent;animation:wave 6s linear infinite;background-position:center,100% 50%;box-shadow:0 8px 22px rgba(0,0,0,.12);} [data-theme="dark"] .tab-btn:hover{box-shadow:0 12px 32px rgba(0,0,0,.45);}
+    .tab-btn.active{border-color:transparent;animation:wave 8s linear infinite;background-position:center,50% 50%;box-shadow:0 6px 16px rgba(0,0,0,.10),0 0 0 1px rgba(0,0,0,0.02) inset;} [data-theme="dark"] .tab-btn.active{box-shadow:0 10px 26px rgba(0,0,0,.35);}
     .logo img{width:60px;height:auto;display:block;}
-    main{padding:clamp(8px,2.5vw,24px) clamp(14px,4.4vw,56px);}
-    .section{display:none;}
-    .section.active{display:block;}
+    main{padding:clamp(8px,2.5vw,24px) clamp(14px,4.4vw,56px);} .section{display:none;} .section.active{display:block;}
     .card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:clamp(16px,2.8vw,24px);box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s,border-color .25s;overflow:hidden;will-change:transform;}
-    .card + .card{margin-top:16px;}
-    .card:hover{transform:translateY(-2px);border-color:transparent;}
+    .card + .card{margin-top:16px;} .card:hover{transform:translateY(-2px);border-color:transparent;}
     .card::after{content:"";position:absolute;inset:-2px;border-radius:18px;padding:2px;pointer-events:none;background:linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue));background-size:300% 100%;background-position:0% 50%;-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .25s ease;animation:wave 8s linear infinite;}
     .card:hover::after{opacity:1;}
-    h1{margin:0 0 10px;color:var(--orange-800);font-size:clamp(26px,4.2vw,40px);}
-    [data-theme="dark"] h1{color:#FFCA28;}
-    h2{margin:10px 0 8px;font-size:clamp(18px,2.6vw,24px);}
-    .muted{color:var(--muted);}
-    .highlight{color:var(--orange-800);font-style:italic;font-weight:700;text-shadow:0 0 10px rgba(204,85,0,0.4);transition:text-shadow .4s ease;}
-    .highlight:hover{text-shadow:0 0 16px rgba(204,85,0,0.65);}
-    /* Callout card */
-    .callout{position:relative;padding:16px 16px 16px 18px;border-radius:14px;margin-top:8px;background:linear-gradient(to right, rgba(255,106,0,0.06), rgba(255,106,0,0.02));box-shadow:0 8px 22px rgba(0,0,0,0.06);border:1px solid var(--border);}
-    .callout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;border-radius:14px 0 0 14px;background:linear-gradient(180deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue));background-size:100% 300%;}
-    /* Subtabs under gradient line */
-    .subtabs{display:flex;gap:10px;margin:12px 0 16px;flex-wrap:wrap;}
-    .sub-btn{background:transparent;border:1px solid var(--border);padding:8px 14px;border-radius:10px;cursor:pointer;color:var(--text);font-weight:600;background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue)) border-box;background-size:auto,300% 100%;background-position:center,0% 50%;transition:transform .2s,background-position .4s,border-color .2s;will-change:background-position,transform;}
-    .sub-btn:hover{transform:translateY(-1px);border-color:transparent;background-position:center,100% 50%;animation:wave 6s linear infinite;}
-    .sub-btn.active{border-color:transparent;background-position:center,50% 50%;animation:wave 8s linear infinite;}
-    ol.services{padding-left:1.1rem;} ol.services>li{margin:6px 0;}
-    .badge{display:none;} /* Removed mini bubble */
-    /* HR (teal) overrides */
+    h2{margin:10px 0 8px;font-size:clamp(18px,2.6vw,24px);} .muted{color:var(--muted);}
+    .highlight{color:var(--orange-800);font-style:italic;font-weight:700;text-shadow:0 0 10px rgba(204,85,0,0.4);transition:text-shadow .4s ease;} .highlight:hover{text-shadow:0 0 16px rgba(204,85,0,0.65);}
+    .callout{position:relative;padding:16px 16px 16px 18px;border-radius:14px;margin-top:8px;background:linear-gradient(to right, rgba(255,106,0,0.06), rgba(255,106,0,0.02));box-shadow:0 8px 22px rgba(0,0,0,0.06);border:1px solid var(--border);} .callout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;border-radius:14px 0 0 14px;background:linear-gradient(180deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue));background-size:100% 300%;}
+    .subtabs{display:flex;gap:10px;margin:12px 0 16px;flex-wrap:wrap;} .sub-btn{background:transparent;border:1px solid var(--border);padding:8px 14px;border-radius:10px;cursor:pointer;color:var(--text);font-weight:600;background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue)) border-box;background-size:auto,300% 100%;background-position:center,0% 50%;transition:transform .2s,background-position .4s,border-color .2s;will-change:background-position,transform;}
+    .sub-btn:hover{transform:translateY(-1px);border-color:transparent;background-position:center,100% 50%;animation:wave 6s linear infinite;} .sub-btn.active{border-color:transparent;background-position:center,50% 50%;animation:wave 8s linear infinite;}
+    .badge{display:none;} ol.services{padding-left:1.1rem;} ol.services>li{margin:6px 0;}
+    /* Accordion */
+    .accordion{display:grid;gap:8px;margin-top:8px;}
+    .acc-item{border:1px solid var(--border);border-radius:12px;background:var(--card);overflow:hidden;box-shadow:var(--shadow);}
+    .acc-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;cursor:pointer;font-weight:700;}
+    .acc-head .title{display:flex;gap:8px;align-items:center;}
+    .acc-head .chev{transition:transform .2s;}
+    .acc-body{display:none;padding:0 14px 14px;color:var(--muted);}
+    .acc-item.open .acc-body{display:block;}
+    .acc-item.open .acc-head .chev{transform:rotate(90deg);}
+    /* HR teal */
     .teal-border{background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--teal1),var(--teal2),var(--teal3),var(--teal1)) border-box;}
     .teal-left::before{background:linear-gradient(180deg,var(--teal1),var(--teal2),var(--teal3),var(--teal1));}
-    .teal-glow{color:inherit;text-shadow:0 0 10px rgba(0,150,136,0.35);}
-    .teal-btn{background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--teal1),var(--teal2),var(--teal3),var(--teal1)) border-box;}
-    .teal-btn:hover,.teal-btn.active{animation:wave 7s linear infinite;}
-    /* Contact card */
-    .contact{position:relative;border-radius:16px;padding:clamp(18px,3vw,28px);
-      background:linear-gradient(var(--card),var(--card)) padding-box,
-                 linear-gradient(135deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue)) border-box;
-      border:1px solid transparent; box-shadow:0 16px 40px rgba(0,0,0,.08);}
-    .email-pill{display:inline-block;border-radius:999px;padding:10px 16px;
-      background:linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue));
-      background-size:300% 100%; animation:wave 10s linear infinite;
-      color:white; text-decoration:none; font-weight:700;}
-    .email-pill:hover{opacity:.9;}
+    .teal-glow{color:inherit;text-shadow:0 0 10px rgba(0,150,136,0.35);} .teal-btn{background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--teal1),var(--teal2),var(--teal3),var(--teal1)) border-box;} .teal-btn:hover,.teal-btn.active{animation:wave 7s linear infinite;}
+    /* Insurance dark blue */
+    .deep-border{background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--deep1),var(--deep2),var(--deep3),var(--deep1)) border-box;}
+    .deep-left::before{background:linear-gradient(180deg,var(--deep1),var(--deep2),var(--deep3),var(--deep1));}
+    .deep-glow{color:inherit;text-shadow:0 0 10px rgba(13,71,161,0.40);} .deep-btn{background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--deep1),var(--deep2),var(--deep3),var(--deep1)) border-box;} .deep-btn:hover,.deep-btn.active{animation:wave 7s linear infinite;}
+    /* Contact */
+    .contact{position:relative;border-radius:16px;padding:clamp(18px,3vw,28px);background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(135deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue)) border-box;border:1px solid transparent;box-shadow:0 16px 40px rgba(0,0,0,.08);} .email-pill{display:inline-block;border-radius:999px;padding:10px 16px;background:linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue));background-size:300% 100%;animation:wave 10s linear infinite;color:white;text-decoration:none;font-weight:700;} .email-pill:hover{opacity:.9;}
+    /* Bands */
+    .band-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+    .step{border-left:4px solid var(--orange-800);padding-left:10px;} [data-theme="dark"] .step{border-left-color:#FFCA28;}
+  
+    /* Themed dividers and smaller 'How we deliver' */
+    @keyframes slowwave{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .divider{border:0;height:2px;margin:18px 0;opacity:.9;background:linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue));background-size:300% 100%;animation:slowwave 12s linear infinite;}
+    .divider.orange{background:linear-gradient(90deg,var(--orange),#ffb26b,var(--yellow),var(--orange));background-size:300% 100%;}
+    .divider.deep{background:linear-gradient(90deg,var(--deep1),var(--deep2),var(--deep3),var(--deep1));background-size:300% 100%;}
+    .divider.teal{background:linear-gradient(90deg,var(--teal1),var(--teal2),var(--teal3),var(--teal1));background-size:300% 100%;}
+
+    .how-card h2{font-size:clamp(16px,2.1vw,21px); margin-bottom:8px;}
+    .how-card .band-grid{gap:10px;}
+    .how-card .step{font-size:.95rem; line-height:1.45;}
+    .how-orange .step{border-left-color:var(--orange-800);}
+    .how-deep .step{border-left-color:var(--deep2);}
+    .how-teal .step{border-left-color:var(--teal2);} 
+
+    .logo-glow {
+      background: linear-gradient(90deg, var(--blue), var(--red), var(--yellow), var(--orange), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 300% 100%;
+      animation: wave 10s linear infinite;
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: var(--orange-800);
+      text-underline-offset: 3px;
+    }
+    .tip {
+      font-style: italic;
+      margin-top: 16px;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeIn 2s ease 0.6s forwards;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
   </style>
 </head>
 <body>
@@ -106,128 +123,146 @@
 
   <main>
     <section id="who" class="section active">
-      <!-- No headline and no badge -->
       <article class="card"><h2>Who we are</h2><p class="muted">
       Pencil Analytics is an advisory and analytics firm founded by a team of experienced consultants with deep expertise in the private sector across Saudi Arabia.
       We specialize in transforming complex business data into clear, actionable insights — designing dashboards, predictive models, and decision systems that connect pricing, promotions, finance, and operations.
       Our approach combines analytical precision with business understanding to help organizations operate more efficiently, make smarter decisions, and drive sustainable profitability.
       </p></article>
-      <article class="card"><h2>Vision</h2><p class="muted">
-      To continuously elevate the standard of business analytics and consulting by delivering distinguished, precise, and high-quality services that create a positive and measurable impact on business performance.
-      We aim to empower our clients through innovative analytical solutions that enable them to achieve their goals more effectively and efficiently.
-      </p></article>
-      <article class="card"><h2>Mission</h2><p class="muted">
-      To provide integrated analytical and advisory solutions that simplify decision-making, enhance profitability, and strengthen execution across business functions.
-      Through a blend of technical expertise, strategic insight, and automation, Pencil Analytics enables clients to convert data into strategic advantage — fostering a culture of efficiency, innovation, and sustainable growth.
-      </p></article>
-      <article class="card"><h2>Our Goals</h2><p class="muted">
-      We continuously strive to develop our capabilities and enhance our expertise to ensure operational excellence and efficiency.
-      Our strategy is built on maintaining a high standard of quality that meets client expectations and drives long-term, sustainable success.
-      At Pencil Analytics, we believe that <span class="highlight">“perfection is a moving target”</span> — a constant pursuit that pushes us to innovate, refine, and deliver better results every day.
-      </p></article>
+      <article class="card"><h2>Vision</h2><p class="muted">To continuously elevate the standard of business analytics and consulting by delivering distinguished, precise, and high-quality services that create a positive and measurable impact on business performance. We aim to empower our clients through innovative analytical solutions that enable them to achieve their goals more effectively and efficiently.</p></article>
+      <article class="card"><h2>Mission</h2><p class="muted">To provide integrated analytical and advisory solutions that simplify decision-making, enhance profitability, and strengthen execution across business functions. Through a blend of technical expertise, strategic insight, and automation, Pencil Analytics enables clients to convert data into strategic advantage — fostering a culture of efficiency, innovation, and sustainable growth.</p></article>
+      <article class="card"><h2>Our Goals</h2><p class="muted">We continuously strive to develop our capabilities and enhance our expertise to ensure operational excellence and efficiency. Our strategy is built on maintaining a high standard of quality that meets client expectations and drives long-term, sustainable success. At Pencil Analytics, we believe that <span class="highlight">“perfection is a moving target”</span> — a constant pursuit that pushes us to innovate, refine, and deliver better results every day.</p></article>
     </section>
 
     <section id="what" class="section">
-      <!-- Subtabs directly under gradient line -->
       <div class="subtabs">
         <button class="sub-btn active" id="fmcgBtn">FMCG & Retail</button>
-        <button class="sub-btn" id="insBtn">Insurance</button>
+        <button class="sub-btn deep-btn" id="insBtn">Insurance</button>
         <button class="sub-btn teal-btn" id="hrBtn">HR</button>
       </div>
-
-      <!-- Removed the summary card as requested -->
 
       <!-- FMCG & Retail -->
       <article id="fmcgIntro" class="card callout">
         <h2>FMCG & Retail</h2>
-        <p class="muted">
-        In the FMCG and retail industry, we support companies in turning operational and commercial data into strategic advantage.
-        Our expertise covers pricing, promotions, sales performance, supply chain analytics, and margin optimization, helping clients achieve full visibility across their value chain.
-        Through dashboards, automation, and data-driven insights, we enable management teams to track execution, evaluate performance, and improve profitability — ensuring stronger alignment between strategy, operations, and market execution.
-        </p>
+        <p class="muted">In the FMCG and retail industry, we support companies in turning operational and commercial data into strategic advantage. Our expertise covers pricing, promotions, sales performance, supply chain analytics, and margin optimization, helping clients achieve full visibility across their value chain. Through dashboards, automation, and data-driven insights, we enable management teams to track execution, evaluate performance, and improve profitability — ensuring stronger alignment between strategy, operations, and market execution.</p>
       </article>
 
       <article id="fmcgList" class="card">
         <h2>Services for FMCG & Retail</h2>
-        <ol class="services">
-          <li><strong>Sales Dashboard</strong> → Track sales YTD, MTD, daily vs budget, targets, and last year, including margin.</li>
-          <li><strong>Price Elasticity Dashboard</strong> → Forecast sales performance by modeling price sensitivity and promotion effectiveness.</li>
-          <li><strong>Volume Dashboard</strong> → Monitor product, category, and channel volumes with drill-downs.</li>
-          <li><strong>Target Phasing</strong> → Align monthly and weekly sales targets with budgets and long-term plans.</li>
-          <li><strong>Project Trackers</strong> → Dedicated dashboards for initiatives like Ramadan, Back-to-School, and seasonal campaigns.</li>
-          <li><strong>Availability Dashboard</strong> → Measure product availability by region, store, and channel.</li>
-          <li><strong>Inventory Management Dashboard</strong> → Track aged stock, turnover, and supply chain efficiency.</li>
-          <li><strong>Supply Chain ERP Dashboard</strong> → Integrate with ERP to show procurement, logistics, and stock flows.</li>
-          <li><strong>Monthly Sales Closing Dashboard</strong> → Automate month-end closing with variance vs targets and margin analysis.</li>
-          <li><strong>P&L Dashboard</strong> → Consolidated profitability across sales, rebates, discounts, and costs.</li>
-          <li><strong>Margin Analysis Dashboard</strong> → Supplier evaluation and margin optimization by product/channel.</li>
-          <li><strong>Space, Range & Display Dashboard</strong> → Monitor assortment, planograms, and execution by region/store.</li>
-          <li><strong>Promotions Dashboard</strong> → Full suite to track slots, campaigns, locations, and ROI of offers.</li>
-          <li><strong>Weekly Promotion Tracker</strong> → Track execution/performance of leaflet items vs plan.</li>
-          <li><strong>Ad Hoc Business Dashboards</strong> → Rapidly develop dashboards for emerging management requirements.</li>
-          <li><strong>Automation & Centralization</strong> → Automate workflows and centralize reporting to cut manual effort.</li>
-          <li><strong>Price Mix Effect Analysis</strong> → Assess whether growth is driven by premium vs cheaper products and quantify revenue/margin impact from new or discontinued items.</li>
-          <li><strong>Advertising & Promotion ROI via ML Regression</strong> → Use ML to identify the best promotion mix; compare predicted vs actual results in dashboards.</li>
-          <li><strong>Pricing Impact Dashboard</strong> → Measure the impact of pricing tool submissions on sales & margins; compare before/after performance and flag risk areas.</li>
-          <li><strong>Pricing Tools (Excel Automation)</strong> → Excel-based tools to automate pricing submissions, streamline approvals, and publish to ERP/Power BI.</li>
-          <li><strong>Automation on Demand</strong> → Build fit-for-purpose tools (Excel, Power BI, Python) for ad‑hoc automation requests aligned to business need.</li>
-        </ol>
+        <div class="accordion" id="acc-fmcg">
+          <div class="acc-item"><div class="acc-head"><span class="title">Sales Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Track sales YTD, MTD, daily vs budget, targets, and last year, including margin.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Price Elasticity Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Forecast sales performance by modeling price sensitivity and promotion effectiveness.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Volume Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Monitor product, category, and channel volumes with drill-downs.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Target Phasing</span><span class="chev">▶</span></div><div class="acc-body">Align monthly and weekly sales targets with budgets and long-term plans.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Project Trackers</span><span class="chev">▶</span></div><div class="acc-body">Dashboards for initiatives like Ramadan, Back-to-School, and seasonal campaigns.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Availability Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Measure product availability by region, store, and channel.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Inventory Management Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Track aged stock, turnover, and supply chain efficiency.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Supply Chain ERP Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Integrate with ERP to show procurement, logistics, and stock flows.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Monthly Sales Closing Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Automate month-end closing with variance vs targets and margin analysis.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">P&L Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Consolidated profitability across sales, rebates, discounts, and costs.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Margin Analysis Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Supplier evaluation and margin optimization by product/channel.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Space, Range & Display Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Monitor assortment, planograms, and execution by region/store.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Promotions Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Track slots, campaigns, locations, and ROI of offers.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Weekly Promotion Tracker</span><span class="chev">▶</span></div><div class="acc-body">Track execution/performance of leaflet items vs plan.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Ad Hoc Business Dashboards</span><span class="chev">▶</span></div><div class="acc-body">Rapidly develop dashboards for emerging management requirements.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Automation & Centralization</span><span class="chev">▶</span></div><div class="acc-body">Automate workflows and centralize reporting to cut manual effort.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Price Mix Effect Analysis</span><span class="chev">▶</span></div><div class="acc-body">Assess growth drivers and quantify revenue/margin impact from new or discontinued items.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Advertising & Promotion ROI via ML Regression</span><span class="chev">▶</span></div><div class="acc-body">Use ML to identify the best promotion mix; compare predicted vs actual results in dashboards.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Pricing Impact Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Measure the effect of pricing tool submissions on sales & margins; before/after analysis with risk flags.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Pricing Tools (Excel Automation)</span><span class="chev">▶</span></div><div class="acc-body">Automate pricing submissions, streamline approvals, and publish to ERP/Power BI.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Automation on Demand</span><span class="chev">▶</span></div><div class="acc-body">Fit‑for‑purpose tools (Excel, Power BI, Python) for ad‑hoc automation requests.</div></div>
+        </div>
+      </article>
+
+      <!-- How we deliver (FMCG) - 5 steps -->
+      <hr class="divider orange">
+      <article class="card how-card how-orange" id="fmcgHow">
+        <h2>How we deliver</h2>
+        <div class="band-grid">
+          <div class="step"><strong>1. Discover</strong><br/>Map KPIs, data sources, and pain points.</div>
+          <div class="step"><strong>2. Design</strong><br/>Solution blueprint & data model.</div>
+          <div class="step"><strong>3. Build</strong><br/>Prototype dashboards/tools with real data.</div>
+          <div class="step"><strong>4. Scale</strong><br/>Automate refresh, harden, secure, and train users.</div>
+          <div class="step"><strong>5. Evaluate & Improve</strong><br/>Measure impact, iterate, and optimize continuously.</div>
+        </div>
       </article>
 
       <!-- Insurance -->
-      <article id="insIntro" class="card callout" style="display:none">
-        <h2>Insurance</h2>
-        <p class="muted">
-          We partner with insurers to improve <strong>profitability, pricing discipline, and portfolio visibility</strong>. Our approach blends actuarial rigor with executive-ready dashboards — so leaders can steer pricing, govern discounts, and act on emerging risks with confidence.
-        </p>
+      <article id="insIntro" class="card callout deep-left" style="display:none;background:linear-gradient(to right, rgba(13,71,161,0.06), rgba(13,71,161,0.02));">
+        <h2 class="deep-glow">Insurance</h2>
+        <p class="muted">We partner with insurers to improve <strong>profitability, pricing discipline, and portfolio visibility</strong>. Our approach blends actuarial rigor with executive-ready dashboards — so leaders can steer pricing, govern discounts, and act on emerging risks with confidence.</p>
       </article>
-      <article id="insList" class="card" style="display:none">
-        <h2>Services for Insurance</h2>
-        <ol class="services">
-          <li><strong>Pricing Tools for Underwriting</strong> → Custom tools (Excel, Power BI, Python) combining actuarial pricing, system pricing, and underwriting judgment into a single framework; plus simplified versions for Sales to generate indicative prices.</li>
-          <li><strong>Power BI / Excel Distribution Tools</strong> → Secure templates and dashboards for underwriting and sales teams with controlled access and consistent definitions.</li>
-          <li><strong>Loss Ratio & Portfolio Monitoring</strong> → Track all lines, new/renewal mixes, claims, and financial ratios; executive summaries with operational drill-downs.</li>
-          <li><strong>Performance Analysis & Root Cause</strong> → Identify drops vs last year, target, or plan; isolate pricing, claims, or mix drivers and recommend corrective actions.</li>
-          <li><strong>Integration of Underwriting Outputs</strong> → Feed pricing and risk-selection outputs into enterprise dashboards for governance and transparency.</li>
-          <li><strong>Actuarial Support & Data Preparation</strong> → Automate adequacy testing, regulatory submissions (burning cost, frequency, severity), and recurring reports.</li>
-          <li><strong>Reserving & Chain Ladder Automation</strong> → Automate chain-ladder tables and reserve monitoring to increase speed and consistency.</li>
-          <li><strong>Machine Learning for Risk Assessment</strong> → Predict claims, segment portfolios, and visualize insights for adoption by underwriting and management.</li>
-          <li><strong>Sales Enablement & Risk Appetite Alignment</strong> → Provide pre-underwriting pricing tools and align proposals to risk appetite and governance thresholds.</li>
-          <li><strong>Executive Oversight & Project Dashboards</strong> → Portfolio trend monitors and initiative trackers; include market competitiveness benchmarks when relevant.</li>
-        </ol>
+      <article id="insList" class="card deep-border" style="display:none">
+        <h2 class="deep-glow">Services for Insurance</h2>
+        <div class="accordion" id="acc-ins">
+          <div class="acc-item"><div class="acc-head"><span class="title">Pricing Tools for Underwriting</span><span class="chev">▶</span></div><div class="acc-body">Custom tools (Excel, Power BI, Python) combining actuarial pricing, system pricing, and underwriting judgment; simplified versions for Sales included.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Power BI / Excel Distribution Tools</span><span class="chev">▶</span></div><div class="acc-body">Secure templates and dashboards for underwriting and sales teams with access control.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Loss Ratio & Portfolio Monitoring</span><span class="chev">▶</span></div><div class="acc-body">Track lines of business, new/renewal, claims, and financial ratios; exec summaries and drill‑downs.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Performance Analysis & Root Cause</span><span class="chev">▶</span></div><div class="acc-body">Identify drops vs LY/target/plan; isolate pricing, claims, or mix drivers.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Integration of Underwriting Outputs</span><span class="chev">▶</span></div><div class="acc-body">Feed pricing and risk-selection outputs into enterprise dashboards.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Actuarial Support & Data Preparation</span><span class="chev">▶</span></div><div class="acc-body">Automate adequacy testing and regulatory submissions (burning cost, frequency, severity).</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Reserving & Chain Ladder Automation</span><span class="chev">▶</span></div><div class="acc-body">Automate chain‑ladder tables and reserve monitoring for speed and consistency.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Machine Learning for Risk Assessment</span><span class="chev">▶</span></div><div class="acc-body">Predict claims, segment portfolios, and visualize insights for adoption.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Sales Enablement & Risk Appetite</span><span class="chev">▶</span></div><div class="acc-body">Pre‑underwriting pricing tools and alignment to risk appetite/governance thresholds.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Executive Oversight & Projects</span><span class="chev">▶</span></div><div class="acc-body">Portfolio trend monitors and initiative trackers; include market benchmarks when relevant.</div></div>
+        </div>
+      </article>
+      <!-- How we deliver (Insurance) - generic 5 steps -->
+      <hr class="divider deep" style="display:none" id="insDiv">
+      <article class="card how-card how-deep" id="insHow" style="display:none">
+        <h2>How we deliver</h2>
+        <div class="band-grid">
+          <div class="step"><strong>1. Discover</strong><br/>Stakeholder interviews & metric audit.</div>
+          <div class="step"><strong>2. Design</strong><br/>Target architecture & governance model.</div>
+          <div class="step"><strong>3. Build</strong><br/>Tools & dashboards wired to data.</div>
+          <div class="step"><strong>4. Scale</strong><br/>Automate flows, implement controls, enable users.</div>
+          <div class="step"><strong>5. Evaluate & Improve</strong><br/>Monitor usage & outcomes; refine continuously.</div>
+        </div>
       </article>
 
-      <!-- HR (teal accent) -->
+      <!-- HR -->
       <article id="hrIntro" class="card callout teal-left" style="display:none;background:linear-gradient(to right, rgba(0,150,136,0.06), rgba(0,150,136,0.02));">
         <h2 class="teal-glow">HR</h2>
-        <p class="muted">
-          We help organizations build efficient, compliant, and future‑ready HR operations — aligning people, processes, and systems with business goals. From strategy and policy design to automation and transformation, we deliver HR that works.
-        </p>
+        <p class="muted">We help organizations build efficient, compliant, and future‑ready HR operations — aligning people, processes, and systems with business goals. From strategy and policy design to automation and transformation, we deliver HR that works.</p>
       </article>
       <article id="hrList" class="card teal-border" style="display:none">
         <h2 class="teal-glow">Services for HR</h2>
-        <ol class="services">
-          <li><strong>HR Strategy & Planning</strong> → Design, manage, and optimize HR frameworks that align workforce capabilities with business goals.</li>
-          <li><strong>HR Policies & Compliance</strong> → Develop policies, handbooks, and contracts in full alignment with Saudi labor law.</li>
-          <li><strong>Government Relations (KSA)</strong> → Manage ministry dealings, ensure Labor Law compliance, and handle official documentation.</li>
-          <li><strong>Onboarding & Offboarding</strong> → Smooth onboarding and compliant end‑of‑service processes.</li>
-          <li><strong>Employee Relations</strong> → Resolve grievances, disputes, and workplace challenges with fairness and professionalism.</li>
-          <li><strong>Payroll & Benefits Administration</strong> → Manage payroll, salary reviews, allowances, and EOSB calculations accurately and confidentially.</li>
-          <li><strong>HR Systems & Automation</strong> → Workday, PeopleSoft, and Unify expertise for data management, reporting, and process automation.</li>
-          <li><strong>HR Consulting for SMEs</strong> → Tailored HR solutions, policies, and systems for small and medium‑sized businesses.</li>
-          <li><strong>Project Management</strong> → Lead HR and business transformation initiatives: automation, process improvement, policy digitization, and change management.</li>
-        </ol>
+        <div class="accordion" id="acc-hr">
+          <div class="acc-item"><div class="acc-head"><span class="title">HR Strategy & Planning</span><span class="chev">▶</span></div><div class="acc-body">Design, manage, and optimize HR frameworks aligned to business goals.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">HR Policies & Compliance</span><span class="chev">▶</span></div><div class="acc-body">Policies, handbooks, and contracts aligned with Saudi labor law.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Government Relations (KSA)</span><span class="chev">▶</span></div><div class="acc-body">Ministry dealings, labor law compliance, official documentation.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Onboarding & Offboarding</span><span class="chev">▶</span></div><div class="acc-body">Smooth onboarding and compliant end‑of‑service processes.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Employee Relations</span><span class="chev">▶</span></div><div class="acc-body">Resolve grievances, disputes, and workplace challenges.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Payroll & Benefits Administration</span><span class="chev">▶</span></div><div class="acc-body">Payroll, salary reviews, allowances, and EOSB calculations.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">HR Systems & Automation</span><span class="chev">▶</span></div><div class="acc-body">Workday, PeopleSoft, Unify for data, reporting, and automation.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">HR Consulting for SMEs</span><span class="chev">▶</span></div><div class="acc-body">Tailored HR solutions, policies, and systems for SMEs.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title">Project Management</span><span class="chev">▶</span></div><div class="acc-body">Automation, process improvement, policy digitization, and change management.</div></div>
+        </div>
+      </article>
+      <!-- How we deliver (HR) - generic 5 steps -->
+      <hr class="divider teal" style="display:none" id="hrDiv">
+      <article class="card how-card how-teal" id="hrHow" style="display:none">
+        <h2>How we deliver</h2>
+        <div class="band-grid">
+          <div class="step"><strong>1. Discover</strong><br/>Policy & process review, system inventory.</div>
+          <div class="step"><strong>2. Design</strong><br/>Operating model, roles, and roadmap.</div>
+          <div class="step"><strong>3. Build</strong><br/>Policies, workflows, and automation.</div>
+          <div class="step"><strong>4. Scale</strong><br/>Rollout, adoption, and governance.</div>
+          <div class="step"><strong>5. Evaluate & Improve</strong><br/>Compliance, cycle time, and satisfaction uplift.</div>
+        </div>
       </article>
     </section>
 
-    <!-- Reach Out -->
     <section id="reach" class="section">
       <article class="contact">
         <h2>Reach Out to Us</h2>
         <p class="muted">We’d love to learn about your challenges and share how we can help.</p>
-        <p>
-          <a class="email-pill" href="mailto:pencilanalytics@outlook.com">pencilanalytics@outlook.com</a>
+        <p><a class="email-pill" href="mailto:pencilanalytics@outlook.com">pencilanalytics@outlook.com</a></p>
+        <p class="muted tip">
+          Tip: Try clicking on the <span class="logo-glow">“Pencil Analytics”</span> logo at the top for a different experience.<br>
+          After all, discovering new perspectives — even in design — can lead to clearer insights and better decisions.<br>
+          Imagine what we could achieve together when that same mindset is applied to your business.
         </p>
+
       </article>
     </section>
 
@@ -240,14 +275,9 @@
       const isDark = document.body.getAttribute('data-theme') === 'dark';
       document.body.setAttribute('data-theme', isDark ? '' : 'dark');
     });
-
-    // Top-level tabs
-    const whoBtn   = document.getElementById('whoBtn');
-    const whatBtn  = document.getElementById('whatBtn');
-    const reachBtn = document.getElementById('reachBtn');
-    const who   = document.getElementById('who');
-    const what  = document.getElementById('what');
-    const reach = document.getElementById('reach');
+    // Tabs
+    const whoBtn=document.getElementById('whoBtn'); const whatBtn=document.getElementById('whatBtn'); const reachBtn=document.getElementById('reachBtn');
+    const who=document.getElementById('who'); const what=document.getElementById('what'); const reach=document.getElementById('reach');
     function setActive(tab){
       [whoBtn, whatBtn, reachBtn].forEach(b=>b.classList.remove('active'));
       [who, what, reach].forEach(s=>s.classList.remove('active'));
@@ -259,25 +289,42 @@
     whatBtn.addEventListener('click',()=>{ setActive('what'); showGroup('fmcg'); });
     reachBtn.addEventListener('click',()=>setActive('reach'));
 
-    // Sub-tab logic with HR
+    // Sub-tab logic: each group shows Intro + List + How (no KPIs anywhere)
     const groups = {
-      fmcg: ['fmcgIntro','fmcgList'],
-      ins: ['insIntro','insList'],
-      hr: ['hrIntro','hrList']
+      fmcg: ['fmcgIntro','fmcgList','fmcgHow'],
+      ins:  ['insIntro','insList','insHow'],
+      hr:   ['hrIntro','hrList','hrHow']
     };
     function showGroup(key){
       [fmcgBtn,insBtn,hrBtn].forEach(b=>b.classList.remove('active'));
-      const btnMap = {fmcg:fmcgBtn, ins:insBtn, hr:hrBtn};
-      btnMap[key].classList.add('active');
-      Object.values(groups).flat().forEach(id => document.getElementById(id).style.display='none');
-      groups[key].forEach(id => document.getElementById(id).style.display='');
+      const btnMap = {fmcg:fmcgBtn, ins:insBtn, hr:hrBtn}; btnMap[key].classList.add('active');
+      // hide all
+      Object.values(groups).flat().forEach(id => { const el = document.getElementById(id); if(el) el.style.display='none'; });
+      // show the chosen set (keeps order: Intro -> List -> How we deliver at the end)
+      groups[key].forEach(id => { const el = document.getElementById(id); if(el) el.style.display=''; });
     }
-    const fmcgBtn = document.getElementById('fmcgBtn');
-    const insBtn = document.getElementById('insBtn');
-    const hrBtn  = document.getElementById('hrBtn');
+    const fmcgBtn = document.getElementById('fmcgBtn'); const insBtn = document.getElementById('insBtn'); const hrBtn  = document.getElementById('hrBtn');
     fmcgBtn.addEventListener('click', ()=>showGroup('fmcg'));
     insBtn.addEventListener('click',  ()=>showGroup('ins'));
     hrBtn.addEventListener('click',   ()=>showGroup('hr'));
-  </script>
+
+    // Accordion behavior
+    document.querySelectorAll('.accordion .acc-item .acc-head').forEach(head=>{
+      head.addEventListener('click',()=> head.parentElement.classList.toggle('open'));
+    });
+  
+    // Toggle themed dividers for Insurance and HR
+    (function(){
+      const originalShowGroup = showGroup;
+      window.showGroup = function(key){
+        originalShowGroup(key);
+        const insDiv = document.getElementById('insDiv');
+        const hrDiv  = document.getElementById('hrDiv');
+        if (insDiv) insDiv.style.display = (key==='ins') ? '' : 'none';
+        if (hrDiv)  hrDiv.style.display  = (key==='hr')  ? '' : 'none';
+      }
+    })();
+
+</script>
 </body>
 </html>
