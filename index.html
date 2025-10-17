@@ -40,15 +40,19 @@
     h2{margin:10px 0 8px;font-size:clamp(18px,2.6vw,24px);} .muted{color:var(--muted);}
     .highlight{color:var(--orange-800);font-style:italic;font-weight:700;text-shadow:0 0 10px rgba(204,85,0,0.4);}
     .callout{position:relative;padding:16px 16px 16px 18px;border-radius:14px;margin-top:8px;background:linear-gradient(to right, rgba(255,106,0,0.06), rgba(255,106,0,0.02));box-shadow:0 8px 22px rgba(0,0,0,0.06);border:1px solid var(--border);} .callout::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;border-radius:14px 0 0 14px;background:linear-gradient(180deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue));}
-    .subtabs{display:flex;gap:10px;margin:12px 0 16px;flex-wrap:wrap;} .sub-btn{background:transparent;border:1px solid var(--border);padding:8px 14px;border-radius:10px;cursor:pointer;color:var(--text);font-weight:600;background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue)) border-box;background-size:auto,300% 100%;background-position:center,0% 50%;transition:transform .2s,background-position .4s,border-color .2s;}
-    .sub-btn:hover{transform:translateY(-1px);border-color:transparent;background-position:center,100% 50%;animation:wave 6s linear infinite;} .sub-btn.active{border-color:transparent;background-position:center,50% 50%;animation:wave 8s linear infinite;}
-    .accordion{display:grid;gap:8px;margin-top:8px;}
+
+    /* NEW bordered header blocks (consistent orange theme) */
+    .framed{position:relative;border:1px solid transparent;border-radius:16px;padding:clamp(16px,2.8vw,24px);background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--orange),#ffb26b,var(--yellow),var(--orange)) border-box; box-shadow:var(--shadow);}
+    .subheader{margin:4px 0 10px;font-weight:700;letter-spacing:.2px;color:var(--orange-800);text-shadow:0 0 10px rgba(204,85,0,.45);}
+    .section-title{margin:0 0 8px;text-align:center;font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:.3px;position:relative;}
+    .section-title::after{content:"";display:block;width:92px;height:3px;margin:8px auto 0;border-radius:2px;background:linear-gradient(90deg,var(--orange),#ffb26b,var(--yellow),var(--orange));}
+
+    .accordion{display:grid;gap:8px;margin-top:12px;}
     .acc-item{border:1px solid var(--border);border-radius:12px;background:var(--card);overflow:hidden;box-shadow:var(--shadow);}
     .acc-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;cursor:pointer;font-weight:700;}
     .acc-head .title{display:flex;gap:8px;align-items:center;}
-    .acc-head .chev{transition:transform .2s;color:var(--muted);}
-    .acc-body{display:none;padding:0 14px 14px;color:var(--muted);}
-    .acc-item.open .acc-body{display:block;} .acc-item.open .chev{transform:rotate(90deg);}
+    .acc-head .chev{transition:transform .2s,color .2s;color:var(--muted);}
+    .acc-body{display:none;padding:0 14px 14px;color:var(--muted);} .acc-item.open .acc-body{display:block;} .acc-item.open .chev{transform:rotate(90deg);}
 
     /* HR teal */
     .teal-border{background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(90deg,var(--teal1),var(--teal2),var(--teal3),var(--teal1)) border-box;}
@@ -63,42 +67,121 @@
     /* Contact */
     .contact{position:relative;border-radius:16px;padding:clamp(18px,3vw,28px);background:linear-gradient(var(--card),var(--card)) padding-box,linear-gradient(135deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue)) border-box;border:1px solid transparent;box-shadow:0 16px 40px rgba(0,0,0,.08);} .email-pill{display:inline-block;border-radius:999px;padding:10px 16px;background:linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue));background-size:300% 100%;animation:wave 10s linear infinite;color:white;text-decoration:none;font-weight:700;} .email-pill:hover{opacity:.9;}
 
-    /* Themed dividers & smaller How we deliver */
+    /* Dividers & How we deliver tweaks */
     @keyframes slowwave{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
     .divider{border:0;height:2px;margin:18px 0;opacity:.9;background:linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue));background-size:300% 100%;animation:slowwave 12s linear infinite;}
     .divider.orange{background:linear-gradient(90deg,var(--orange),#ffb26b,var(--yellow),var(--orange));}
     .divider.deep{background:linear-gradient(90deg,var(--deep1),var(--deep2),var(--deep3),var(--deep1));}
     .divider.teal{background:linear-gradient(90deg,var(--teal1),var(--teal2),var(--teal3),var(--teal1));}
     .how-card h2{font-size:clamp(16px,2.1vw,21px); margin-bottom:8px;}
-    .how-card .band-grid{gap:10px;}
-    .how-card .step{font-size:.95rem; line-height:1.45;}
-    .how-orange .step{border-left-color:var(--orange-800);} .how-deep .step{border-left-color:var(--deep2);} .how-teal .step{border-left-color:var(--teal2);}
     .band-grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
     .step{border-left:4px solid var(--orange-800);padding-left:10px;}
-    /* Tip styling */
-    .logo-glow {
-      background: linear-gradient(90deg, var(--blue), var(--red), var(--yellow), var(--orange), var(--blue));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-size: 300% 100%; animation: wave 10s linear infinite; font-weight: 700;
-      text-decoration: underline; text-decoration-color: var(--orange-800); text-underline-offset: 3px;
-    }
-    .tip { font-style: italic; margin-top: 16px; color: var(--muted); opacity: 0; animation: fadeIn 2s ease 0.6s forwards; }
-    @keyframes fadeIn { from {opacity: 0; transform: translateY(10px);} to {opacity: 1; transform: translateY(0);} }
 
     /* Service icons: pulsing glow + chevrons themed */
     @keyframes pulseGlow { 0%{ transform:scale(1); text-shadow:0 0 0 rgba(0,0,0,0); opacity:.9;} 50%{ transform:scale(1.05); text-shadow:0 0 10px currentColor; opacity:1;} 100%{ transform:scale(1); text-shadow:0 0 0 rgba(0,0,0,0); opacity:.9;} }
-    .acc-head .ic { font-size:1.05rem; margin-right:8px; display:inline-block; animation:pulseGlow 3s ease-in-out infinite; }
-    .fmcg .ic { color: var(--orange-800); } .ins .ic { color: var(--deep2); } .hr .ic { color: var(--teal2); }
-    #acc-fmcg .acc-item:nth-child(5n+1) .ic { animation-delay:0s } #acc-fmcg .acc-item:nth-child(5n+2) .ic { animation-delay:.6s } #acc-fmcg .acc-item:nth-child(5n+3) .ic { animation-delay:1.2s } #acc-fmcg .acc-item:nth-child(5n+4) .ic { animation-delay:1.8s } #acc-fmcg .acc-item:nth-child(5n+5) .ic { animation-delay:2.4s }
-    #acc-ins  .acc-item:nth-child(5n+1) .ic { animation-delay:0s } #acc-ins  .acc-item:nth-child(5n+2) .ic { animation-delay:.6s } #acc-ins  .acc-item:nth-child(5n+3) .ic { animation-delay:1.2s } #acc-ins  .acc-item:nth-child(5n+4) .ic { animation-delay:1.8s } #acc-ins  .acc-item:nth-child(5n+5) .ic { animation-delay:2.4s }
-    #acc-hr   .acc-item:nth-child(5n+1) .ic { animation-delay:0s } #acc-hr   .acc-item:nth-child(5n+2) .ic { animation-delay:.6s } #acc-hr   .acc-item:nth-child(5n+3) .ic { animation-delay:1.2s } #acc-hr   .acc-item:nth-child(5n+4) .ic { animation-delay:1.8s } #acc-hr   .acc-item:nth-child(5n+5) .ic { animation-delay:2.4s }
-    .fmcg .acc-head:hover .chev, .fmcg .acc-item.open .chev { color: var(--orange-800); }
-    .ins  .acc-head:hover .chev, .ins  .acc-item.open .chev { color: var(--deep2); }
-    .hr   .acc-head:hover .chev, .hr   .acc-item.open .chev { color: var(--teal2); }
+    .acc-head .ic { font-size:1.05rem; margin-right:8px; display:inline-block; animation:pulseGlow 3s ease-in-out infinite; color: var(--orange-800); }
+    #acc-fmcg-dash .acc-item:nth-child(5n+1) .ic { animation-delay:0s } #acc-fmcg-dash .acc-item:nth-child(5n+2) .ic { animation-delay:.6s } #acc-fmcg-dash .acc-item:nth-child(5n+3) .ic { animation-delay:1.2s } #acc-fmcg-dash .acc-item:nth-child(5n+4) .ic { animation-delay:1.8s } #acc-fmcg-dash .acc-item:nth-child(5n+5) .ic { animation-delay:2.4s }
+    #acc-fmcg-files .acc-item:nth-child(5n+1) .ic { animation-delay:0s } #acc-fmcg-files .acc-item:nth-child(5n+2) .ic { animation-delay:.6s } #acc-fmcg-files .acc-item:nth-child(5n+3) .ic { animation-delay:1.2s } #acc-fmcg-files .acc-item:nth-child(5n+4) .ic { animation-delay:1.8s } #acc-fmcg-files .acc-item:nth-child(5n+5) .ic { animation-delay:2.4s }
+    #acc-fmcg-auto  .acc-item:nth-child(5n+1) .ic { animation-delay:0s } #acc-fmcg-auto  .acc-item:nth-child(5n+2) .ic { animation-delay:.6s } #acc-fmcg-auto  .acc-item:nth-child(5n+3) .ic { animation-delay:1.2s } #acc-fmcg-auto  .acc-item:nth-child(5n+4) .ic { animation-delay:1.8s } #acc-fmcg-auto  .acc-item:nth-child(5n+5) .ic { animation-delay:2.4s }
+    .acc-head .chev{color:var(--muted);} .acc-item.open .chev{transform:rotate(90deg);} .acc-head:hover .chev{color:var(--orange-800);}
 
     /* Logo click feedback pulse */
     @keyframes logoGlowPulse { 0%{ filter:none; transform:scale(1);} 50%{ filter: drop-shadow(0 0 10px rgba(255,106,0,.55)) drop-shadow(0 0 16px rgba(30,102,255,.45)); transform:scale(1.03);} 100%{ filter:none; transform:scale(1);} }
     .logo img.glow-once { animation: logoGlowPulse .9s ease; }
+  
+    /* Reveal-on-activate animation for Reach Out */
+    .reveal-init { opacity: 0; transform: translateY(14px); will-change: opacity, transform; }
+    .reveal-active { opacity: 1; transform: translateY(0); transition: opacity .6s ease, transform .6s ease; }
+
+  
+    /* Smooth, slower, surprising reveal for the tip line */
+    .tip { font-style: italic; margin-top: 16px; color: var(--muted); } /* reset any previous animation */
+    .tip-reveal-init { opacity: 0; transform: translateY(14px); }
+    .tip-reveal-active { 
+      opacity: 1; 
+      transform: translateY(0); 
+      transition: opacity 1200ms cubic-bezier(.22,.61,.36,1), transform 1200ms cubic-bezier(.22,.61,.36,1);
+      transition-delay: 450ms; /* small delay for a subtle surprise */
+    }
+
+  
+    /* Restored modern colorful look */
+    .ins h2.deep-glow { color: var(--deep2); text-shadow:0 0 12px rgba(13,71,161,0.4); }
+    .hr h2.teal-glow { color: var(--teal2); text-shadow:0 0 12px rgba(0,150,136,0.4); }
+    .fmcg h2 { color: var(--orange-800); text-shadow:0 0 10px rgba(204,85,0,0.5); }
+
+  
+    /* === Clean look for 'What We Do' === */
+    #what .card{ background: transparent !important; border: 0 !important; box-shadow: none !important; }
+    #what .callout{ background: transparent !important; border: 0 !important; box-shadow: none !important; }
+    #what .accordion{ gap: 0.5rem; }
+    #what .acc-item{ background: transparent !important; border: 0 !important; box-shadow: none !important; }
+    #what .acc-item + .acc-item{ border-top: 1px solid var(--border); }
+    #what .acc-head{ border-radius: 10px; padding: 12px 10px; }
+    #what .acc-head:hover{ background: rgba(0,0,0,0.02); }
+    [data-theme="dark"] #what .acc-head:hover{ background: rgba(255,255,255,0.04); }
+
+    /* Themed, faint surfaces (subtle, modern; no boxy shadows) */
+    .surface{ border-radius: 14px; padding: clamp(12px,2.2vw,18px); }
+    .surface-orange{ 
+      background: linear-gradient(180deg, rgba(204,85,0,0.06), rgba(204,85,0,0.02));
+      border-left: 5px solid var(--orange-800);
+    }
+    .surface-deep{ 
+      background: linear-gradient(180deg, rgba(13,71,161,0.08), rgba(13,71,161,0.02));
+      border-left: 5px solid var(--deep2);
+    }
+    .surface-teal{ 
+      background: linear-gradient(180deg, rgba(0,150,136,0.08), rgba(0,150,136,0.02));
+      border-left: 5px solid var(--teal2);
+    }
+
+    /* Title underline accents (thin, elegant) */
+    .section-title{ text-align:left; }
+    .section-title::after{ height:2px; width:72px; }
+
+    /* Slightly stronger color on the section subtitles for clarity */
+    #what .subheader{ color: var(--orange-800); opacity: .95; }
+
+  
+/* === Override: Make FMCG / Insurance / HR sub-tabs match uploaded tab buttons === */
+.subtabs{display:flex;gap:10px;margin:12px 0 16px;flex-wrap:wrap;}
+.subtabs .sub-btn{
+  position:relative;
+  background:transparent;
+  border:1px solid var(--border);
+  padding:8px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  color:var(--text);
+  font-weight:600;
+  letter-spacing:.2px;
+  transition:transform .2s,box-shadow .2s,border-color .2s;
+  background:linear-gradient(var(--card),var(--card)) padding-box,
+             linear-gradient(90deg,var(--blue),var(--red),var(--yellow),var(--orange),var(--blue)) border-box;
+  background-size:auto,300% 100%;
+  background-position:center,0% 50%;
+}
+.subtabs .sub-btn:hover{
+  transform:translateY(-1px);
+  border-color:transparent;
+  animation:wave 6s linear infinite;
+  background-position:center,100% 50%;
+  box-shadow:0 8px 22px rgba(0,0,0,.12);
+}
+[data-theme="dark"] .subtabs .sub-btn:hover{
+  box-shadow:0 12px 32px rgba(0,0,0,.45);
+}
+.subtabs .sub-btn.active{
+  border-color:transparent;
+  animation:wave 8s linear infinite;
+  background-position:center,50% 50%;
+  box-shadow:0 6px 16px rgba(0,0,0,.10);
+}
+[data-theme="dark"] .subtabs .sub-btn.active{
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
+}
+
   </style>
 </head>
 <body>
@@ -135,41 +218,64 @@
         <button class="sub-btn teal-btn" id="hrBtn">HR</button>
       </div>
 
-      <!-- FMCG & Retail -->
-      <article id="fmcgIntro" class="card callout">
+      <!-- FMCG & Retail (BORDERED & SUBHEADER) -->
+      <article id="fmcgIntro" class="card callout surface surface-orange">
         <h2>FMCG & Retail</h2>
         <p class="muted">In the FMCG and retail industry, we support companies in turning operational and commercial data into strategic advantage. Our expertise covers pricing, promotions, sales performance, supply chain analytics, and margin optimization, helping clients achieve full visibility across their value chain. Through dashboards, automation, and data-driven insights, we enable management teams to track execution, evaluate performance, and improve profitability — ensuring stronger alignment between strategy, operations, and market execution.</p>
       </article>
 
-      <article id="fmcgList" class="card fmcg">
-        <h2>Services for FMCG & Retail</h2>
-        <div class="accordion" id="acc-fmcg">
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🛒</span>Sales Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Track sales YTD, MTD, daily vs budget, targets, and last year, including margin.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📈</span>Price Elasticity Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Forecast sales performance by modeling price sensitivity and promotion effectiveness.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📦</span>Volume Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Monitor product, category, and channel volumes with drill-downs.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🎯</span>Target Phasing</span><span class="chev">▶</span></div><div class="acc-body">Align monthly and weekly sales targets with budgets and long-term plans.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🗂️</span>Project Trackers</span><span class="chev">▶</span></div><div class="acc-body">Dashboards for initiatives like Ramadan, Back-to-School, and seasonal campaigns.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📍</span>Availability Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Measure product availability by region, store, and channel.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📦</span>Inventory Management Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Track aged stock, turnover, and supply chain efficiency.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🔗</span>Supply Chain ERP Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Integrate with ERP to show procurement, logistics, and stock flows.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🧾</span>Monthly Sales Closing Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Automate month-end closing with variance vs targets and margin analysis.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">💰</span>P&L Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Consolidated profitability across sales, rebates, discounts, and costs.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📊</span>Margin Analysis Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Supplier evaluation and margin optimization by product/channel.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🗺️</span>Space, Range & Display Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Monitor assortment, planograms, and execution by region/store.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🏷️</span>Promotions Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Track slots, campaigns, locations, and ROI of offers.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🗓️</span>Weekly Promotion Tracker</span><span class="chev">▶</span></div><div class="acc-body">Track execution/performance of leaflet items vs plan.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">💡</span>Ad Hoc Business Dashboards</span><span class="chev">▶</span></div><div class="acc-body">Rapidly develop dashboards for emerging management requirements.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">⚙️</span>Automation & Centralization</span><span class="chev">▶</span></div><div class="acc-body">Automate workflows and centralize reporting to cut manual effort.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🔬</span>Price Mix Effect Analysis</span><span class="chev">▶</span></div><div class="acc-body">Assess growth drivers and quantify revenue/margin impact from new or discontinued items.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📣</span>Advertising & Promotion ROI via ML Regression</span><span class="chev">▶</span></div><div class="acc-body">Use ML to identify the best promotion mix; compare predicted vs actual results in dashboards.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📉</span>Pricing Impact Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Measure the effect of pricing tool submissions on sales & margins; before/after analysis with risk flags.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🧰</span>Pricing Tools (Excel Automation)</span><span class="chev">▶</span></div><div class="acc-body">Automate pricing submissions, streamline approvals, and publish to ERP/Power BI.</div></div>
-          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">⚡</span>Automation on Demand</span><span class="chev">▶</span></div><div class="acc-body">Fit‑for‑purpose tools (Excel, Power BI, Python) for ad‑hoc automation requests.</div></div>
+      <!-- Part 1: Dashboards -->
+      <article id="fmcgDash" class="card fmcg surface surface-orange">
+        <h2 class="section-title" style="color:var(--orange-800);text-shadow:0 0 10px rgba(204,85,0,0.5);">Dashboards</h2>
+        <div class="subheader">Providing clarity, delivering insight, and viewing the business from a 360° perspective.</div>
+        <p class="muted"><strong>Examples of the dashboards we build include:</strong></p>
+        <div class="accordion" id="acc-fmcg-dash">
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🛒</span>Sales Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Track YTD/MTD/daily sales vs budget, targets, and last year — with margin and mix insights.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📈</span>Price Elasticity Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Model price sensitivity and promotion effectiveness to forecast demand and revenue impact.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📦</span>Volume Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Tiering shift analysis between this year and last year across products/channels to understand structural changes in sold volumes.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🎯</span>Target Phasing</span><span class="chev">▶</span></div><div class="acc-body">Support the business by assigning phasing and tracking progress on a daily, weekly, or monthly level.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🗂️</span>Project Tracker</span><span class="chev">▶</span></div><div class="acc-body">Seasonal dashboard tracker or a new‑launch tracker with core KPIs (e.g., sales, margin, distribution, and more).</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📍</span>Inventory Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Support supply chain by monitoring availability in stores, overstock, slow/fast movers, ERP movements, days of sales for materials, fill‑rate, OTIF, planning visibility, and average stock movement by segment.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🧾</span>P&amp;L Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Help relevant departments understand current and next month closing outlook considering aged stock, rebates, costs — consolidating the numbers into a single view (costing included).</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📊</span>Margin Analysis Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Evaluate gross profit across multiple verticals by blending P&amp;L, price‑mix effect, customer tiering, and promo performance — highlight where growth is occurring, by whom, and whether margin is organic.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🏷️</span>Promotions Dashboard</span><span class="chev">▶</span></div><div class="acc-body">A dedicated dashboard to manage and evaluate promotions at a detailed level (slots, mechanics, ROI, execution).</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🤖</span>ML Forecasting Output Dashboard</span><span class="chev">▶</span></div><div class="acc-body">Visualize machine‑learning predictions vs actuals with accuracy tracking and exception flags to guide intervention.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🛡️</span>GRC Dashboard (Dumping &amp; Near‑Expiry)</span><span class="chev">▶</span></div><div class="acc-body">Governance dashboard tracking dumping behavior and near‑expiry goods with alerts and accountability metrics.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">➕</span>…and more</span><span class="chev">▶</span></div><div class="acc-body">We tailor dashboards to emerging needs across sales, finance, trade marketing, and operations.</div></div>
+        </div>
+        <p class="muted" style="margin-top:10px;"><span class="highlight" style="text-shadow:0 0 12px rgba(204,85,0,.55); font-weight:800;">Whatever visibility your business needs — we’ll surface it.</span></p>
+      </article>
+
+      <!-- Part 2: Files that fuel & support the business -->
+      <article id="fmcgFiles" class="card fmcg surface surface-orange">
+        <h2 class="section-title" style="color:var(--orange-800);text-shadow:0 0 10px rgba(204,85,0,0.5);">Files that fuel &amp; support the business</h2>
+        <div class="subheader">Where structure meets action.</div>
+        <p class="muted">To fuel dashboards and streamline operations, we organize the flow of requests and make it easy to trace changes and approvals.</p>
+        <div class="accordion" id="acc-fmcg-files">
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🧰</span>Pricing Tools in Excel</span><span class="chev">▶</span></div><div class="acc-body">Create structured pricing tools with validations and approval paths. Submissions are consolidated and visualized in dashboards — including the impact of approved prices on sales and margins.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📤</span>Automation File Submission</span><span class="chev">▶</span></div><div class="acc-body">Standardize file intake (e.g., price requests, listings, claims) with controlled templates that flow into the data model automatically.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🧩</span>Macro‑Enabled Files</span><span class="chev">▶</span></div><div class="acc-body">Macro workflows for repetitive tasks (validation, formatting, enrichment) to reduce manual time and error.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🐍</span>Python Steps for Consolidation</span><span class="chev">▶</span></div><div class="acc-body">Automate consolidation of recurrent inputs (from teams or regions) and push clean tables to BI or ERP.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📝</span>Data Entry Flow Automation</span><span class="chev">▶</span></div><div class="acc-body">Reduce manual data entry by routing forms to the right owners; audit changes and maintain version history.</div></div>
+        </div>
+      </article>
+
+      <!-- Part 3: Automation -->
+      <article id="fmcgAuto" class="card fmcg surface surface-orange">
+        <h2 class="section-title" style="color:var(--orange-800);text-shadow:0 0 10px rgba(204,85,0,0.5);">Automation</h2>
+        <div class="subheader">Turning repetition into reliability through automation.</div>
+        <p class="muted">We automate the plumbing behind the scenes so teams can focus on decisions — not manual work.</p>
+        <div class="accordion" id="acc-fmcg-auto">
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🔄</span>Refresh Pipelines</span><span class="chev">▶</span></div><div class="acc-body">Scheduled data refresh, reconciliation checks, and error notifications.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">✅</span>Approval Routing &amp; Audit Trails</span><span class="chev">▶</span></div><div class="acc-body">Automated approval steps with full traceability and role‑based controls.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📣</span>Alerts &amp; Exceptions</span><span class="chev">▶</span></div><div class="acc-body">Notify owners when KPIs deviate or when data quality fails tolerance thresholds.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">📡</span>ERP/BI Publishing</span><span class="chev">▶</span></div><div class="acc-body">Publish approved prices, assortments, or targets directly into ERP/Power BI with controls.</div></div>
+          <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">🗄️</span>Centralized Storage &amp; Versioning</span><span class="chev">▶</span></div><div class="acc-body">Single source of truth with version control to protect integrity and speed up collaboration.</div></div>
         </div>
       </article>
 
       <hr class="divider orange">
-      <article class="card how-card how-orange" id="fmcgHow">
+      <article class="card how-card" id="fmcgHow">
         <h2>How we deliver</h2>
         <div class="band-grid">
           <div class="step"><strong>1. Discover</strong><br/>Map KPIs, data sources, and pain points.</div>
@@ -180,12 +286,12 @@
         </div>
       </article>
 
-      <!-- Insurance -->
-      <article id="insIntro" class="card callout deep-left" style="display:none;background:linear-gradient(to right, rgba(13,71,161,0.06), rgba(13,71,161,0.02));">
+      <!-- Insurance (unchanged visuals) -->
+      <article id="insIntro" class="card callout deep-left surface surface-deep" style="display:none;background:linear-gradient(to right, rgba(13,71,161,0.06), rgba(13,71,161,0.02));">
         <h2 class="deep-glow">Insurance</h2>
         <p class="muted">We partner with insurers to improve <strong>profitability, pricing discipline, and portfolio visibility</strong>. Our approach blends actuarial rigor with executive-ready dashboards — so leaders can steer pricing, govern discounts, and act on emerging risks with confidence.</p>
       </article>
-      <article id="insList" class="card deep-border ins" style="display:none">
+      <article id="insList" class="card deep-border ins surface surface-deep" style="display:none">
         <h2 class="deep-glow">Services for Insurance</h2>
         <div class="accordion" id="acc-ins">
           <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">⚙️</span>Underwriting & Pricing Tools</span><span class="chev">▶</span></div><div class="acc-body">Unified actuarial + underwriting frameworks with approval workflows (Excel, Power BI, Python) — designed for control and speed.</div></div>
@@ -196,7 +302,7 @@
         </div>
       </article>
       <hr class="divider deep" style="display:none" id="insDiv">
-      <article class="card how-card how-deep" id="insHow" style="display:none">
+      <article class="card how-card" id="insHow" style="display:none">
         <h2>How we deliver</h2>
         <div class="band-grid">
           <div class="step"><strong>1. Discover</strong><br/>Stakeholder interviews & metric audit.</div>
@@ -207,12 +313,12 @@
         </div>
       </article>
 
-      <!-- HR -->
-      <article id="hrIntro" class="card callout teal-left" style="display:none;background:linear-gradient(to right, rgba(0,150,136,0.06), rgba(0,150,136,0.02));">
+      <!-- HR (unchanged visuals) -->
+      <article id="hrIntro" class="card callout teal-left surface surface-teal" style="display:none;background:linear-gradient(to right, rgba(0,150,136,0.06), rgba(0,150,136,0.02));">
         <h2 class="teal-glow">HR</h2>
         <p class="muted">We help organizations build efficient, compliant, and future‑ready HR operations — aligning people, processes, and systems with business goals. From strategy and policy design to automation and transformation, we deliver HR that works.</p>
       </article>
-      <article id="hrList" class="card teal-border hr" style="display:none">
+      <article id="hrList" class="card teal-border hr surface surface-teal" style="display:none">
         <h2 class="teal-glow">Services for HR</h2>
         <div class="accordion" id="acc-hr">
           <div class="acc-item"><div class="acc-head"><span class="title"><span class="ic">👥</span>HR Strategy & Planning</span><span class="chev">▶</span></div><div class="acc-body">Design, manage, and optimize HR frameworks aligned to business goals.</div></div>
@@ -227,7 +333,7 @@
         </div>
       </article>
       <hr class="divider teal" style="display:none" id="hrDiv">
-      <article class="card how-card how-teal" id="hrHow" style="display:none">
+      <article class="card how-card" id="hrHow" style="display:none">
         <h2>How we deliver</h2>
         <div class="band-grid">
           <div class="step"><strong>1. Discover</strong><br/>Policy & process review, system inventory.</div>
@@ -239,12 +345,12 @@
       </article>
     </section>
 
-    <section id="reach" class="section">
+    <section id="reach" class="section reveal-init">
       <article class="contact">
         <h2>Reach Out to Us</h2>
         <p class="muted">We’d love to learn about your challenges and share how we can help.</p>
         <p><a class="email-pill" href="mailto:pencilanalytics@outlook.com">pencilanalytics@outlook.com</a></p>
-        <p class="muted tip">
+        <p class="muted tip tip-reveal-init">
           Tip: Try clicking on the <span class="logo-glow">“Pencil Analytics”</span> logo at the top for a different experience.<br>
           After all, discovering new perspectives — even in design — can lead to clearer insights and better decisions.<br>
           Imagine what we could achieve together when that same mindset is applied to your business.
@@ -284,13 +390,12 @@
     reachBtn.addEventListener('click',()=>setActive('reach'));
 
     // Sub-tabs
-    const groups = { fmcg: ['fmcgIntro','fmcgList','fmcgHow'], ins: ['insIntro','insList','insHow'], hr: ['hrIntro','hrList','hrHow'] };
+    const groups = { fmcg: ['fmcgIntro','fmcgDash','fmcgFiles','fmcgAuto','fmcgHow'], ins: ['insIntro','insList','insHow'], hr: ['hrIntro','hrList','hrHow'] };
     function showGroup(key){
       [fmcgBtn,insBtn,hrBtn].forEach(b=>b.classList.remove('active'));
       const btnMap={fmcg:fmcgBtn,ins:insBtn,hr:hrBtn}; btnMap[key].classList.add('active');
       Object.values(groups).flat().forEach(id => { const el = document.getElementById(id); if(el) el.style.display='none'; });
       groups[key].forEach(id => { const el = document.getElementById(id); if(el) el.style.display=''; });
-      // Toggle themed dividers
       const insDiv=document.getElementById('insDiv'); const hrDiv=document.getElementById('hrDiv');
       if (insDiv) insDiv.style.display = (key==='ins') ? '' : 'none';
       if (hrDiv)  hrDiv.style.display  = (key==='hr')  ? '' : 'none';
@@ -304,6 +409,57 @@
     document.querySelectorAll('.accordion .acc-item .acc-head').forEach(head=>{
       head.addEventListener('click',()=> head.parentElement.classList.toggle('open'));
     });
+  
+    // Reveal animation for Reach section
+    function triggerReachReveal(){
+      const r = document.getElementById('reach');
+      if (!r) return;
+      // restart animation
+      r.classList.remove('reveal-active');
+      // ensure init class is there
+      if (!r.classList.contains('reveal-init')) r.classList.add('reveal-init');
+      // trigger on next frame
+      requestAnimationFrame(()=>{
+        requestAnimationFrame(()=>{
+          r.classList.add('reveal-active');
+        });
+      });
+    }
+
+    // Call on tab switch to Reach
+    reachBtn.addEventListener('click', ()=>{ triggerReachReveal(); });
+
+    // Also observe when Reach scrolls into view (if page is tall)
+    const reachObserver = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('reveal-active');
+        }
+      });
+    }, { threshold: 0.2 });
+    reachObserver.observe(document.getElementById('reach'));
+
+  
+    // Tip slow surprise reveal
+    function triggerTipReveal(){
+      const tip = document.querySelector('#reach .tip');
+      if(!tip) return;
+      tip.classList.remove('tip-reveal-active');
+      // force reflow for restart
+      void tip.offsetWidth;
+      tip.classList.add('tip-reveal-active');
+    }
+    // Attach to Reach click
+    reachBtn.addEventListener('click', ()=>{ triggerTipReveal(); });
+    // Also reveal when it scrolls into view
+    const tipEl = document.querySelector('#reach .tip');
+    if (tipEl) {
+      const tipObs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ tipEl.classList.add('tip-reveal-active'); }});
+      }, {threshold: 0.3});
+      tipObs.observe(tipEl);
+    }
+
   </script>
 </body>
 </html>
