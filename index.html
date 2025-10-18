@@ -125,6 +125,15 @@
   font-weight: 700;
 }
 
+  
+/* Brand text pulse for visual feedback on theme toggle */
+@keyframes brandPulse {
+  0%   { text-shadow: 0 0 12px rgba(204,85,0,.55); transform: scale(1); }
+  50%  { text-shadow: 0 0 22px rgba(204,85,0,.85); transform: scale(1.02); }
+  100% { text-shadow: 0 0 12px rgba(204,85,0,.55); transform: scale(1); }
+}
+#brandText.pulse-once { animation: brandPulse .7s ease; }
+
   </style>
 </head>
 <body>
@@ -423,6 +432,24 @@
     document.querySelectorAll('.accordion .acc-item .acc-head').forEach(head=>{
       head.addEventListener('click',()=> head.parentElement.classList.toggle('open'));
     });
+  
+// Toggle dark theme when clicking the top-left "Pencil Analytics" brand text
+(function(){
+  const brand = document.getElementById('brandText');
+  if (brand){
+    brand.style.cursor = 'pointer';
+    brand.addEventListener('click', () => {
+      const isDark = document.body.getAttribute('data-theme') === 'dark';
+      document.body.setAttribute('data-theme', isDark ? '' : 'dark');
+      // brief pulse feedback
+      brand.classList.remove('pulse-once');
+      void brand.offsetWidth; // restart animation
+      brand.classList.add('pulse-once');
+      setTimeout(()=> brand.classList.remove('pulse-once'), 750);
+    });
+  }
+})();
+
   </script>
 </body>
 </html>
