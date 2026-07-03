@@ -123,89 +123,201 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
 }
 
 
-to{opacity:1;transform:translateY(0)}
+/* Elevated FMCG & Retail page */
+.fmcg-stage{padding-top:70px;}
+.fmcg-hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.72fr);gap:24px;align-items:stretch;}
+.fmcg-hero-copy{padding:clamp(26px,4vw,40px);border-radius:var(--radius-xl);}
+.fmcg-hero-copy h1{font-size:clamp(2.35rem,5.3vw,4.95rem);letter-spacing:-2.6px;line-height:.98;margin:18px 0 18px;}
+
+
+
+.fmcg-hero-card{
+  border-radius:var(--radius-xl);
+  padding:20px 20px 18px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-self:start;
+  min-height:0;
+  height:auto;
+  gap:8px;
 }
-
-
-
-/* Screenshot-style Reach Out page */
-.reach-page-wrap{
-  min-height:calc(100vh - 170px);
+.fmcg-orbit{
+  position:relative;
+  min-height:310px;
+  border-radius:32px;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(245,130,32,.14),transparent 20%),
+    radial-gradient(circle at 35% 42%,rgba(207,18,63,.12),transparent 34%),
+    radial-gradient(circle at 68% 48%,rgba(11,114,185,.10),transparent 38%),
+    linear-gradient(135deg,rgba(11,114,185,.07),rgba(207,18,63,.045),rgba(245,130,32,.08));
+  border:1px solid var(--line);
+  overflow:hidden;
+}
+.fmcg-orbit::before,
+.fmcg-orbit::after{
+  display:none;
+}
+.orbit-path{
+  position:absolute;
+  top:50%;
+  left:50%;
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  z-index:1;
+}
+.path-outer{
+  width:252px;
+  height:252px;
+  border:1px dashed rgba(11,114,185,.32);
+  animation:spinSlow 36s linear infinite;
+}
+.path-middle{
+  width:252px;
+  height:252px;
+  border:1px dashed rgba(207,18,63,.22);
+  animation:spinSlow 36s linear infinite;
+  opacity:.58;
+}
+.path-inner{
+  width:252px;
+  height:252px;
+  border:1px dashed rgba(245,130,32,.20);
+  animation:spinSlow 36s linear infinite;
+  opacity:.44;
+}
+.orbit-core{
+  position:absolute;
+  inset:50% auto auto 50%;
+  transform:translate(-50%,-50%);
+  width:124px;
+  height:124px;
+  border-radius:50%;
   display:grid;
-  align-items:start;
-  padding-top:24px;
+  place-items:center;
+  text-align:center;
+  font-weight:950;
+  line-height:1.08;
+  color:#fff;
+  background:linear-gradient(135deg,var(--navy-800),var(--red),var(--orange));
+  box-shadow:
+    0 0 42px rgba(207,18,63,.26),
+    0 0 64px rgba(245,130,32,.22),
+    inset 0 1px 0 rgba(255,255,255,.22);
+  z-index:4;
+  font-size:.92rem;
 }
-.reach-card{
-  width:min(920px,100%);
-  margin:0 auto;
-  border-radius:18px 18px 0 0;
-  border-top:1px solid transparent;
-  background:
-    linear-gradient(var(--glass),var(--glass)) padding-box,
-    linear-gradient(90deg,var(--blue),var(--red-soft),var(--orange)) border-box;
-  padding:clamp(28px,4.5vw,46px);
-}
-.reach-card::before{
-  background:
-    radial-gradient(circle at 0 0,rgba(11,114,185,.08),transparent 28%),
-    radial-gradient(circle at 100% 0,rgba(245,130,32,.08),transparent 30%);
-}
-.reach-title{
-  margin:0 0 22px;
-  font-size:clamp(1.55rem,3vw,2.05rem);
-  line-height:1.12;
-  letter-spacing:-.8px;
+.orbit-node{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:68px;
+  height:68px;
+  margin:-34px 0 0 -34px;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  border-radius:50%;
+  padding:0 7px;
+  background:rgba(255,255,255,.90);
+  border:1px solid var(--line);
+  font-size:.66rem;
+  font-weight:950;
+  line-height:1.08;
   color:var(--text);
+  box-shadow:0 14px 34px rgba(6,27,53,.13),0 0 20px rgba(56,189,248,.10);
+  z-index:5;
+  animation:orbitNode 36s linear infinite;
+  will-change:transform;
 }
-.reach-intro{
-  max-width:780px;
+[data-theme="dark"] .orbit-node{
+  background:rgba(255,255,255,.11);
+  color:#fff;
+  border-color:rgba(255,255,255,.17);
+  box-shadow:0 16px 40px rgba(0,0,0,.26),0 0 24px rgba(56,189,248,.12);
+}
+.orbit-node.one{--orbit-start:-90deg;--orbit-end:270deg;--counter-start:90deg;--counter-end:-270deg;--orbit-radius:126px;animation-duration:36s;}
+.orbit-node.two{--orbit-start:-18deg;--orbit-end:342deg;--counter-start:18deg;--counter-end:-342deg;--orbit-radius:126px;animation-duration:36s;}
+.orbit-node.three{--orbit-start:54deg;--orbit-end:414deg;--counter-start:-54deg;--counter-end:-414deg;--orbit-radius:126px;animation-duration:36s;}
+.orbit-node.four{--orbit-start:126deg;--orbit-end:486deg;--counter-start:-126deg;--counter-end:-486deg;--orbit-radius:126px;animation-duration:36s;}
+.orbit-node.five{--orbit-start:198deg;--orbit-end:558deg;--counter-start:-198deg;--counter-end:-558deg;--orbit-radius:126px;animation-duration:36s;}
+@keyframes orbitNode{
+  from{transform:rotate(var(--orbit-start)) translateX(var(--orbit-radius)) rotate(var(--counter-start));}
+  to{transform:rotate(var(--orbit-end)) translateX(var(--orbit-radius)) rotate(var(--counter-end));}
+}
+@keyframes spinSlow{to{transform:translate(-50%,-50%) rotate(360deg)}}
+.fmcg-statement{
+  margin:6px 2px 0;
   color:var(--muted);
-  line-height:1.7;
-  font-size:1.03rem;
-  margin:0 0 18px;
-}
-.reach-email-pill{
-  min-height:44px;
-  padding:0 18px;
-  font-size:.95rem;
-  background:linear-gradient(135deg,var(--orange),var(--red-soft),#6b6fb8);
-  box-shadow:0 0 24px rgba(245,130,32,.18),0 0 26px rgba(207,18,63,.12);
-}
-.reach-tip{
-  margin-top:18px;
-  color:var(--muted);
-  line-height:1.65;
-  opacity:0;
-  transform:translateY(22px);
-  animation:reachTipRise 2.2s cubic-bezier(.2,.8,.2,1) .85s forwards;
-}
-.reach-tip p{
-  margin:0 0 6px;
-}
-.tip-logo-word{
-  font-weight:900;
-  background:linear-gradient(115deg,var(--orange),var(--red),var(--blue));
-  background-size:220% 220%;
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  animation:shimmer 8s ease-in-out infinite;
-  text-decoration:underline;
-  text-decoration-color:var(--orange);
-  text-underline-offset:3px;
-  text-decoration-thickness:2px;
-}
-@keyframes reachTipRise{
-  from{opacity:0;transform:translateY(22px)}
-  to{opacity:1;transform:translateY(0)}
+  line-height:1.55;
+  font-size:.96rem;
 }
 @media (max-width:720px){
-  .reach-page-wrap{
-    padding-top:18px;
-  }
-  .reach-card{
-    padding:26px 20px;
-  }
+  .fmcg-hero-card{padding:18px 16px 16px;gap:6px;}
+  .fmcg-orbit{min-height:274px;border-radius:26px;}
+  .path-outer,.path-middle,.path-inner{width:206px;height:206px;}
+  .orbit-core{width:104px;height:104px;font-size:.78rem;}
+  .orbit-node{width:58px;height:58px;margin:-29px 0 0 -29px;font-size:.57rem;padding:0 5px;}
+  .orbit-node.one{--orbit-radius:103px;}
+  .orbit-node.two{--orbit-radius:103px;}
+  .orbit-node.three{--orbit-radius:103px;}
+  .orbit-node.four{--orbit-radius:103px;}
+  .orbit-node.five{--orbit-radius:103px;}
+}
+.layer-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px;}
+.layer-pill{border-radius:22px;padding:16px;border:1px solid var(--line);background:rgba(6,27,53,.035);min-height:106px;}
+[data-theme="dark"] .layer-pill{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.13);}
+.layer-pill span{display:block;color:var(--orange);font-size:.72rem;font-weight:950;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px}.layer-pill strong{display:block;font-size:.98rem;line-height:1.35}.fmcg-layer{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:18px;align-items:stretch;margin-top:18px;}.layer-narrative{border-radius:var(--radius-xl);padding:28px;display:flex;flex-direction:column;justify-content:center;}.layer-narrative h2{font-size:clamp(1.9rem,4vw,3.4rem);line-height:1.02;letter-spacing:-1.6px;margin-bottom:16px}.layer-narrative p{color:var(--muted);line-height:1.75;font-size:1.05rem}.stack-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.stack-card{border-radius:24px;padding:22px;min-height:205px;}.stack-card h3{font-size:1.08rem;margin:12px 0 10px}.stack-card p{color:var(--muted);line-height:1.65;margin:0}.stack-card .mini-icon{width:42px;height:42px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(11,114,185,.12),rgba(207,18,63,.08),rgba(245,130,32,.10));border:1px solid var(--line);font-weight:950}.tomorrow-panel{border-radius:var(--radius-xl);padding:clamp(28px,5vw,48px);text-align:center;margin-top:18px;overflow:hidden;}.tomorrow-panel h2{font-size:clamp(2.1rem,5vw,4.4rem);line-height:.98;letter-spacing:-2.2px;margin-bottom:18px}.tomorrow-panel p{max-width:930px;margin:0 auto;color:var(--muted);font-size:clamp(1rem,2vw,1.22rem);line-height:1.75}.tomorrow-line{margin-top:24px;display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;font-weight:950;color:var(--text)}.tomorrow-line span{padding:9px 13px;border-radius:999px;border:1px solid var(--line);background:rgba(6,27,53,.035)}[data-theme="dark"] .tomorrow-line span{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14);}.function-map{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:22px}.function-map .function{border-radius:20px;padding:18px 12px;text-align:center;border:1px solid var(--line);background:rgba(255,255,255,.58);box-shadow:var(--card-shadow-soft);}.function strong{display:block;font-size:.96rem;margin-bottom:8px}.function span{display:block;color:var(--muted);font-size:.78rem;line-height:1.45}[data-theme="dark"] .function-map .function{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.14)}.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1);}.reveal.visible{opacity:1;transform:translateY(0)}.reveal.delay-1{transition-delay:.08s}.reveal.delay-2{transition-delay:.16s}.reveal.delay-3{transition-delay:.24s}.reveal.delay-4{transition-delay:.32s}
+@media (max-width:1020px){.fmcg-hero-grid,.fmcg-layer{grid-template-columns:1fr}.layer-strip{grid-template-columns:repeat(2,minmax(0,1fr))}.function-map{grid-template-columns:repeat(2,minmax(0,1fr))}.fmcg-hero-card{min-height:auto}.fmcg-orbit{min-height:250px}}
+@media (max-width:720px){.fmcg-stage{padding-top:44px}.fmcg-hero-copy h1{font-size:clamp(2.2rem,13vw,3.8rem);letter-spacing:-1.5px}.layer-strip,.stack-grid,.function-map{grid-template-columns:1fr}.orbit-node{font-size:.68rem;padding:0 9px}.orbit-core{width:112px;height:112px;font-size:.88rem}.fmcg-orbit{min-height:235px}}
+
+
+
+/* Dark theme planet glow */
+[data-theme="dark"] .orbit-node{
+  background:
+    radial-gradient(circle at 30% 25%,rgba(255,255,255,.22),transparent 34%),
+    linear-gradient(135deg,rgba(11,114,185,.24),rgba(207,18,63,.18),rgba(245,130,32,.20));
+  color:#fff;
+  border-color:rgba(255,255,255,.24);
+  box-shadow:
+    0 0 22px rgba(56,189,248,.22),
+    0 0 32px rgba(207,18,63,.18),
+    0 0 38px rgba(245,130,32,.15),
+    0 18px 44px rgba(0,0,0,.34);
+}
+.statement-highlight{
+  display:block;
+  margin-top:10px;
+  color:var(--text);
+  font-weight:900;
+  line-height:1.55;
+}
+[data-theme="dark"] .statement-highlight{
+  color:#fff;
+  text-shadow:0 0 18px rgba(245,130,32,.14),0 0 20px rgba(207,18,63,.12);
+}
+
+50%{filter:drop-shadow(0 0 14px rgba(245,130,32,.34));}
+}
+
+
+
+
+.visibility-word{
+  display:inline-block;
+  font-weight:950;
+  background-image:linear-gradient(135deg, #2f6bff 0%, #e53935 52%, #ff9f1c 100%);
+  background-size:100% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  text-shadow:0 0 12px rgba(47,107,255,.18), 0 0 18px rgba(229,57,53,.16), 0 0 24px rgba(255,159,28,.18);
+}
+[data-theme="dark"] .visibility-word{
+  text-shadow:0 0 14px rgba(47,107,255,.28), 0 0 22px rgba(229,57,53,.24), 0 0 30px rgba(255,159,28,.26);
 }
 
 </style>
@@ -214,16 +326,16 @@ to{opacity:1;transform:translateY(0)}
   <script>if(localStorage.getItem('paTheme') === 'dark'){document.body.setAttribute('data-theme','dark');}</script>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
-      <a class="brand-mark" href="#reach" aria-label="Toggle Pencil Analytics theme" title="Click to switch light and dark mode">
+      <a class="brand-mark" href="#fmcg-retail" aria-label="Toggle Pencil Analytics theme" title="Click to switch light and dark mode">
         <span class="mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKkAAAP6CAYAAADrJ33rAAAEyUlEQVR4nO3dQXIiMRBFQczJdfP23mGLACNVoZ+5mS1RLtPijZi53Xjouq6v6tcAAAAAAAD8QcgHAAAAAAAAAACA5VzXozULCgAAAMAGMhQAAAAAEE8npTULWs38AQAAAFjOhd5HzAcAAACO4pM+wNPGGPfq1wAAAAAAUMzfMgEAAAAA6XRSAAAAACCdTgoAAAAApNNJAQAAAIB0OikAAAAAAAAAAABANvdJAQAAAIB0OikAAAAAkE4nBQAAAADS6aRz5gMAAAAA59MBAQAAAIB0Omkt8/+FoQAAAACwmSQFAAAAAKTTSQEAAACAdDopAAAAAJBOJ+VjWFYAAAAAFpGeapk/AAAAANTT6QAAAADYQIaiNQsKAAAAwAYyFAAAAACQTielNQsKAAAAwAYyFK1ZUAAAqjmTAgBQaoxxr34NAADE00kB3sm7KsDTdNJynl4AAAAAUEwnBQAAAADS6aQAAAAA7OFrtQAAAAAAlBKq58wHAAAAAEinkwIAAACwgQxFaxYUAAAATuKTPm1ZTlqzoAAAAABAOp20lvkDAAAAAAAAAAAA1dxnBAAAAGADGYrWLCgAAAAAnE8HnDOfWub/BMMCgGN5zAMAUM2ZFAAAAABIp5MCAAAAAAAAAMCbuIwDwIfyCJszHwAAAABOoHPNmQ/tWEoAAAA4ydePPwH4D++mAAAAACyyOj1JWwAAAABAdzpmLfMHAAAAgHo6XS3zBwAAAELIILRmQWETv2ywmt8yAAAAXuZDJWzilw0AAACgLekGAGAfZy8AAOjJWR0AAAAASKeT0o6lBNbw7gIAhHDsAYCjedQDwLE85gEAqOZMOmc+AADrOXMBQASP/GJ+ABNjjHv1awAAAADeSAkBeIV3z1rmDwAAAISQQWjNggIAAAAA6XRSAAAAAAAAAAAAWM51PVqzoLXMHwAAAADq6XQAAFRzJgWACB75tGZBAQAAANhAhqI1CwoAAAAApNNJAQAAAIB0OikAANWcSQEggkc+rVlQAPbx1AF+590BAIBqzqQAAAAAAAAAAAAA2dwnBQAAAGADGYrWLCgAAAAALCO/fQg/KAAAAAAgnU4KAAAAAKTTSQEAAACgzLY8pwPOmQ8AAAAAAAAAAAAAAABQyXecACCCRz6tWVAAAKo5kwIAUM2ZFAAAAAAAAAAAACCb+6QAAAAAcD4dcM58AAAAAIB0Oikfw7ICAAAAsIj0BAAAAACk00lrmT8AAAAQQgahNQsKAAAAAGS7dFIAAAAAIJ5OWujSqQEAAACgnk4HAAAAwHrX7ZKh6Ou6LCgAAAAAkG2Mca9+DQAAAAAcz3U9AAAAAAAAAAAAgGzuk9KaBaUdSwkAAPAPPlTRluWkNQsKAAAAAAAAAAAAkM19UgAAAAAgnU4KAAAAAKTTSQEAAACAdDopAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJDK/+MEAAAAAKTTSQEAAAAAAAAAAAAAAAAAAAAAAAAAIJd/nxQAAAAASKeTAgAAAAAAAAAAAAAAAAAAkMz37gEAAACAdDopAAAAAJxPB5wzHwAAAAAAAAAAAFjOdT1as6AAAAAAQDqdFAAAAIANZChas6AAAAAAQDqdFAAAAAAAAAAAACCb+6T1vgHAbHjVG5hGowAAAABJRU5ErkJggg==" alt="Pencil Analytics logo icon"></span>
         <span class="brand-copy"><strong>Pencil Analytics</strong><span>Visibility • Optimisation • Synergy</span></span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu <span class="chevron">⌄</span></button>
       <div class="nav-links" id="site-menu">
         <a href="index.html#home">Who We Are</a>
-        <a href="fmcg-retail.html">FMCG & Retail</a>
+        <a class="active" href="fmcg-retail.html">FMCG & Retail</a>
         <a href="insurance.html">Insurance Support</a>
-        <a class="active" href="reach.html">Reach Out</a>
+        <a href="reach.html">Reach Out</a>
       </div>
     </div>
   </nav>
@@ -231,22 +343,111 @@ to{opacity:1;transform:translateY(0)}
   
   
   
-  <main id="reach-page">
-    <section class="section reach-page-wrap" id="reach">
-      <article class="panel contact-panel reach-card">
-        <h1 class="reach-title">Reach Out to Us</h1>
-        <p class="reach-intro">We’d love to learn about your challenges and share how we can help.</p>
+  <main id="fmcg-retail-page">
+    <section class="section fmcg-stage" id="fmcg-retail">
+      <div class="fmcg-hero-grid">
+        <article class="panel fmcg-hero-copy reveal visible">
+          <div class="eyebrow"><span class="dot"></span> Retail & FMCG intelligence layer</div>
+          <h1><span class="gradient-text">From today’s visibility to tomorrow’s sustainable impact.</span></h1>
+          <p class="lead">Pencil Analytics helps retail and FMCG companies turn commercial data into coordinated action. We integrate pricing, margin, sales, finance, inventory, supply chain, promotions and management reporting into one synergised unit, giving the business visibility into tomorrow’s potential outcomes today, with enough room to respond to market trends and move toward sustainable growth.</p>
+          <div class="layer-strip">
+            <div class="layer-pill"><span>01</span><strong>Governance that keeps decisions controlled</strong></div>
+            <div class="layer-pill"><span>02</span><strong>Pricing engines that protect margin</strong></div>
+            <div class="layer-pill"><span>03</span><strong>Visibility for management and functions</strong></div>
+            <div class="layer-pill"><span>04</span><strong>Forecasting that connects today to tomorrow</strong></div>
+          </div>
+        </article>
 
-        <p>
-          <a class="email-pill reach-email-pill" href="mailto:pencilanalytics@outlook.com">pencilanalytics@outlook.com</a>
-        </p>
+        <aside class="profile-panel fmcg-hero-card reveal visible delay-1">
+          <div class="fmcg-orbit" aria-label="Pencil Analytics FMCG operating model">
+            <span class="orbit-path path-outer"></span>
+            <span class="orbit-path path-middle"></span>
+            <span class="orbit-path path-inner"></span>
+            <div class="orbit-core">PA<br>Control<br>Center</div>
+            <span class="orbit-node one">Pricing</span>
+            <span class="orbit-node two">Finance</span>
+            <span class="orbit-node three">Sales</span>
+            <span class="orbit-node four">Supply Chain</span>
+            <span class="orbit-node five">Marketing</span>
+          </div>
+          <p class="fmcg-statement">Providing a 360° view through our <span class="logo-glow">Visibility, Optimisation & Synergy</span> structure, where pricing, sales, finance, supply chain and marketing signals connect into one clear performance direction. <strong class="statement-highlight">Through the Pencil Analytics Control Center, management and executives can view the business from every angle, use today’s performance to anticipate tomorrow’s impact, and retain the room needed to respond to market trends while supporting sustainable growth.</strong></p>
+        </aside>
+      </div>
+    </section>
 
-        <div class="reach-tip">
-          <p><em>Tip: Try clicking on the <span class="tip-logo-word">“Pencil Analytics”</span> logo at the top for a different experience.</em></p>
-          <p><em>After all, discovering new perspectives, even in design, can lead to clearer insights and better decisions.</em></p>
-          <p><em>Imagine what we could achieve together when that same mindset is applied to your business.</em></p>
+    <section class="section tight" id="governance-layer">
+      <div class="fmcg-layer reveal">
+        <article class="panel layer-narrative">
+          <div class="kicker">Governance & Operating Control</div>
+          <h2>Build the business rules before the dashboard.</h2>
+          <p>This is the <span class="visibility-word">visibility</span> layer of how we operate. We structure the commercial logic behind the numbers: master files, product hierarchies, customer groups, approval rules, margin thresholds, price floors, exception flags and management definitions. We also build the data infrastructure with future business needs in mind, so as the company grows, the information structure can support stronger databases, cleaner system integration, and more scalable decision making.</p>
+        </article>
+        <div class="stack-grid">
+          <article class="card stack-card accent-blue reveal delay-1"><div class="mini-icon">☷</div><h3>Pricing governance</h3><p>Floor prices, approval workflows, change logs, margin guardrails and controlled pricing outputs.</p></article>
+          <article class="card stack-card accent-red reveal delay-2"><div class="mini-icon">▦</div><h3>Data readiness</h3><p>SKU, customer, supplier, category, cost, price and date structures prepared for reliable decision making.</p></article>
+          <article class="card stack-card accent-orange reveal delay-3"><div class="mini-icon">◈</div><h3>Performance definitions</h3><p>Clear rules for YTD, MTD, price mix, GP, UGP, GMROI, targets, growth and margin leakage.</p></article>
+          <article class="card stack-card accent-blue reveal delay-4"><div class="mini-icon">●</div><h3>Management rhythm</h3><p>Daily, weekly and monthly packs that keep leadership aligned on what changed and what needs action.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tight" id="pricing-engine-layer">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">Pricing, Margin & Commercial Quality</div>
+          <h2>Pricing engines that do more than calculate prices.</h2>
+        </div>
+        <p>We design pricing and margin tools that show where value is created, where it is leaking, and where action is commercially safe. The same logic can support pricing teams, sales teams, finance teams and senior management.</p>
+      </div>
+      <div class="skill-grid">
+        <article class="skill-tile accent-blue reveal"><div class="card-icon">₿</div><h3>Pricing & Margin Optimisation</h3><p>Price floors, customer profitability, GP and UGP tracking, COGS movement, rebate impact, push candidates, margin guardrails and price change simulations.</p><div class="tags"><span class="tag blue">Pricing engine</span><span class="tag red">Margin control</span><span class="tag orange">Profitability</span></div></article>
+        <article class="skill-tile accent-red reveal delay-1"><div class="card-icon">↗</div><h3>Price Mix & Sales Quality</h3><p>Separate price, volume and mix effects, identify down trading, premium versus low tier shifts, lost SKUs, new items and customer or category concentration risk.</p><div class="tags"><span class="tag blue">Price mix</span><span class="tag red">Sales quality</span><span class="tag orange">Product mix</span></div></article>
+        <article class="skill-tile accent-orange reveal delay-2"><div class="card-icon">✦</div><h3>Promotion ROI & Execution</h3><p>Measure promotional impact, flyer performance, incremental revenue, cannibalisation risk, margin leakage and execution compliance.</p><div class="tags"><span class="tag blue">Promotion ROI</span><span class="tag red">Execution</span><span class="tag orange">Growth</span></div></article>
+        <article class="skill-tile accent-blue reveal"><div class="card-icon">▦</div><h3>Inventory, Availability & GMROI</h3><p>Monitor stock health, aged inventory, turnover, availability, GMROI, working capital pressure and product movement quality.</p><div class="tags"><span class="tag blue">GMROI</span><span class="tag red">Aged stock</span><span class="tag orange">Availability</span></div></article>
+        <article class="skill-tile accent-red reveal delay-1"><div class="card-icon">≈</div><h3>Elasticity & Customer Behaviour</h3><p>Use historical price movements, sales response, product hierarchy and customer behaviour to estimate sensitivity and improve commercial decisions.</p><div class="tags"><span class="tag blue">Elasticity</span><span class="tag red">Behaviour</span><span class="tag orange">Simulation</span></div></article>
+        <article class="skill-tile accent-orange reveal delay-2"><div class="card-icon">●</div><h3>Executive Visibility</h3><p>Translate operational movements into dashboards and management packs that show the business what happened, why it happened and what to do next.</p><div class="tags"><span class="tag blue">Dashboards</span><span class="tag red">Management</span><span class="tag orange">Decision support</span></div></article>
+      </div>
+    </section>
+
+    <section class="section tight" id="function-layer">
+      <article class="panel layer-narrative reveal">
+        <div class="kicker">Corporate Synergy Across Functions</div>
+        <h2>One view for the teams that shape performance.</h2>
+        <p>Pencil Analytics is designed to support the functions that drive the P&L. Sales sees customer and product movement. Finance sees margin, cash flow and cost impact. Supply chain sees inventory and availability pressure. Pricing sees governance, price floors and margin risk. Management sees the combined direction of the business.</p>
+        <div class="function-map">
+          <div class="function reveal delay-1"><strong>Sales</strong><span>Customer mix, growth quality, SKU movement and target progress.</span></div>
+          <div class="function reveal delay-2"><strong>Finance</strong><span>Margin, cash flow, cost of capital and financial landing.</span></div>
+          <div class="function reveal delay-3"><strong>Supply Chain</strong><span>Availability, aged stock, turnover and inventory investment.</span></div>
+          <div class="function reveal delay-4"><strong>Pricing Team</strong><span>Floors, approvals, price change impact and margin protection.</span></div>
+          <div class="function reveal delay-1"><strong>Management</strong><span>Live visibility, coordinated action and strategy execution.</span></div>
         </div>
       </article>
+    </section>
+
+    <section class="section tight" id="tomorrow-impact">
+      <article class="panel tomorrow-panel reveal">
+        <div class="kicker">Forecasting, Optimisation & Stochastic Modelling</div>
+        <h2><span class="gradient-text">Tomorrow’s impact, based on today’s performance.</span></h2>
+        <p>We provide forecasting and optimisation models that connect today’s business performance with expected financial landing. Using scenario logic and stochastic modelling, we can test how product mix, customer behaviour, pricing changes, market response, cost movement, future liabilities, working capital and execution delays may affect margin, cash flow and target achievement.</p>
+        <div class="tomorrow-line"><span>Today’s performance</span> → <span>Scenario simulation</span> → <span>Financial landing</span> → <span>Action plan</span></div>
+      </article>
+    </section>
+
+    <section class="section tight" id="delivery">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">How Retail & FMCG Support Works</div>
+          <h2>From commercial issue to operating system.</h2>
+        </div>
+        <p>The focus is not only to report what happened. The focus is to build repeatable business logic that explains why it happened, what it means financially, and where action is needed next.</p>
+      </div>
+      <div class="flow">
+        <article class="flow-step reveal"><span class="num">01</span><h3>Diagnose</h3><p>Map pricing, margin, sales, product, customer, inventory and supply chain pain points.</p></article>
+        <article class="flow-step reveal delay-1"><span class="num">02</span><h3>Structure</h3><p>Prepare master files, business rules, hierarchies, measures, target logic and commercial definitions.</p></article>
+        <article class="flow-step reveal delay-2"><span class="num">03</span><h3>Build</h3><p>Create dashboards, models, trackers, Excel tools, Power BI layers and automated reporting flows.</p></article>
+        <article class="flow-step reveal delay-3"><span class="num">04</span><h3>Control</h3><p>Apply margin guardrails, exception flags, price governance, workflow visibility and performance monitoring.</p></article>
+        <article class="flow-step reveal delay-4"><span class="num">05</span><h3>Improve</h3><p>Review impact, tune assumptions, and continuously refine the decision system as the business changes.</p></article>
+      </div>
     </section>
   </main>
 

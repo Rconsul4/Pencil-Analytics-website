@@ -122,99 +122,13 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
   .brand-copy span{font-size:.66rem !important;}
 }
 
-
-to{opacity:1;transform:translateY(0)}
-}
-
-
-
-/* Screenshot-style Reach Out page */
-.reach-page-wrap{
-  min-height:calc(100vh - 170px);
-  display:grid;
-  align-items:start;
-  padding-top:24px;
-}
-.reach-card{
-  width:min(920px,100%);
-  margin:0 auto;
-  border-radius:18px 18px 0 0;
-  border-top:1px solid transparent;
-  background:
-    linear-gradient(var(--glass),var(--glass)) padding-box,
-    linear-gradient(90deg,var(--blue),var(--red-soft),var(--orange)) border-box;
-  padding:clamp(28px,4.5vw,46px);
-}
-.reach-card::before{
-  background:
-    radial-gradient(circle at 0 0,rgba(11,114,185,.08),transparent 28%),
-    radial-gradient(circle at 100% 0,rgba(245,130,32,.08),transparent 30%);
-}
-.reach-title{
-  margin:0 0 22px;
-  font-size:clamp(1.55rem,3vw,2.05rem);
-  line-height:1.12;
-  letter-spacing:-.8px;
-  color:var(--text);
-}
-.reach-intro{
-  max-width:780px;
-  color:var(--muted);
-  line-height:1.7;
-  font-size:1.03rem;
-  margin:0 0 18px;
-}
-.reach-email-pill{
-  min-height:44px;
-  padding:0 18px;
-  font-size:.95rem;
-  background:linear-gradient(135deg,var(--orange),var(--red-soft),#6b6fb8);
-  box-shadow:0 0 24px rgba(245,130,32,.18),0 0 26px rgba(207,18,63,.12);
-}
-.reach-tip{
-  margin-top:18px;
-  color:var(--muted);
-  line-height:1.65;
-  opacity:0;
-  transform:translateY(22px);
-  animation:reachTipRise 2.2s cubic-bezier(.2,.8,.2,1) .85s forwards;
-}
-.reach-tip p{
-  margin:0 0 6px;
-}
-.tip-logo-word{
-  font-weight:900;
-  background:linear-gradient(115deg,var(--orange),var(--red),var(--blue));
-  background-size:220% 220%;
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  animation:shimmer 8s ease-in-out infinite;
-  text-decoration:underline;
-  text-decoration-color:var(--orange);
-  text-underline-offset:3px;
-  text-decoration-thickness:2px;
-}
-@keyframes reachTipRise{
-  from{opacity:0;transform:translateY(22px)}
-  to{opacity:1;transform:translateY(0)}
-}
-@media (max-width:720px){
-  .reach-page-wrap{
-    padding-top:18px;
-  }
-  .reach-card{
-    padding:26px 20px;
-  }
-}
-
 </style>
 </head>
 <body>
   <script>if(localStorage.getItem('paTheme') === 'dark'){document.body.setAttribute('data-theme','dark');}</script>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
-      <a class="brand-mark" href="#reach" aria-label="Toggle Pencil Analytics theme" title="Click to switch light and dark mode">
+      <a class="brand-mark" href="#insurance" aria-label="Toggle Pencil Analytics theme" title="Click to switch light and dark mode">
         <span class="mark"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKkAAAP6CAYAAADrJ33rAAAEyUlEQVR4nO3dQXIiMRBFQczJdfP23mGLACNVoZ+5mS1RLtPijZi53Xjouq6v6tcAAAAAAAD8QcgHAAAAAAAAAACA5VzXozULCgAAAMAGMhQAAAAAEE8npTULWs38AQAAAFjOhd5HzAcAAACO4pM+wNPGGPfq1wAAAAAAUMzfMgEAAAAA6XRSAAAAACCdTgoAAAAApNNJAQAAAIB0OikAAAAAAAAAAABANvdJAQAAAIB0OikAAAAAkE4nBQAAAADS6aRz5gMAAAAA59MBAQAAAIB0Omkt8/+FoQAAAACwmSQFAAAAAKTTSQEAAACAdDopAAAAAJBOJ+VjWFYAAAAAFpGeapk/AAAAANTT6QAAAADYQIaiNQsKAAAAwAYyFAAAAACQTielNQsKAAAAwAYyFK1ZUAAAqjmTAgBQaoxxr34NAADE00kB3sm7KsDTdNJynl4AAAAAUEwnBQAAAADS6aQAAAAA7OFrtQAAAAAAlBKq58wHAAAAAEinkwIAAACwgQxFaxYUAAAATuKTPm1ZTlqzoAAAAABAOp20lvkDAAAAAAAAAAAA1dxnBAAAAGADGYrWLCgAAAAAnE8HnDOfWub/BMMCgGN5zAMAUM2ZFAAAAABIp5MCAAAAAAAAAMCbuIwDwIfyCJszHwAAAABOoHPNmQ/tWEoAAAA4ydePPwH4D++mAAAAACyyOj1JWwAAAABAdzpmLfMHAAAAgHo6XS3zBwAAAELIILRmQWETv2ywmt8yAAAAXuZDJWzilw0AAACgLekGAGAfZy8AAOjJWR0AAAAASKeT0o6lBNbw7gIAhHDsAYCjedQDwLE85gEAqOZMOmc+AADrOXMBQASP/GJ+ABNjjHv1awAAAADeSAkBeIV3z1rmDwAAAISQQWjNggIAAAAA6XRSAAAAAAAAAAAAWM51PVqzoLXMHwAAAADq6XQAAFRzJgWACB75tGZBAQAAANhAhqI1CwoAAAAApNNJAQAAAIB0OikAANWcSQEggkc+rVlQAPbx1AF+590BAIBqzqQAAAAAAAAAAAAA2dwnBQAAAGADGYrWLCgAAAAALCO/fQg/KAAAAAAgnU4KAAAAAKTTSQEAAACgzLY8pwPOmQ8AAAAAAAAAAAAAAABQyXecACCCRz6tWVAAAKo5kwIAUM2ZFAAAAAAAAAAAACCb+6QAAAAAcD4dcM58AAAAAIB0Oikfw7ICAAAAsIj0BAAAAACk00lrmT8AAAAQQgahNQsKAAAAAGS7dFIAAAAAIJ5OWujSqQEAAACgnk4HAAAAwHrX7ZKh6Ou6LCgAAAAAkG2Mca9+DQAAAAAcz3U9AAAAAAAAAAAAgGzuk9KaBaUdSwkAAPAPPlTRluWkNQsKAAAAAAAAAAAAkM19UgAAAAAgnU4KAAAAAKTTSQEAAACAdDopAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJDK/+MEAAAAAKTTSQEAAAAAAAAAAAAAAAAAAAAAAAAAIJd/nxQAAAAASKeTAgAAAAAAAAAAAAAAAAAAkMz37gEAAACAdDopAAAAAJxPB5wzHwAAAAAAAAAAAFjOdT1as6AAAAAAQDqdFAAAAIANZChas6AAAAAAQDqdFAAAAAAAAAAAACCb+6T1vgHAbHjVG5hGowAAAABJRU5ErkJggg==" alt="Pencil Analytics logo icon"></span>
         <span class="brand-copy"><strong>Pencil Analytics</strong><span>Visibility • Optimisation • Synergy</span></span>
       </a>
@@ -222,34 +136,69 @@ to{opacity:1;transform:translateY(0)}
       <div class="nav-links" id="site-menu">
         <a href="index.html#home">Who We Are</a>
         <a href="fmcg-retail.html">FMCG & Retail</a>
-        <a href="insurance.html">Insurance Support</a>
-        <a class="active" href="reach.html">Reach Out</a>
+        <a class="active" href="insurance.html">Insurance Support</a>
+        <a href="reach.html">Reach Out</a>
       </div>
     </div>
   </nav>
 
   
   
-  
-  <main id="reach-page">
-    <section class="section reach-page-wrap" id="reach">
-      <article class="panel contact-panel reach-card">
-        <h1 class="reach-title">Reach Out to Us</h1>
-        <p class="reach-intro">We’d love to learn about your challenges and share how we can help.</p>
-
-        <p>
-          <a class="email-pill reach-email-pill" href="mailto:pencilanalytics@outlook.com">pencilanalytics@outlook.com</a>
-        </p>
-
-        <div class="reach-tip">
-          <p><em>Tip: Try clicking on the <span class="tip-logo-word">“Pencil Analytics”</span> logo at the top for a different experience.</em></p>
-          <p><em>After all, discovering new perspectives, even in design, can lead to clearer insights and better decisions.</em></p>
-          <p><em>Imagine what we could achieve together when that same mindset is applied to your business.</em></p>
+  <main id="insurance-page">
+    <section class="section page-hero" id="insurance">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Insurance Support</div>
+          <h1><span class="gradient-text">Actuarial thinking for pricing, portfolio control and insurance performance.</span></h1>
         </div>
-      </article>
+        <p>Pencil Analytics supports insurers and insurance teams with practical actuarial and analytical tools that improve pricing adequacy, underwriting visibility, portfolio monitoring, claims insight, reserving support and executive control.</p>
+      </div>
+
+      <div class="skill-grid">
+        <article class="skill-tile accent-blue">
+          <div class="card-icon">◆</div>
+          <h3>Pricing & Underwriting Tools</h3>
+          <p>Develop pricing tools, underwriting calculators, burning cost logic, credibility views, rate monitoring and decision support for new and renewal business.</p>
+          <div class="tags"><span class="tag blue">Pricing</span><span class="tag red">Underwriting</span><span class="tag orange">Adequacy</span></div>
+        </article>
+
+        <article class="skill-tile accent-red">
+          <div class="card-icon">◈</div>
+          <h3>Portfolio Performance Review</h3>
+          <p>Monitor premium, claims, exposure, loss ratio, frequency, severity, risk segments, channels, renewal performance and profitability by portfolio layer.</p>
+          <div class="tags"><span class="tag blue">Loss ratio</span><span class="tag red">Frequency</span><span class="tag orange">Severity</span></div>
+        </article>
+
+        <article class="skill-tile accent-orange">
+          <div class="card-icon">▥</div>
+          <h3>Claims Development & Reserving Support</h3>
+          <p>Build claims development views, triangle logic, ultimate claims monitoring, IBNR support, paid and incurred analysis and reserving dashboards.</p>
+          <div class="tags"><span class="tag blue">Triangles</span><span class="tag red">IBNR</span><span class="tag orange">Reserving</span></div>
+        </article>
+
+        <article class="skill-tile accent-blue">
+          <div class="card-icon">✦</div>
+          <h3>Risk Segmentation & Predictive Models</h3>
+          <p>Analyse risk drivers, customer groups, vehicle or product factors, channel quality and claims behaviour to support better segmentation and pricing decisions.</p>
+          <div class="tags"><span class="tag blue">Segmentation</span><span class="tag red">Risk drivers</span><span class="tag orange">Models</span></div>
+        </article>
+
+        <article class="skill-tile accent-red">
+          <div class="card-icon">☷</div>
+          <h3>Automation & Governance</h3>
+          <p>Automate monthly actuarial reporting, approval workflows, portfolio packs, regulatory consolidation, exception reporting and controlled pricing outputs.</p>
+          <div class="tags"><span class="tag blue">Automation</span><span class="tag red">Governance</span><span class="tag orange">Controls</span></div>
+        </article>
+
+        <article class="skill-tile accent-orange">
+          <div class="card-icon">●</div>
+          <h3>Executive Insurance Oversight</h3>
+          <p>Translate actuarial and underwriting information into management dashboards that show portfolio direction, risk appetite alignment and financial impact.</p>
+          <div class="tags"><span class="tag blue">Executive pack</span><span class="tag red">Risk appetite</span><span class="tag orange">Performance</span></div>
+        </article>
+      </div>
     </section>
   </main>
-
 
 
 

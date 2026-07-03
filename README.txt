@@ -1,4 +1,3 @@
-Pencil Analytics Website 2 - Reach Out screenshot-style page
+Pencil Analytics Website 2 - visibility word gradient update
 
-Reach Out remains a separate reach.html page.
-The Reach Out page now matches the provided screenshot direction: heading, short intro, email pill, and a delayed upward tip animation.
+Updated the Governance & Operating Control paragraph so the word 'visibility' is wrapped and shown in a clear gradient glow.
