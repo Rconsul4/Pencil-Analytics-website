@@ -127,10 +127,44 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
   filter:drop-shadow(0 0 10px rgba(56,189,248,.18)) drop-shadow(0 0 16px rgba(245,130,32,.16));
 }
 
+
+/* Always show the Pencil Analytics logo in the top-left nav */
+.brand-mark{
+  position:relative;
+  z-index:1001;
+}
+.brand-mark .mark{
+  display:grid !important;
+  place-items:center !important;
+  width:24px !important;
+  height:32px !important;
+  min-width:24px !important;
+  min-height:32px !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  overflow:visible !important;
+  flex:0 0 auto !important;
+}
+.brand-mark .mark img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:contain !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+@media (max-width:520px){
+  .brand-mark .mark{
+    width:22px !important;
+    height:29px !important;
+    min-width:22px !important;
+    min-height:29px !important;
+  }
+}
+
 </style>
 </head>
 <body>
-  <script>if(localStorage.getItem('paTheme') === 'dark'){document.body.setAttribute('data-theme','dark');}</script>
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
       <a class="brand-mark" href="#home" aria-label="Toggle Pencil Analytics theme" title="Click to switch light and dark mode">
@@ -197,9 +231,10 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
     const navLinks = document.querySelectorAll('.nav-links a');
 
     function applyStoredTheme(){
-      const savedTheme = localStorage.getItem('paTheme');
+      try{ localStorage.removeItem('paTheme'); }catch(e){}
+      const savedTheme = sessionStorage.getItem('paTheme');
       if(savedTheme === 'dark') body.setAttribute('data-theme','dark');
-      if(savedTheme === 'light') body.removeAttribute('data-theme');
+      else body.removeAttribute('data-theme');
     }
 
     function toggleTheme(event){
@@ -207,10 +242,10 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
       const isDark = body.getAttribute('data-theme') === 'dark';
       if(isDark){
         body.removeAttribute('data-theme');
-        localStorage.setItem('paTheme','light');
+        sessionStorage.setItem('paTheme','light');
       } else {
         body.setAttribute('data-theme','dark');
-        localStorage.setItem('paTheme','dark');
+        sessionStorage.setItem('paTheme','dark');
       }
     }
 
