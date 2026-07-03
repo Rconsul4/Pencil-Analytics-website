@@ -1,3 +1,3 @@
-Pencil Analytics Website 2 - visibility word gradient update
+Pencil Analytics Website 2 - smaller top-left logo
 
-Updated the Governance & Operating Control paragraph so the word 'visibility' is wrapped and shown in a clear gradient glow.
+Reduced the size of the top-left Pencil Analytics logo mark on all pages for a cleaner navbar fit.
