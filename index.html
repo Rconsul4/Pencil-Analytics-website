@@ -424,7 +424,6 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
 }
 
 
-/* Opening hint on Who We Are page */
 .theme-hint{
   position:fixed;
   top:82px;
@@ -513,6 +512,111 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
   }
 }
 
+
+.financial-landing-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.financial-card{
+  min-height:238px;
+}
+.financial-card .mini-label{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px 10px;
+  border-radius:999px;
+  margin-bottom:12px;
+  font-size:.68rem;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--orange);
+  background:linear-gradient(135deg,rgba(11,114,185,.08),rgba(207,18,63,.07),rgba(245,130,32,.11));
+  border:1px solid var(--line);
+}
+.decision-engine-panel{
+  border-radius:var(--radius-xl);
+  padding:clamp(24px,4vw,38px);
+  overflow:hidden;
+}
+.signal-bridge{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin-top:20px;
+}
+.signal-step{
+  position:relative;
+  border-radius:22px;
+  padding:18px;
+  min-height:170px;
+  background:rgba(255,255,255,.62);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-soft);
+}
+[data-theme="dark"] .signal-step{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.13);
+}
+.signal-step span{
+  display:block;
+  margin-bottom:10px;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  font-weight:950;
+  color:var(--orange);
+}
+.strategy-row{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:10px;
+  margin-top:18px;
+}
+.strategy-pill{
+  border-radius:16px;
+  padding:12px 10px;
+  text-align:center;
+  font-weight:900;
+  font-size:.78rem;
+  color:var(--text);
+  border:1px solid var(--line);
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(135deg,rgba(11,114,185,.5),rgba(207,18,63,.42),rgba(245,130,32,.48)) border-box;
+}
+[data-theme="dark"] .strategy-pill{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.035)) padding-box,
+    linear-gradient(135deg,rgba(56,189,248,.55),rgba(207,18,63,.46),rgba(245,130,32,.55)) border-box;
+}
+.home-fmcg-summary-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.home-fmcg-summary-grid .card{
+  min-height:220px;
+}
+@media (max-width:1020px){
+  .financial-landing-grid,.signal-bridge,.home-fmcg-summary-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .strategy-row{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+@media (max-width:720px){
+  .financial-landing-grid,.signal-bridge,.home-fmcg-summary-grid,.strategy-row{
+    grid-template-columns:1fr;
+  }
+  .financial-card,.signal-step,.home-fmcg-summary-grid .card{
+    min-height:auto;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -559,13 +663,29 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
       </aside>
     </section>
 
+
+    <section class="section tight" id="retail-decision-layer">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">Retail & FMCG Decision Ecosystem</div>
+          <h2>Pencil Analytics connects performance to financial outcomes, showing likely landing and the best path toward tomorrow’s target.</h2>
+        </div>
+        
+      </div>
+      <div class="home-fmcg-summary-grid">
+        <article class="card accent-blue reveal"><div class="card-icon">↘</div><h3>Margin landing and P&amp;L impact</h3><p>Connect pricing, sales mix, costs, promotions, inventory and contract simulations to expected gross profit, margin percentage and P&amp;L movement.</p></article>
+        <article class="card accent-red reveal delay-1"><div class="card-icon">≈</div><h3>Cashflow optimisation</h3><p>Link inventory pressure, payment timing, working capital, commercial terms and execution decisions to company cashflow impact.</p></article>
+        <article class="card accent-orange reveal delay-2"><div class="card-icon">✦</div><h3>Promotion actual impact</h3><p>Compare expected promotion results with actual sales, margin, customer response and product movement to guide repeat, adjust or stop decisions.</p></article>
+        <article class="card accent-blue reveal delay-3"><div class="card-icon">Σ</div><h3>Actuarial pricing engine</h3><p>Apply price adequacy, credibility weighting, expected margin, demand response and downside scenario logic to support retail strategy.</p></article>
+      </div>
+    </section>
+
     <section class="section tight" id="who">
       <div class="section-head">
         <div>
           <div class="kicker">Who we are</div>
           <h2>Advisory analytics that moves beyond reports.</h2>
         </div>
-        <p>Pencil Analytics focuses on turning complex commercial, financial, operational, and insurance data into practical decision systems. Dashboards are one output. The real objective is stronger visibility, better governance, and faster coordinated action.</p>
       </div>
       <div class="grid-3">
         <article class="card accent-blue"><div class="card-icon">◈</div><h3>Vision</h3><p>To become the intelligence layer that helps organisations see performance clearly, align decisions across functions, and turn business complexity into sustainable value.</p></article>

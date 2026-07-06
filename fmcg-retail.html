@@ -808,7 +808,6 @@ to{transform:translateX(44px) rotate(-360deg);}
 }
 
 
-/* Gradient scroll arrow under the FMCG hero */
 .fmcg-hero-grid{
   position:relative;
 }
@@ -888,7 +887,6 @@ to{transform:translateX(44px) rotate(-360deg);}
 }
 
 
-/* Restore pencil point visibility in the top-left logo */
 .brand-mark .mark{
   overflow:visible !important;
 }
@@ -908,6 +906,111 @@ to{transform:translateX(44px) rotate(-360deg);}
 @media (max-width:520px){
   .brand-mark .mark{
     overflow:visible !important;
+  }
+}
+
+
+.financial-landing-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.financial-card{
+  min-height:238px;
+}
+.financial-card .mini-label{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px 10px;
+  border-radius:999px;
+  margin-bottom:12px;
+  font-size:.68rem;
+  font-weight:950;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--orange);
+  background:linear-gradient(135deg,rgba(11,114,185,.08),rgba(207,18,63,.07),rgba(245,130,32,.11));
+  border:1px solid var(--line);
+}
+.decision-engine-panel{
+  border-radius:var(--radius-xl);
+  padding:clamp(24px,4vw,38px);
+  overflow:hidden;
+}
+.signal-bridge{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin-top:20px;
+}
+.signal-step{
+  position:relative;
+  border-radius:22px;
+  padding:18px;
+  min-height:170px;
+  background:rgba(255,255,255,.62);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow-soft);
+}
+[data-theme="dark"] .signal-step{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.13);
+}
+.signal-step span{
+  display:block;
+  margin-bottom:10px;
+  font-size:.72rem;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  font-weight:950;
+  color:var(--orange);
+}
+.strategy-row{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:10px;
+  margin-top:18px;
+}
+.strategy-pill{
+  border-radius:16px;
+  padding:12px 10px;
+  text-align:center;
+  font-weight:900;
+  font-size:.78rem;
+  color:var(--text);
+  border:1px solid var(--line);
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(135deg,rgba(11,114,185,.5),rgba(207,18,63,.42),rgba(245,130,32,.48)) border-box;
+}
+[data-theme="dark"] .strategy-pill{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.035)) padding-box,
+    linear-gradient(135deg,rgba(56,189,248,.55),rgba(207,18,63,.46),rgba(245,130,32,.55)) border-box;
+}
+.home-fmcg-summary-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.home-fmcg-summary-grid .card{
+  min-height:220px;
+}
+@media (max-width:1020px){
+  .financial-landing-grid,.signal-bridge,.home-fmcg-summary-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .strategy-row{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+@media (max-width:720px){
+  .financial-landing-grid,.signal-bridge,.home-fmcg-summary-grid,.strategy-row{
+    grid-template-columns:1fr;
+  }
+  .financial-card,.signal-step,.home-fmcg-summary-grid .card{
+    min-height:auto;
   }
 }
 
@@ -934,17 +1037,18 @@ to{transform:translateX(44px) rotate(-360deg);}
   
   
   
+  
   <main id="fmcg-retail-page">
     <section class="section fmcg-stage" id="fmcg-retail">
       <div class="fmcg-hero-grid">
         <article class="panel fmcg-hero-copy reveal visible">
           <div class="eyebrow"><span class="dot"></span> FMCG & Retail performance systems</div>
-          <h1><span class="gradient-text">Pricing Cotrol, margin health, inventory and ROI in one centralised ecosystem .</span></h1>
-          <p class="lead direct-lead"><strong>Pencil Analytics builds practical retail decision systems that turn commercial financial and operational data into one management view.</strong> This view helps management see profitable growth and margin leakage along with inventory optimisation.</p>
+          <h1><span class="gradient-text">Pricing control, margin health, cashflow impact and ROI in one centralised ecosystem.</span></h1>
+          <p class="lead direct-lead"><strong>Pencil Analytics builds practical retail decision systems that turn commercial financial and operational data into one management view.</strong> This view helps management see profitable growth, margin landing, inventory pressure, cashflow movement, P&amp;L impact and where strategic action is required.</p>
           <div class="layer-strip">
-            <div class="layer-pill"><span>01</span><strong>Sales and profitability command center</strong></div>
-            <div class="layer-pill"><span>02</span><strong>Pricing opportunity and margin leakage engine</strong></div>
-            <div class="layer-pill"><span>03</span><strong>Commercial GMROI and inventory productivity</strong></div>
+            <div class="layer-pill"><span>01</span><strong>Sales and margin landing command center</strong></div>
+            <div class="layer-pill"><span>02</span><strong>Actuarial pricing and margin engine</strong></div>
+            <div class="layer-pill"><span>03</span><strong>Cashflow, P&amp;L and GMROI optimisation</strong></div>
             <div class="layer-pill"><span>04</span><strong>Contract simulated impact within the business</strong></div>
           </div>
         </article>
@@ -958,22 +1062,21 @@ to{transform:translateX(44px) rotate(-360deg);}
             <span class="orbit-node one">Pricing</span>
             <span class="orbit-node two">Finance
               <span class="finance-satellite-orbit" aria-hidden="true">
-                <span class="finance-satellite">Financial<br>Statements</span>
+                <span class="finance-satellite">P&amp;L<br>Cashflow</span>
               </span>
             </span>
             <span class="orbit-node three">Sales</span>
             <span class="orbit-node four">Supply Chain</span>
-            <span class="orbit-node five">Marketing</span>
+            <span class="orbit-node five">Strategy</span>
           </div>
           <div class="orbit-caption-grid">
-            <div class="orbit-caption"><strong>Pricing</strong> Floors, rebates, discounts, price mix and contract impact.</div>
-            <div class="orbit-caption"><strong>Finance</strong> Financial statements, ROI, GMROI, cash flow and working capital.</div>
-            <div class="orbit-caption"><strong>Sales</strong> Customers, SKUs, channels, growth quality and portfolio direction.</div>
-            <div class="orbit-caption"><strong>Operations</strong> Availability, aged stock, replenishment and service execution.</div>
+            <div class="orbit-caption"><strong>Pricing</strong> Floors, price adequacy, rebates, discounts and contract impact.</div>
+            <div class="orbit-caption"><strong>Finance</strong> Margin landing, P&amp;L impact, cashflow, ROI and GMROI.</div>
+            <div class="orbit-caption"><strong>Operations</strong> Inventory, availability, aged stock, replenishment and working capital.</div>
+            <div class="orbit-caption"><strong>Strategy</strong> Push, hold, reduce, renegotiate, delay, stop or phase out decisions.</div>
           </div>
         </aside>
         <a class="hero-scroll-cue" href="#what-we-control" aria-label="Scroll down to FMCG controls"><span>↓</span></a>
-
       </div>
     </section>
 
@@ -981,37 +1084,62 @@ to{transform:translateX(44px) rotate(-360deg);}
       <div class="section-head reveal">
         <div>
           <div class="kicker">What We Help You Control</div>
-          <h2>From scattered reports to commercial control.</h2>
+          <h2>Commercial performance connected to financial landing.</h2>
         </div>
-        <p>Pencil Analytics focuses on the control points that shape margin, sales quality, inventory productivity, commercial execution and management response.</p>
+        <p>Pencil Analytics connects pricing, sales, inventory, promotions, contract simulations and operational movement to the financial impact that management needs to act on.</p>
       </div>
       <div class="service-control-grid">
-        <article class="card control-card accent-blue reveal"><div><div class="card-icon">◈</div><h3>Margin leakage</h3><p>Identify where value is lost through discounts, rebates, cost movement, price exceptions, customer terms or weak price mix.</p></div><ul><li>GP, GP%, UGP</li><li>COGS and rebate impact</li><li>Customer and SKU profitability</li></ul></article>
-        <article class="card control-card accent-red reveal delay-1"><div><div class="card-icon">↗</div><h3>Profitable growth</h3><p>Separate healthy sales growth from volume that damages margin, working capital or portfolio direction.</p></div><ul><li>Customer growth quality</li><li>Product and channel mix</li><li>Push, hold, reduce or delete logic</li></ul></article>
-        <article class="card control-card accent-orange reveal delay-2"><div><div class="card-icon">▦</div><h3>Inventory productivity</h3><p>Connect stock decisions with availability, margin, cash pressure, markdowns and GMROI.</p></div><ul><li>Aged stock and markdowns</li><li>Availability and stock out risk</li><li>Commercial and full GMROI</li></ul></article>
-        <article class="card control-card accent-blue reveal"><div><div class="card-icon">◆</div><h3>Contract impact</h3><p>Measure whether commercial terms, distributors, contracts, support and payment terms are producing enough return.</p></div><ul><li>Contract impact tracker</li><li>Contract impact simulations</li><li>Payment and cashflow impact</li></ul></article>
-        <article class="card control-card accent-red reveal delay-1"><div><div class="card-icon">✦</div><h3>Promotion ROI</h3><p>Test whether promotions and campaigns generate profitable growth or only short term volume.</p></div><ul><li>Campaign response</li><li>Promotion margin leakage</li><li>Rebate versus discount view</li></ul></article>
-        <article class="card control-card accent-orange reveal delay-2"><div><div class="card-icon">●</div><h3>Management direction</h3><p>Translate operational movement into executive decisions, action owners and monthly performance rhythm.</p></div><ul><li>ROI tracker</li><li>Decision scorecard</li><li>Monthly management pack</li></ul></article>
+        <article class="card control-card accent-blue reveal"><div><div class="card-icon">◈</div><h3>Pricing control</h3><p>Monitor price floors, customer terms, discounts, rebates, price adequacy and price change impact.</p></div><ul><li>Price floor logic</li><li>Customer price alignment</li><li>Price adequacy review</li></ul></article>
+        <article class="card control-card accent-red reveal delay-1"><div><div class="card-icon">↘</div><h3>Margin health and landing</h3><p>Track current margin health and simulate where GP, GP%, UGP and margin leakage are likely to land.</p></div><ul><li>Margin landing view</li><li>COGS and rebate impact</li><li>Price mix effect</li></ul></article>
+        <article class="card control-card accent-orange reveal delay-2"><div><div class="card-icon">≈</div><h3>Cashflow and working capital</h3><p>Connect stock investment, payment timing, commercial terms and operational execution to cashflow pressure.</p></div><ul><li>Cashflow impact</li><li>Working capital view</li><li>Payment timing logic</li></ul></article>
+        <article class="card control-card accent-blue reveal"><div><div class="card-icon">▣</div><h3>P&amp;L impact</h3><p>Translate pricing, promotions, inventory movement and contract scenarios into expected P&amp;L effect.</p></div><ul><li>Revenue bridge</li><li>Gross profit bridge</li><li>P&amp;L simulation</li></ul></article>
+        <article class="card control-card accent-red reveal delay-1"><div><div class="card-icon">▦</div><h3>Inventory and GMROI</h3><p>Measure whether inventory is creating enough gross margin return after considering stock pressure and movement quality.</p></div><ul><li>Aged stock</li><li>Availability risk</li><li>Commercial GMROI</li></ul></article>
+        <article class="card control-card accent-orange reveal delay-2"><div><div class="card-icon">✦</div><h3>Promotion actual impact</h3><p>Compare expected promotion performance with actual sales, margin, product movement and customer response.</p></div><ul><li>Expected versus actual</li><li>Post promotion behaviour</li><li>Repeat, adjust or stop logic</li></ul></article>
+        <article class="card control-card accent-blue reveal"><div><div class="card-icon">◆</div><h3>Contract simulated impact</h3><p>Simulate how commercial commitments, support structures and payment timing affect margin, cashflow and direction.</p></div><ul><li>Contract impact model</li><li>Scenario testing</li><li>Financial landing view</li></ul></article>
+        <article class="card control-card accent-red reveal delay-1"><div><div class="card-icon">●</div><h3>Strategy guidance</h3><p>Convert performance signals into management action across products, customers, campaigns, contracts and inventory.</p></div><ul><li>Push, hold or reduce</li><li>Renegotiate or delay</li><li>Stop or phase out</li></ul></article>
+        <article class="card control-card accent-orange reveal delay-2"><div><div class="card-icon">Σ</div><h3>Actuarial pricing engine</h3><p>Apply credibility, expected margin, downside risk and scenario logic to support retail pricing and strategic decisions.</p></div><ul><li>Credibility scoring</li><li>Demand response view</li><li>Stress testing</li></ul></article>
       </div>
+    </section>
+
+    <section class="section tight" id="financial-landing">
+      <article class="panel decision-engine-panel reveal">
+        <div class="kicker">Financial Landing & Actuarial Decision Layer</div>
+        <h2><span class="gradient-text">From commercial movement to strategy guidance.</span></h2>
+        <p>Pencil Analytics does not stop at sales dashboards. The retail ecosystem links commercial behaviour to expected margin landing, company cashflow, P&amp;L impact, promotion actual impact and strategic action. The actuarial pricing engine supports this flow by weighting signals based on credibility, expected return, downside risk and scenario behaviour.</p>
+        <div class="signal-bridge">
+          <div class="signal-step"><span>01 Input</span><h3>Commercial movement</h3><p>Sales, pricing, customer mix, product mix, promotions, inventory, costs and contract scenarios.</p></div>
+          <div class="signal-step"><span>02 Engine</span><h3>Actuarial pricing logic</h3><p>Price adequacy, credibility weighting, demand response, expected margin and downside testing.</p></div>
+          <div class="signal-step"><span>03 Landing</span><h3>Financial impact</h3><p>Margin landing, P&amp;L impact, cashflow pressure, working capital and GMROI movement.</p></div>
+          <div class="signal-step"><span>04 Action</span><h3>Management strategy</h3><p>Push, hold, reduce, renegotiate, delay, stop or phase out based on commercial and financial viability.</p></div>
+        </div>
+        <div class="strategy-row">
+          <div class="strategy-pill">Push</div>
+          <div class="strategy-pill">Hold</div>
+          <div class="strategy-pill">Reduce</div>
+          <div class="strategy-pill">Renegotiate</div>
+          <div class="strategy-pill">Delay</div>
+          <div class="strategy-pill">Stop</div>
+        </div>
+      </article>
     </section>
 
     <section class="section tight" id="service-modules">
       <div class="section-head reveal">
         <div>
           <div class="kicker">FMCG & Retail Service Modules</div>
-          <h2>Clear offers a client can select.</h2>
+          <h2>Retail decision systems with commercial and financial depth.</h2>
         </div>
-        <p>The modules below can be selected based on the client’s business priorities, data readiness and management decision needs.</p>
+        <p>A modular structure for building command centers, pricing engines, financial impact models, trackers and management rhythm.</p>
       </div>
       <div class="module-grid">
-        <article class="card module-card accent-blue reveal"><span class="module-no">01</span><h3>Sales & Profitability Command Center</h3><p>A management view connecting sales, customers, products, profitability, pricing movement and margin leakage.</p><ul><li>Sales performance dashboard</li><li>Customer and SKU profitability</li><li>Executive performance pack</li></ul></article>
-        <article class="card module-card accent-red reveal delay-1"><span class="module-no">02</span><h3>Pricing Opportunity Engine</h3><p>A pricing and margin tool that identifies where prices, discounts, rebates or contracts may be reducing margin.</p><ul><li>Price floor logic</li><li>Margin leakage report</li><li>Pricing recommendation pack</li></ul></article>
-        <article class="card module-card accent-orange reveal delay-2"><span class="module-no">03</span><h3>Commercial GMROI Monitor</h3><p>Measures whether inventory, revenue, COGS, rebates, price mix and contract impact generate enough gross margin return.</p><ul><li>GMROI dashboard</li><li>Inventory productivity view</li><li>Commercial versus financial GMROI</li></ul></article>
-        <article class="card module-card accent-blue reveal delay-3"><span class="module-no">04</span><h3>Inventory Leakage & Aged Stock Monitor</h3><p>Tracks aged stock, markdowns, availability, stock out risk, replenishment and inventory related profit leakage.</p><ul><li>Aged stock action report</li><li>Availability dashboard</li><li>Replenishment insights</li></ul></article>
-        <article class="card module-card accent-red reveal"><span class="module-no">05</span><h3>Contract Impact & Simulation Tracker</h3><p>Models how contract terms, commercial commitments, support structures and payment timing affect margin, cash flow and business direction.</p><ul><li>Contract impact dashboard</li><li>Contract simulation model</li><li>Contract impact pack</li></ul></article>
-        <article class="card module-card accent-orange reveal delay-1"><span class="module-no">06</span><h3>Promotion ROI & Growth Monitor</h3><p>Assesses whether campaigns create profitable growth, customer response and sustainable margin.</p><ul><li>Promotion ROI dashboard</li><li>Campaign response report</li><li>Promotion recommendation pack</li></ul></article>
-        <article class="card module-card accent-blue reveal delay-2"><span class="module-no">07</span><h3>ROI & Corporate Performance Tracker</h3><p>Tracks pricing actions, contract impact, contract impact, financial impact, forecast alignment and business direction.</p><ul><li>Running ROI tracker</li><li>Scenario and sensitivity view</li><li>Management decision scorecard</li></ul></article>
-        <article class="card module-card accent-red reveal delay-3"><span class="module-no">08</span><h3>Governance & Workflow Revamp</h3><p>Improves approvals, submissions, reporting rhythm, contract control, pricing governance and execution discipline.</p><ul><li>Workflow map</li><li>Approval matrix</li><li>Action tracker</li></ul></article>
+        <article class="card module-card accent-blue reveal"><span class="module-no">01</span><h3>Sales & Margin Landing Command Center</h3><p>Connects sales, customers, SKUs, GP, UGP, GP%, price mix and expected margin landing in one performance view.</p><ul><li>Sales and margin dashboard</li><li>Customer and SKU profitability</li><li>Margin landing pack</li></ul></article>
+        <article class="card module-card accent-red reveal delay-1"><span class="module-no">02</span><h3>Actuarial Pricing & Margin Engine</h3><p>Uses pricing adequacy, credibility weighting, demand response and scenario logic to support price and margin decisions.</p><ul><li>Price adequacy view</li><li>Credibility based scoring</li><li>Downside risk testing</li></ul></article>
+        <article class="card module-card accent-orange reveal delay-2"><span class="module-no">03</span><h3>Cashflow & P&amp;L Impact Monitor</h3><p>Links pricing, inventory, promotions and contract simulations to cashflow pressure, working capital and P&amp;L impact.</p><ul><li>Cashflow movement view</li><li>P&amp;L simulation</li><li>Financial impact model</li></ul></article>
+        <article class="card module-card accent-blue reveal delay-3"><span class="module-no">04</span><h3>Inventory, GMROI & Availability Monitor</h3><p>Measures whether inventory is supporting sales, availability, margin return and cash discipline.</p><ul><li>GMROI dashboard</li><li>Aged stock action report</li><li>Availability and stock out risk</li></ul></article>
+        <article class="card module-card accent-red reveal"><span class="module-no">05</span><h3>Promotion Actual Impact Tracker</h3><p>Compares expected promotion performance with actual sales, margin, customer response and product behaviour.</p><ul><li>Expected versus actual view</li><li>Promotion margin impact</li><li>Repeat, adjust or stop recommendation</li></ul></article>
+        <article class="card module-card accent-orange reveal delay-1"><span class="module-no">06</span><h3>Contract Simulated Impact</h3><p>Models how contract terms, price commitments, support structures and payment timing affect margin, cashflow and business direction.</p><ul><li>Contract simulation model</li><li>Financial landing view</li><li>Contract impact pack</li></ul></article>
+        <article class="card module-card accent-blue reveal delay-2"><span class="module-no">07</span><h3>Strategic Portfolio Decision Engine</h3><p>Guides decisions on product launch, deletion, phase out, assortment, price point strategy and portfolio direction.</p><ul><li>Push, hold or reduce logic</li><li>Phase out and deletion view</li><li>Portfolio direction tracker</li></ul></article>
+        <article class="card module-card accent-red reveal delay-3"><span class="module-no">08</span><h3>Management Action & Governance Rhythm</h3><p>Turns analysis into action through approval flows, decision scorecards, action trackers and monthly management packs.</p><ul><li>Decision scorecard</li><li>Action tracker</li><li>Monthly review rhythm</li></ul></article>
       </div>
     </section>
 
@@ -1019,38 +1147,40 @@ to{transform:translateX(44px) rotate(-360deg);}
       <div class="question-board">
         <article class="panel fmcg-direct-panel reveal">
           <div class="kicker">Business Questions</div>
-          <h2>Make the page speak to management pain points.</h2>
-          <p>These are the management questions the FMCG and retail decision system is designed to answer.</p>
+          <h2>Management questions supported by the ecosystem.</h2>
+          <p>The focus is earlier action across margin, cashflow, inventory, promotions, pricing and strategy.</p>
         </article>
         <div class="question-list reveal delay-1">
-          <div class="question-pill">Are we growing profitably, or only increasing volume?</div>
-          <div class="question-pill">Which SKUs, customers and channels are creating margin?</div>
-          <div class="question-pill">Where are discounts, rebates or contract terms leaking profit?</div>
-          <div class="question-pill">Is inventory generating enough gross margin return?</div>
-          <div class="question-pill">Are promotions creating profit or temporary movement?</div>
-          <div class="question-pill">Which products should we push, hold, reduce, phase out or delete?</div>
-          <div class="question-pill">Are commercial terms and contracts supporting business value?</div>
-          <div class="question-pill">Are today’s decisions creating future financial value?</div>
+          <div class="question-pill">Where are sales and margin likely to land?</div>
+          <div class="question-pill">How will today’s actions affect company cashflow?</div>
+          <div class="question-pill">Which products, customers and price points are protecting margin?</div>
+          <div class="question-pill">Is inventory creating enough gross margin return?</div>
+          <div class="question-pill">What was the actual impact of promotions?</div>
+          <div class="question-pill">Which contract scenarios improve or weaken financial landing?</div>
+          <div class="question-pill">Which signals are credible enough for pricing action?</div>
+          <div class="question-pill">What should management push, adjust, delay or stop?</div>
         </div>
       </div>
     </section>
-<section class="section tight" id="how-it-connects">
+
+    <section class="section tight" id="how-it-connects">
       <div class="section-head reveal">
         <div>
           <div class="kicker">How The Work Connects</div>
-          <h2>Data foundation → impact model → action rhythm.</h2>
+          <h2>Data foundation → actuarial pricing engine → financial landing → strategy.</h2>
         </div>
-        <p>The work connects data foundation, financial impact logic, governance and management rhythm into one practical operating model.</p>
+        <p>Data, pricing logic, cashflow, P&amp;L, margin landing, contract simulations, promotion impact and action rhythm operate together as one practical model.</p>
       </div>
       <div class="service-route">
-        <article class="flow-step route-step reveal"><span class="num">01</span><h3>Diagnose</h3><p>Map pain points, reports, data readiness, profitability visibility and process gaps.</p></article>
-        <article class="flow-step route-step reveal delay-1"><span class="num">02</span><h3>Structure</h3><p>Define master files, hierarchies, measures, ownership, price rules and reporting logic.</p></article>
-        <article class="flow-step route-step reveal delay-2"><span class="num">03</span><h3>Build</h3><p>Create dashboards, models, trackers, automation routines and executive packs.</p></article>
-        <article class="flow-step route-step reveal delay-3"><span class="num">04</span><h3>Govern</h3><p>Add approvals, thresholds, exception flags, control points and action owners.</p></article>
-        <article class="flow-step route-step reveal delay-4"><span class="num">05</span><h3>Review</h3><p>Run monthly rhythm, compare expected versus actual impact and decide next action.</p></article>
+        <article class="flow-step route-step reveal"><span class="num">01</span><h3>Diagnose</h3><p>Map sales, margin, cashflow, inventory, promotion, pricing and management decision gaps.</p></article>
+        <article class="flow-step route-step reveal delay-1"><span class="num">02</span><h3>Structure</h3><p>Define master files, hierarchies, financial measures, landing logic and governance rules.</p></article>
+        <article class="flow-step route-step reveal delay-2"><span class="num">03</span><h3>Model</h3><p>Build actuarial pricing logic, margin simulations, cashflow views and P&amp;L impact models.</p></article>
+        <article class="flow-step route-step reveal delay-3"><span class="num">04</span><h3>Simulate</h3><p>Test price, promotion, inventory and contract scenarios before management commits.</p></article>
+        <article class="flow-step route-step reveal delay-4"><span class="num">05</span><h3>Guide</h3><p>Turn results into push, hold, reduce, renegotiate, delay, stop or phase out actions.</p></article>
       </div>
     </section>
   </main>
+
 
 
 
