@@ -162,6 +162,267 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
   }
 }
 
+
+/* Phone should render the same desktop layout instead of the long stacked mobile version */
+@media (max-width:1020px){
+  .brand-mark .mark{
+    width:20px !important;
+    height:27px !important;
+    min-width:20px !important;
+    min-height:27px !important;
+    overflow:visible !important;
+    align-self:center !important;
+  }
+  .brand-mark .mark img{
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:contain !important;
+  }
+}
+
+
+/* Mobile online view: keep readable size, split landing into two natural scroll parts, and keep Menu top-right */
+@media (max-width:720px){
+  html,body{
+    overflow-x:hidden !important;
+  }
+  .site-nav{
+    position:sticky !important;
+    top:0 !important;
+    z-index:1000 !important;
+  }
+  .nav-inner{
+    width:min(100% - 28px,var(--max)) !important;
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+    padding:10px 0 !important;
+    min-height:58px !important;
+  }
+  .brand-mark{
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    gap:8px !important;
+    align-items:center !important;
+  }
+  .brand-mark .mark{
+    width:18px !important;
+    height:24px !important;
+    min-width:18px !important;
+    min-height:24px !important;
+    overflow:visible !important;
+    align-self:center !important;
+  }
+  .brand-mark .mark img{
+    width:100% !important;
+    height:100% !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:contain !important;
+    display:block !important;
+  }
+  .brand-copy{
+    min-width:0 !important;
+  }
+  .brand-copy strong{
+    font-size:.78rem !important;
+    letter-spacing:.13em !important;
+    white-space:nowrap !important;
+  }
+  .brand-copy span{
+    display:none !important;
+  }
+  .menu-toggle{
+    display:inline-flex !important;
+    flex:0 0 auto !important;
+    margin-left:auto !important;
+    min-height:40px !important;
+    padding:0 14px !important;
+  }
+  .section{
+    width:min(100% - 28px,var(--max)) !important;
+    padding-top:38px !important;
+  }
+  .hero{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:22px !important;
+    padding-top:18px !important;
+    align-items:start !important;
+  }
+  .hero > div:first-child{
+    min-height:calc(100svh - 96px) !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    padding:10px 0 26px !important;
+    scroll-snap-align:start;
+  }
+  .hero > .profile-panel{
+    min-height:calc(100svh - 112px) !important;
+    display:flex !important;
+    justify-content:center !important;
+    padding:20px !important;
+    scroll-snap-align:start;
+  }
+  .eyebrow{
+    font-size:.82rem !important;
+    padding:8px 12px !important;
+    max-width:100% !important;
+  }
+  h1{
+    font-size:clamp(2.7rem,11.4vw,4.15rem) !important;
+    line-height:.96 !important;
+    letter-spacing:-2px !important;
+    margin:14px 0 16px !important;
+  }
+  .lead{
+    font-size:1rem !important;
+    line-height:1.55 !important;
+    max-width:none !important;
+    margin-bottom:0 !important;
+  }
+  .logo-display{
+    min-height:190px !important;
+    padding:22px !important;
+  }
+  .stats{
+    grid-template-columns:repeat(3,1fr) !important;
+  }
+}
+@media (max-width:390px){
+  h1{
+    font-size:clamp(2.45rem,10.8vw,3.65rem) !important;
+    letter-spacing:-1.4px !important;
+  }
+  .lead{
+    font-size:.96rem !important;
+    line-height:1.52 !important;
+  }
+  .brand-copy strong{
+    font-size:.72rem !important;
+    letter-spacing:.11em !important;
+  }
+  .menu-toggle{
+    padding:0 12px !important;
+  }
+}
+
+
+/* Mobile brand fix: keep logo + Pencil Analytics phrase visible and clickable for dark theme */
+@media (max-width:720px){
+  .site-nav{
+    position:sticky !important;
+    top:0 !important;
+    z-index:2000 !important;
+  }
+  .nav-inner{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+  }
+  .brand-mark{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:8px !important;
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    max-width:calc(100% - 112px) !important;
+    cursor:pointer !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+  }
+  .brand-mark .mark{
+    display:grid !important;
+    place-items:center !important;
+    width:20px !important;
+    height:27px !important;
+    min-width:20px !important;
+    min-height:27px !important;
+    overflow:visible !important;
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+  .brand-mark .mark img{
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:contain !important;
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+  .brand-copy{
+    display:grid !important;
+    gap:1px !important;
+    min-width:0 !important;
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+  .brand-copy strong{
+    display:block !important;
+    font-size:.78rem !important;
+    line-height:1.05 !important;
+    letter-spacing:.12em !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+  }
+  .brand-copy span{
+    display:none !important;
+  }
+  .menu-toggle{
+    display:inline-flex !important;
+    flex:0 0 auto !important;
+    margin-left:auto !important;
+    position:relative !important;
+    z-index:2001 !important;
+  }
+}
+@media (max-width:390px){
+  .brand-mark{
+    max-width:calc(100% - 104px) !important;
+    gap:7px !important;
+  }
+  .brand-mark .mark{
+    width:18px !important;
+    height:24px !important;
+    min-width:18px !important;
+    min-height:24px !important;
+  }
+  .brand-copy strong{
+    font-size:.70rem !important;
+    letter-spacing:.095em !important;
+  }
+}
+
+
+/* Restore pencil point visibility in the top-left logo */
+.brand-mark .mark{
+  overflow:visible !important;
+}
+.brand-mark .mark img{
+  overflow:visible !important;
+}
+@media (max-width:1020px){
+  .brand-mark .mark{
+    overflow:visible !important;
+  }
+}
+@media (max-width:720px){
+  .brand-mark .mark{
+    overflow:visible !important;
+  }
+}
+@media (max-width:520px){
+  .brand-mark .mark{
+    overflow:visible !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -271,7 +532,7 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
     }
 
     applyStoredTheme();
-    brand.addEventListener('click', toggleTheme);
+    if(brand){ brand.addEventListener('click', toggleTheme); }
 
     menuToggle.addEventListener('click', () => {
       const open = nav.classList.toggle('menu-open');

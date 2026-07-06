@@ -426,6 +426,491 @@ to{transform:translateX(44px) rotate(-360deg);}
   }
 }
 
+
+/* Phone should render the same desktop layout instead of the long stacked mobile version */
+@media (max-width:1020px){
+  .brand-mark .mark{
+    width:20px !important;
+    height:27px !important;
+    min-width:20px !important;
+    min-height:27px !important;
+    overflow:visible !important;
+    align-self:center !important;
+  }
+  .brand-mark .mark img{
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:contain !important;
+  }
+}
+
+
+/* Mobile online view: keep readable size, split landing into two natural scroll parts, and keep Menu top-right */
+@media (max-width:720px){
+  html,body{
+    overflow-x:hidden !important;
+  }
+  .site-nav{
+    position:sticky !important;
+    top:0 !important;
+    z-index:1000 !important;
+  }
+  .nav-inner{
+    width:min(100% - 28px,var(--max)) !important;
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+    padding:10px 0 !important;
+    min-height:58px !important;
+  }
+  .brand-mark{
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    gap:8px !important;
+    align-items:center !important;
+  }
+  .brand-mark .mark{
+    width:18px !important;
+    height:24px !important;
+    min-width:18px !important;
+    min-height:24px !important;
+    overflow:visible !important;
+    align-self:center !important;
+  }
+  .brand-mark .mark img{
+    width:100% !important;
+    height:100% !important;
+    max-width:100% !important;
+    max-height:100% !important;
+    object-fit:contain !important;
+    display:block !important;
+  }
+  .brand-copy{
+    min-width:0 !important;
+  }
+  .brand-copy strong{
+    font-size:.78rem !important;
+    letter-spacing:.13em !important;
+    white-space:nowrap !important;
+  }
+  .brand-copy span{
+    display:none !important;
+  }
+  .menu-toggle{
+    display:inline-flex !important;
+    flex:0 0 auto !important;
+    margin-left:auto !important;
+    min-height:40px !important;
+    padding:0 14px !important;
+  }
+  .section{
+    width:min(100% - 28px,var(--max)) !important;
+    padding-top:38px !important;
+  }
+  .hero{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:22px !important;
+    padding-top:18px !important;
+    align-items:start !important;
+  }
+  .hero > div:first-child{
+    min-height:calc(100svh - 96px) !important;
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+    padding:10px 0 26px !important;
+    scroll-snap-align:start;
+  }
+  .hero > .profile-panel{
+    min-height:calc(100svh - 112px) !important;
+    display:flex !important;
+    justify-content:center !important;
+    padding:20px !important;
+    scroll-snap-align:start;
+  }
+  .eyebrow{
+    font-size:.82rem !important;
+    padding:8px 12px !important;
+    max-width:100% !important;
+  }
+  h1{
+    font-size:clamp(2.7rem,11.4vw,4.15rem) !important;
+    line-height:.96 !important;
+    letter-spacing:-2px !important;
+    margin:14px 0 16px !important;
+  }
+  .lead{
+    font-size:1rem !important;
+    line-height:1.55 !important;
+    max-width:none !important;
+    margin-bottom:0 !important;
+  }
+  .logo-display{
+    min-height:190px !important;
+    padding:22px !important;
+  }
+  .stats{
+    grid-template-columns:repeat(3,1fr) !important;
+  }
+}
+@media (max-width:390px){
+  h1{
+    font-size:clamp(2.45rem,10.8vw,3.65rem) !important;
+    letter-spacing:-1.4px !important;
+  }
+  .lead{
+    font-size:.96rem !important;
+    line-height:1.52 !important;
+  }
+  .brand-copy strong{
+    font-size:.72rem !important;
+    letter-spacing:.11em !important;
+  }
+  .menu-toggle{
+    padding:0 12px !important;
+  }
+}
+
+
+/* Mobile brand fix: keep logo + Pencil Analytics phrase visible and clickable for dark theme */
+@media (max-width:720px){
+  .site-nav{
+    position:sticky !important;
+    top:0 !important;
+    z-index:2000 !important;
+  }
+  .nav-inner{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:10px !important;
+  }
+  .brand-mark{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:8px !important;
+    flex:1 1 auto !important;
+    min-width:0 !important;
+    max-width:calc(100% - 112px) !important;
+    cursor:pointer !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+  }
+  .brand-mark .mark{
+    display:grid !important;
+    place-items:center !important;
+    width:20px !important;
+    height:27px !important;
+    min-width:20px !important;
+    min-height:27px !important;
+    overflow:visible !important;
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+  .brand-mark .mark img{
+    display:block !important;
+    width:100% !important;
+    height:100% !important;
+    object-fit:contain !important;
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+  .brand-copy{
+    display:grid !important;
+    gap:1px !important;
+    min-width:0 !important;
+    opacity:1 !important;
+    visibility:visible !important;
+  }
+  .brand-copy strong{
+    display:block !important;
+    font-size:.78rem !important;
+    line-height:1.05 !important;
+    letter-spacing:.12em !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+  }
+  .brand-copy span{
+    display:none !important;
+  }
+  .menu-toggle{
+    display:inline-flex !important;
+    flex:0 0 auto !important;
+    margin-left:auto !important;
+    position:relative !important;
+    z-index:2001 !important;
+  }
+}
+@media (max-width:390px){
+  .brand-mark{
+    max-width:calc(100% - 104px) !important;
+    gap:7px !important;
+  }
+  .brand-mark .mark{
+    width:18px !important;
+    height:24px !important;
+    min-width:18px !important;
+    min-height:24px !important;
+  }
+  .brand-copy strong{
+    font-size:.70rem !important;
+    letter-spacing:.095em !important;
+  }
+}
+
+
+/* FMCG direct service draft sections */
+.fmcg-direct-panel{
+  border-radius:var(--radius-xl);
+  padding:clamp(24px,4vw,38px);
+}
+.service-control-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+}
+.control-card{
+  min-height:220px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.control-card h3{
+  font-size:1.15rem;
+}
+.control-card ul,
+.module-card ul,
+.output-card ul{
+  margin:14px 0 0;
+  padding-left:18px;
+  color:var(--muted);
+  line-height:1.62;
+}
+.control-card li,
+.module-card li,
+.output-card li{
+  margin:4px 0;
+}
+.module-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.module-card{
+  min-height:280px;
+}
+.module-card .module-no{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  border-radius:14px;
+  background:linear-gradient(135deg,rgba(11,114,185,.12),rgba(207,18,63,.10),rgba(245,130,32,.12));
+  border:1px solid var(--line);
+  font-weight:950;
+  color:var(--orange);
+  margin-bottom:14px;
+}
+.question-board{
+  display:grid;
+  grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);
+  gap:18px;
+  align-items:stretch;
+}
+.question-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.question-pill{
+  border-radius:18px;
+  padding:14px;
+  background:rgba(6,27,53,.035);
+  border:1px solid var(--line);
+  font-weight:850;
+  line-height:1.35;
+}
+[data-theme="dark"] .question-pill{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.13);
+}
+.output-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.output-card{
+  min-height:210px;
+}
+.service-route{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:12px;
+}
+.route-step{
+  border-radius:22px;
+  padding:18px;
+  min-height:190px;
+}
+.route-step .num{
+  color:var(--orange);
+  font-weight:950;
+  letter-spacing:.12em;
+  font-size:.72rem;
+  text-transform:uppercase;
+}
+.route-step h3{
+  margin-top:-18px;
+}
+.fmcg-hero-copy .direct-lead strong{
+  color:var(--text);
+}
+.orbit-caption-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  margin-top:12px;
+}
+.orbit-caption{
+  border-radius:15px;
+  padding:10px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.54);
+  font-size:.72rem;
+  line-height:1.35;
+  color:var(--muted);
+}
+[data-theme="dark"] .orbit-caption{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.13);
+}
+.orbit-caption strong{
+  display:block;
+  color:var(--text);
+  margin-bottom:3px;
+}
+@media (max-width:1020px){
+  .module-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .service-control-grid,.output-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .question-board{grid-template-columns:1fr;}
+  .service-route{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:720px){
+  .module-grid,.service-control-grid,.output-grid,.question-list,.service-route{grid-template-columns:1fr;}
+  .control-card,.module-card,.output-card,.route-step{min-height:auto;}
+  .orbit-caption-grid{grid-template-columns:1fr;}
+}
+
+
+/* Gradient scroll arrow under the FMCG hero */
+.fmcg-hero-grid{
+  position:relative;
+}
+.hero-scroll-cue{
+  grid-column:2;
+  justify-self:center;
+  align-self:start;
+  margin-top:12px;
+  width:76px;
+  height:76px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  text-decoration:none;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(255,255,255,.96),rgba(255,255,255,.70)),
+    linear-gradient(135deg,rgba(11,114,185,.12),rgba(207,18,63,.10),rgba(245,130,32,.14));
+  border:1px solid var(--line);
+  box-shadow:
+    0 18px 42px rgba(6,27,53,.10),
+    0 0 28px rgba(11,114,185,.12),
+    0 0 34px rgba(207,18,63,.10),
+    0 0 38px rgba(245,130,32,.12);
+  animation:scrollCueFloat 2.2s ease-in-out infinite;
+}
+.hero-scroll-cue span{
+  display:block;
+  font-size:2.6rem;
+  line-height:1;
+  font-weight:950;
+  background:linear-gradient(135deg,var(--blue) 0%,var(--red-soft) 50%,var(--orange) 100%);
+  background-size:220% 220%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:shimmer 5s ease-in-out infinite;
+  transform:translateY(-2px);
+}
+.hero-scroll-cue:hover{
+  transform:translateY(2px);
+  box-shadow:
+    0 22px 48px rgba(6,27,53,.13),
+    0 0 34px rgba(11,114,185,.18),
+    0 0 42px rgba(207,18,63,.14),
+    0 0 46px rgba(245,130,32,.18);
+}
+[data-theme="dark"] .hero-scroll-cue{
+  background:
+    radial-gradient(circle at 50% 42%,rgba(255,255,255,.12),rgba(255,255,255,.04)),
+    linear-gradient(135deg,rgba(11,114,185,.20),rgba(207,18,63,.16),rgba(245,130,32,.18));
+  border-color:rgba(255,255,255,.16);
+  box-shadow:
+    0 20px 48px rgba(0,0,0,.28),
+    0 0 30px rgba(56,189,248,.16),
+    0 0 38px rgba(207,18,63,.14),
+    0 0 44px rgba(245,130,32,.16);
+}
+@keyframes scrollCueFloat{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(10px);}
+}
+@media (max-width:1020px){
+  .hero-scroll-cue{
+    grid-column:1;
+    margin:-8px auto 0;
+  }
+}
+@media (max-width:720px){
+  .hero-scroll-cue{
+    width:58px;
+    height:58px;
+    margin-top:-4px;
+  }
+  .hero-scroll-cue span{
+    font-size:2rem;
+  }
+}
+
+
+/* Restore pencil point visibility in the top-left logo */
+.brand-mark .mark{
+  overflow:visible !important;
+}
+.brand-mark .mark img{
+  overflow:visible !important;
+}
+@media (max-width:1020px){
+  .brand-mark .mark{
+    overflow:visible !important;
+  }
+}
+@media (max-width:720px){
+  .brand-mark .mark{
+    overflow:visible !important;
+  }
+}
+@media (max-width:520px){
+  .brand-mark .mark{
+    overflow:visible !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -448,18 +933,19 @@ to{transform:translateX(44px) rotate(-360deg);}
   
   
   
+  
   <main id="fmcg-retail-page">
     <section class="section fmcg-stage" id="fmcg-retail">
       <div class="fmcg-hero-grid">
         <article class="panel fmcg-hero-copy reveal visible">
-          <div class="eyebrow"><span class="dot"></span> Retail & FMCG intelligence layer</div>
-          <h1><span class="gradient-text">From today’s visibility to tomorrow’s sustainable impact.</span></h1>
-          <p class="lead">Pencil Analytics helps retail and FMCG companies turn commercial data into coordinated action. We integrate pricing, margin, sales, finance, inventory, supply chain, promotions and management reporting into one synergised unit, giving the business visibility into tomorrow’s potential outcomes today, with enough room to respond to market trends and move toward sustainable growth.</p>
+          <div class="eyebrow"><span class="dot"></span> FMCG & Retail performance systems</div>
+          <h1><span class="gradient-text">Pricing Cotrol, margin health, inventory and ROI in one centralised ecosystem .</span></h1>
+          <p class="lead direct-lead"><strong>Pencil Analytics builds practical retail decision systems that turn commercial financial and operational data into one management view.</strong> This view helps management see profitable growth and margin leakage along with inventory optimisation.</p>
           <div class="layer-strip">
-            <div class="layer-pill"><span>01</span><strong>Governance that keeps decisions controlled</strong></div>
-            <div class="layer-pill"><span>02</span><strong>Pricing engines that protect margin</strong></div>
-            <div class="layer-pill"><span>03</span><strong>Visibility for management and functions</strong></div>
-            <div class="layer-pill"><span>04</span><strong>Forecasting that connects today to tomorrow</strong></div>
+            <div class="layer-pill"><span>01</span><strong>Sales and profitability command center</strong></div>
+            <div class="layer-pill"><span>02</span><strong>Pricing opportunity and margin leakage engine</strong></div>
+            <div class="layer-pill"><span>03</span><strong>Commercial GMROI and inventory productivity</strong></div>
+            <div class="layer-pill"><span>04</span><strong>Contract simulated impact within the business</strong></div>
           </div>
         </article>
 
@@ -479,86 +965,93 @@ to{transform:translateX(44px) rotate(-360deg);}
             <span class="orbit-node four">Supply Chain</span>
             <span class="orbit-node five">Marketing</span>
           </div>
-          <p class="fmcg-statement">Providing a 360° view through our <span class="logo-glow">Visibility, Optimisation & Synergy</span> structure, where pricing, sales, finance, supply chain and marketing signals connect into one clear performance direction. <strong class="statement-highlight">Through the Pencil Analytics Control Center, management and executives can view the business from every angle, use today’s performance to anticipate tomorrow’s impact, and retain the room needed to respond to market trends while supporting sustainable growth.</strong></p>
+          <div class="orbit-caption-grid">
+            <div class="orbit-caption"><strong>Pricing</strong> Floors, rebates, discounts, price mix and contract impact.</div>
+            <div class="orbit-caption"><strong>Finance</strong> Financial statements, ROI, GMROI, cash flow and working capital.</div>
+            <div class="orbit-caption"><strong>Sales</strong> Customers, SKUs, channels, growth quality and portfolio direction.</div>
+            <div class="orbit-caption"><strong>Operations</strong> Availability, aged stock, replenishment and service execution.</div>
+          </div>
         </aside>
+        <a class="hero-scroll-cue" href="#what-we-control" aria-label="Scroll down to FMCG controls"><span>↓</span></a>
+
       </div>
     </section>
 
-    <section class="section tight" id="governance-layer">
-      <div class="fmcg-layer reveal">
-        <article class="panel layer-narrative">
-          <div class="kicker">Governance & Operating Control</div>
-          <h2>Build the business rules before the dashboard.</h2>
-          <p>This is the <span class="visibility-word">visibility</span> layer of how we operate. We structure the commercial logic behind the numbers: master files, product hierarchies, customer groups, approval rules, margin thresholds, price floors, exception flags and management definitions. We also build the data infrastructure with future business needs in mind, so as the company grows, the information structure can support stronger databases, cleaner system integration, and more scalable decision making.</p>
+    <section class="section tight" id="what-we-control">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">What We Help You Control</div>
+          <h2>From scattered reports to commercial control.</h2>
+        </div>
+        <p>Pencil Analytics focuses on the control points that shape margin, sales quality, inventory productivity, commercial execution and management response.</p>
+      </div>
+      <div class="service-control-grid">
+        <article class="card control-card accent-blue reveal"><div><div class="card-icon">◈</div><h3>Margin leakage</h3><p>Identify where value is lost through discounts, rebates, cost movement, price exceptions, customer terms or weak price mix.</p></div><ul><li>GP, GP%, UGP</li><li>COGS and rebate impact</li><li>Customer and SKU profitability</li></ul></article>
+        <article class="card control-card accent-red reveal delay-1"><div><div class="card-icon">↗</div><h3>Profitable growth</h3><p>Separate healthy sales growth from volume that damages margin, working capital or portfolio direction.</p></div><ul><li>Customer growth quality</li><li>Product and channel mix</li><li>Push, hold, reduce or delete logic</li></ul></article>
+        <article class="card control-card accent-orange reveal delay-2"><div><div class="card-icon">▦</div><h3>Inventory productivity</h3><p>Connect stock decisions with availability, margin, cash pressure, markdowns and GMROI.</p></div><ul><li>Aged stock and markdowns</li><li>Availability and stock out risk</li><li>Commercial and full GMROI</li></ul></article>
+        <article class="card control-card accent-blue reveal"><div><div class="card-icon">◆</div><h3>Contract impact</h3><p>Measure whether commercial terms, distributors, contracts, support and payment terms are producing enough return.</p></div><ul><li>Contract impact tracker</li><li>Contract impact simulations</li><li>Payment and cashflow impact</li></ul></article>
+        <article class="card control-card accent-red reveal delay-1"><div><div class="card-icon">✦</div><h3>Promotion ROI</h3><p>Test whether promotions and campaigns generate profitable growth or only short term volume.</p></div><ul><li>Campaign response</li><li>Promotion margin leakage</li><li>Rebate versus discount view</li></ul></article>
+        <article class="card control-card accent-orange reveal delay-2"><div><div class="card-icon">●</div><h3>Management direction</h3><p>Translate operational movement into executive decisions, action owners and monthly performance rhythm.</p></div><ul><li>ROI tracker</li><li>Decision scorecard</li><li>Monthly management pack</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section tight" id="service-modules">
+      <div class="section-head reveal">
+        <div>
+          <div class="kicker">FMCG & Retail Service Modules</div>
+          <h2>Clear offers a client can select.</h2>
+        </div>
+        <p>The modules below can be selected based on the client’s business priorities, data readiness and management decision needs.</p>
+      </div>
+      <div class="module-grid">
+        <article class="card module-card accent-blue reveal"><span class="module-no">01</span><h3>Sales & Profitability Command Center</h3><p>A management view connecting sales, customers, products, profitability, pricing movement and margin leakage.</p><ul><li>Sales performance dashboard</li><li>Customer and SKU profitability</li><li>Executive performance pack</li></ul></article>
+        <article class="card module-card accent-red reveal delay-1"><span class="module-no">02</span><h3>Pricing Opportunity Engine</h3><p>A pricing and margin tool that identifies where prices, discounts, rebates or contracts may be reducing margin.</p><ul><li>Price floor logic</li><li>Margin leakage report</li><li>Pricing recommendation pack</li></ul></article>
+        <article class="card module-card accent-orange reveal delay-2"><span class="module-no">03</span><h3>Commercial GMROI Monitor</h3><p>Measures whether inventory, revenue, COGS, rebates, price mix and contract impact generate enough gross margin return.</p><ul><li>GMROI dashboard</li><li>Inventory productivity view</li><li>Commercial versus financial GMROI</li></ul></article>
+        <article class="card module-card accent-blue reveal delay-3"><span class="module-no">04</span><h3>Inventory Leakage & Aged Stock Monitor</h3><p>Tracks aged stock, markdowns, availability, stock out risk, replenishment and inventory related profit leakage.</p><ul><li>Aged stock action report</li><li>Availability dashboard</li><li>Replenishment insights</li></ul></article>
+        <article class="card module-card accent-red reveal"><span class="module-no">05</span><h3>Contract Impact & Simulation Tracker</h3><p>Models how contract terms, commercial commitments, support structures and payment timing affect margin, cash flow and business direction.</p><ul><li>Contract impact dashboard</li><li>Contract simulation model</li><li>Contract impact pack</li></ul></article>
+        <article class="card module-card accent-orange reveal delay-1"><span class="module-no">06</span><h3>Promotion ROI & Growth Monitor</h3><p>Assesses whether campaigns create profitable growth, customer response and sustainable margin.</p><ul><li>Promotion ROI dashboard</li><li>Campaign response report</li><li>Promotion recommendation pack</li></ul></article>
+        <article class="card module-card accent-blue reveal delay-2"><span class="module-no">07</span><h3>ROI & Corporate Performance Tracker</h3><p>Tracks pricing actions, contract impact, contract impact, financial impact, forecast alignment and business direction.</p><ul><li>Running ROI tracker</li><li>Scenario and sensitivity view</li><li>Management decision scorecard</li></ul></article>
+        <article class="card module-card accent-red reveal delay-3"><span class="module-no">08</span><h3>Governance & Workflow Revamp</h3><p>Improves approvals, submissions, reporting rhythm, contract control, pricing governance and execution discipline.</p><ul><li>Workflow map</li><li>Approval matrix</li><li>Action tracker</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section tight" id="questions">
+      <div class="question-board">
+        <article class="panel fmcg-direct-panel reveal">
+          <div class="kicker">Business Questions</div>
+          <h2>Make the page speak to management pain points.</h2>
+          <p>These are the management questions the FMCG and retail decision system is designed to answer.</p>
         </article>
-        <div class="stack-grid">
-          <article class="card stack-card accent-blue reveal delay-1"><div class="mini-icon">☷</div><h3>Pricing governance</h3><p>Floor prices, approval workflows, change logs, margin guardrails and controlled pricing outputs.</p></article>
-          <article class="card stack-card accent-red reveal delay-2"><div class="mini-icon">▦</div><h3>Data readiness</h3><p>SKU, customer, supplier, category, cost, price and date structures prepared for reliable decision making.</p></article>
-          <article class="card stack-card accent-orange reveal delay-3"><div class="mini-icon">◈</div><h3>Performance definitions</h3><p>Clear rules for YTD, MTD, price mix, GP, UGP, GMROI, targets, growth and margin leakage.</p></article>
-          <article class="card stack-card accent-blue reveal delay-4"><div class="mini-icon">●</div><h3>Management rhythm</h3><p>Daily, weekly and monthly packs that keep leadership aligned on what changed and what needs action.</p></article>
+        <div class="question-list reveal delay-1">
+          <div class="question-pill">Are we growing profitably, or only increasing volume?</div>
+          <div class="question-pill">Which SKUs, customers and channels are creating margin?</div>
+          <div class="question-pill">Where are discounts, rebates or contract terms leaking profit?</div>
+          <div class="question-pill">Is inventory generating enough gross margin return?</div>
+          <div class="question-pill">Are promotions creating profit or temporary movement?</div>
+          <div class="question-pill">Which products should we push, hold, reduce, phase out or delete?</div>
+          <div class="question-pill">Are commercial terms and contracts supporting business value?</div>
+          <div class="question-pill">Are today’s decisions creating future financial value?</div>
         </div>
       </div>
     </section>
-
-    <section class="section tight" id="pricing-engine-layer">
+<section class="section tight" id="how-it-connects">
       <div class="section-head reveal">
         <div>
-          <div class="kicker">Pricing, Margin & Commercial Quality</div>
-          <h2>Pricing engines that do more than calculate prices.</h2>
+          <div class="kicker">How The Work Connects</div>
+          <h2>Data foundation → impact model → action rhythm.</h2>
         </div>
-        <p>We design pricing and margin tools that show where value is created, where it is leaking, and where action is commercially safe. The same logic can support pricing teams, sales teams, finance teams and senior management.</p>
+        <p>The work connects data foundation, financial impact logic, governance and management rhythm into one practical operating model.</p>
       </div>
-      <div class="skill-grid">
-        <article class="skill-tile accent-blue reveal"><div class="card-icon">₿</div><h3>Pricing & Margin Optimisation</h3><p>Price floors, customer profitability, GP and UGP tracking, COGS movement, rebate impact, push candidates, margin guardrails and price change simulations.</p><div class="tags"><span class="tag blue">Pricing engine</span><span class="tag red">Margin control</span><span class="tag orange">Profitability</span></div></article>
-        <article class="skill-tile accent-red reveal delay-1"><div class="card-icon">↗</div><h3>Price Mix & Sales Quality</h3><p>Separate price, volume and mix effects, identify down trading, premium versus low tier shifts, lost SKUs, new items and customer or category concentration risk.</p><div class="tags"><span class="tag blue">Price mix</span><span class="tag red">Sales quality</span><span class="tag orange">Product mix</span></div></article>
-        <article class="skill-tile accent-orange reveal delay-2"><div class="card-icon">✦</div><h3>Promotion ROI & Execution</h3><p>Measure promotional impact, flyer performance, incremental revenue, cannibalisation risk, margin leakage and execution compliance.</p><div class="tags"><span class="tag blue">Promotion ROI</span><span class="tag red">Execution</span><span class="tag orange">Growth</span></div></article>
-        <article class="skill-tile accent-blue reveal"><div class="card-icon">▦</div><h3>Inventory, Availability & GMROI</h3><p>Monitor stock health, aged inventory, turnover, availability, GMROI, working capital pressure and product movement quality.</p><div class="tags"><span class="tag blue">GMROI</span><span class="tag red">Aged stock</span><span class="tag orange">Availability</span></div></article>
-        <article class="skill-tile accent-red reveal delay-1"><div class="card-icon">≈</div><h3>Elasticity & Customer Behaviour</h3><p>Use historical price movements, sales response, product hierarchy and customer behaviour to estimate sensitivity and improve commercial decisions.</p><div class="tags"><span class="tag blue">Elasticity</span><span class="tag red">Behaviour</span><span class="tag orange">Simulation</span></div></article>
-        <article class="skill-tile accent-orange reveal delay-2"><div class="card-icon">●</div><h3>Executive Visibility</h3><p>Translate operational movements into dashboards and management packs that show the business what happened, why it happened and what to do next.</p><div class="tags"><span class="tag blue">Dashboards</span><span class="tag red">Management</span><span class="tag orange">Decision support</span></div></article>
-      </div>
-    </section>
-
-    <section class="section tight" id="function-layer">
-      <article class="panel layer-narrative reveal">
-        <div class="kicker">Corporate Synergy Across Functions</div>
-        <h2>One view for the teams that shape performance.</h2>
-        <p>Pencil Analytics is designed to support the functions that drive the P&L. Sales sees customer and product movement. Finance sees margin, cash flow and cost impact. Supply chain sees inventory and availability pressure. Pricing sees governance, price floors and margin risk. Management sees the combined direction of the business.</p>
-        <div class="function-map">
-          <div class="function reveal delay-1"><strong>Sales</strong><span>Customer mix, growth quality, SKU movement and target progress.</span></div>
-          <div class="function reveal delay-2"><strong>Finance</strong><span>Margin, cash flow, cost of capital and financial landing.</span></div>
-          <div class="function reveal delay-3"><strong>Supply Chain</strong><span>Availability, aged stock, turnover and inventory investment.</span></div>
-          <div class="function reveal delay-4"><strong>Pricing Team</strong><span>Floors, approvals, price change impact and margin protection.</span></div>
-          <div class="function reveal delay-1"><strong>Management</strong><span>Live visibility, coordinated action and strategy execution.</span></div>
-        </div>
-      </article>
-    </section>
-
-    <section class="section tight" id="tomorrow-impact">
-      <article class="panel tomorrow-panel reveal">
-        <div class="kicker">Forecasting, Optimisation & Stochastic Modelling</div>
-        <h2><span class="gradient-text">Tomorrow’s impact, based on today’s performance.</span></h2>
-        <p>We provide forecasting and optimisation models that connect today’s business performance with expected financial landing. Using scenario logic and stochastic modelling, we can test how product mix, customer behaviour, pricing changes, market response, cost movement, future liabilities, working capital and execution delays may affect margin, cash flow and target achievement.</p>
-        <div class="tomorrow-line"><span>Today’s performance</span> → <span>Scenario simulation</span> → <span>Financial landing</span> → <span>Action plan</span></div>
-      </article>
-    </section>
-
-    <section class="section tight" id="delivery">
-      <div class="section-head reveal">
-        <div>
-          <div class="kicker">How Retail & FMCG Support Works</div>
-          <h2>From commercial issue to operating system.</h2>
-        </div>
-        <p>The focus is not only to report what happened. The focus is to build repeatable business logic that explains why it happened, what it means financially, and where action is needed next.</p>
-      </div>
-      <div class="flow">
-        <article class="flow-step reveal"><span class="num">01</span><h3>Diagnose</h3><p>Map pricing, margin, sales, product, customer, inventory and supply chain pain points.</p></article>
-        <article class="flow-step reveal delay-1"><span class="num">02</span><h3>Structure</h3><p>Prepare master files, business rules, hierarchies, measures, target logic and commercial definitions.</p></article>
-        <article class="flow-step reveal delay-2"><span class="num">03</span><h3>Build</h3><p>Create dashboards, models, trackers, Excel tools, Power BI layers and automated reporting flows.</p></article>
-        <article class="flow-step reveal delay-3"><span class="num">04</span><h3>Control</h3><p>Apply margin guardrails, exception flags, price governance, workflow visibility and performance monitoring.</p></article>
-        <article class="flow-step reveal delay-4"><span class="num">05</span><h3>Improve</h3><p>Review impact, tune assumptions, and continuously refine the decision system as the business changes.</p></article>
+      <div class="service-route">
+        <article class="flow-step route-step reveal"><span class="num">01</span><h3>Diagnose</h3><p>Map pain points, reports, data readiness, profitability visibility and process gaps.</p></article>
+        <article class="flow-step route-step reveal delay-1"><span class="num">02</span><h3>Structure</h3><p>Define master files, hierarchies, measures, ownership, price rules and reporting logic.</p></article>
+        <article class="flow-step route-step reveal delay-2"><span class="num">03</span><h3>Build</h3><p>Create dashboards, models, trackers, automation routines and executive packs.</p></article>
+        <article class="flow-step route-step reveal delay-3"><span class="num">04</span><h3>Govern</h3><p>Add approvals, thresholds, exception flags, control points and action owners.</p></article>
+        <article class="flow-step route-step reveal delay-4"><span class="num">05</span><h3>Review</h3><p>Run monthly rhythm, compare expected versus actual impact and decide next action.</p></article>
       </div>
     </section>
   </main>
+
 
 
 
@@ -593,7 +1086,7 @@ to{transform:translateX(44px) rotate(-360deg);}
     }
 
     applyStoredTheme();
-    brand.addEventListener('click', toggleTheme);
+    if(brand){ brand.addEventListener('click', toggleTheme); }
 
     menuToggle.addEventListener('click', () => {
       const open = nav.classList.toggle('menu-open');
