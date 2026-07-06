@@ -617,9 +617,65 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
   }
 }
 
+
+.back-to-top-wrap{
+  width:min(100% - 36px,var(--max));
+  margin:10px auto 32px;
+  display:flex;
+  justify-content:center;
+}
+.back-to-top-button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:13px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:950;
+  letter-spacing:.04em;
+  color:var(--text);
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(135deg,var(--blue),var(--red-soft),var(--orange)) border-box;
+  border:1px solid transparent;
+  box-shadow:
+    0 16px 36px rgba(6,27,53,.10),
+    0 0 24px rgba(11,114,185,.10),
+    0 0 28px rgba(207,18,63,.08),
+    0 0 30px rgba(245,130,32,.10);
+  transition:transform .22s ease, box-shadow .22s ease;
+}
+.back-to-top-button span{
+  font-size:1.05rem;
+  background:linear-gradient(135deg,var(--blue),var(--red-soft),var(--orange));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+.back-to-top-button:hover{
+  transform:translateY(-3px);
+  box-shadow:
+    0 20px 44px rgba(6,27,53,.14),
+    0 0 30px rgba(11,114,185,.14),
+    0 0 36px rgba(207,18,63,.12),
+    0 0 40px rgba(245,130,32,.14);
+}
+[data-theme="dark"] .back-to-top-button{
+  background:
+    linear-gradient(145deg,rgba(3,14,29,.96),rgba(8,39,72,.94)) padding-box,
+    linear-gradient(135deg,var(--blue-light),var(--red-soft),var(--orange-soft)) border-box;
+  color:#fff;
+  box-shadow:
+    0 20px 44px rgba(0,0,0,.28),
+    0 0 28px rgba(56,189,248,.14),
+    0 0 34px rgba(207,18,63,.12),
+    0 0 38px rgba(245,130,32,.14);
+}
+
 </style>
 </head>
-<body>
+<body id="top">
   <nav class="site-nav" aria-label="Primary navigation">
     <div class="nav-inner">
       <a class="brand-mark" href="#home" aria-label="Toggle Pencil Analytics theme" title="Click to switch light and dark mode">
@@ -694,6 +750,11 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
       </div>
     </section>
   </main>
+
+  <div class="back-to-top-wrap">
+    <a class="back-to-top-button" href="#top"><span>↑</span> Back to top</a>
+  </div>
+
 
 
   <footer class="footer">© <span id="year"></span> Pencil Analytics. All rights reserved.</footer>
