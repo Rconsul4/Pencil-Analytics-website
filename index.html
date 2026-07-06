@@ -423,6 +423,96 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
   }
 }
 
+
+/* Opening hint on Who We Are page */
+.theme-hint{
+  position:fixed;
+  top:82px;
+  left:24px;
+  z-index:2200;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  max-width:310px;
+  padding:12px 14px;
+  border-radius:18px;
+  background:
+    linear-gradient(#fff,#fff) padding-box,
+    linear-gradient(135deg,var(--blue),var(--red-soft),var(--orange)) border-box;
+  border:1px solid transparent;
+  box-shadow:
+    0 18px 44px rgba(6,27,53,.14),
+    0 0 26px rgba(11,114,185,.12),
+    0 0 32px rgba(207,18,63,.10),
+    0 0 34px rgba(245,130,32,.12);
+  color:var(--text);
+  font-size:.82rem;
+  line-height:1.35;
+  font-weight:850;
+  opacity:0;
+  transform:translateY(-10px);
+  pointer-events:none;
+  animation:themeHintIn 6.5s ease forwards;
+}
+.theme-hint::before{
+  content:"";
+  position:absolute;
+  top:-8px;
+  left:22px;
+  width:14px;
+  height:14px;
+  transform:rotate(45deg);
+  background:linear-gradient(135deg,var(--blue),var(--red-soft),var(--orange));
+  border-radius:3px;
+  opacity:.95;
+}
+.theme-hint .hint-dot{
+  width:11px;
+  height:11px;
+  min-width:11px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--red-soft),var(--orange));
+  box-shadow:0 0 14px rgba(245,130,32,.55);
+  animation:hintPulse 1.6s ease-in-out infinite;
+}
+.theme-hint strong{
+  background:linear-gradient(135deg,var(--blue),var(--red-soft),var(--orange));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+[data-theme="dark"] .theme-hint{
+  background:
+    linear-gradient(145deg,rgba(3,14,29,.96),rgba(8,39,72,.94)) padding-box,
+    linear-gradient(135deg,var(--blue-light),var(--red-soft),var(--orange-soft)) border-box;
+  color:#fff;
+  box-shadow:
+    0 20px 54px rgba(0,0,0,.32),
+    0 0 28px rgba(56,189,248,.16),
+    0 0 36px rgba(207,18,63,.14),
+    0 0 42px rgba(245,130,32,.15);
+}
+@keyframes themeHintIn{
+  0%{opacity:0;transform:translateY(-10px);}
+  12%{opacity:1;transform:translateY(0);}
+  78%{opacity:1;transform:translateY(0);}
+  100%{opacity:0;transform:translateY(-8px);}
+}
+@keyframes hintPulse{
+  0%,100%{transform:scale(1);filter:saturate(1);}
+  50%{transform:scale(1.25);filter:saturate(1.35);}
+}
+@media (max-width:720px){
+  .theme-hint{
+    top:70px;
+    left:14px;
+    right:14px;
+    max-width:none;
+    font-size:.78rem;
+    padding:11px 13px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -441,6 +531,11 @@ main{position:relative}.section{width:min(var(--max),calc(100% - 34px));margin:0
       </div>
     </div>
   </nav>
+  <div class="theme-hint" aria-live="polite">
+    <span class="hint-dot" aria-hidden="true"></span>
+    <span>Hint: click <strong>Pencil Analytics</strong> at the top to switch the website theme.</span>
+  </div>
+
 
   
   <main id="home">
