@@ -15,7 +15,7 @@
 body{margin:0}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes shimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-@keyframes themeHintIn{0%{opacity:0;transform:translateY(-10px)}12%{opacity:1;transform:translateY(0)}78%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-8px)}}
+12%{opacity:1;transform:translateY(0)}78%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-8px)}}
 a{color:inherit}
 </style>
 </helmet>
@@ -60,13 +60,7 @@ a{color:inherit}
       <div style="font-size:.68rem;color:#4a5f76;line-height:1.5">© {{year}} Pencil Analytics.<br>All rights reserved.</div>
     </div>
   </aside>
-
-  <div style="position:fixed;top:40px;left:266px;z-index:1000;display:flex;align-items:center;gap:10px;max-width:300px;padding:12px 16px;background:{{hintBg}};border:1px solid {{hintBorder}};border-radius:2px;box-shadow:0 12px 30px rgba(0,0,0,.12);animation:themeHintIn 6.5s ease forwards;pointer-events:none" style-before="content:'';position:absolute;top:18px;left:-6px;width:12px;height:12px;background:{{hintBg}};border-left:1px solid {{hintBorder}};border-bottom:1px solid {{hintBorder}};transform:rotate(45deg)">
-    <span style="width:8px;height:8px;border-radius:50%;background:#f58220;flex:none"></span>
-    <span style="font-size:.82rem;line-height:1.35;color:{{text}}">Hint: click <strong>Pencil Analytics</strong> at the top to switch the website theme.</span>
-  </div>
-
-  <main style="margin-left:250px;padding:0 72px;min-height:100vh;display:flex;align-items:center">
+<main style="margin-left:250px;padding:0 72px;min-height:100vh;display:flex;align-items:center">
     <section style="max-width:820px;padding:64px 0;width:100%">
       <div style="padding:44px;border-radius:16px;background:{{boxBg}};border:{{boxBorder}};animation:fadeUp .7s ease both">
         <h1 style="font-size:clamp(2.1rem,4.2vw,3.1rem);line-height:1.1;letter-spacing:-0.02em;font-weight:800;margin:0 0 18px;color:{{text}}">Reach Out to Us</h1>
@@ -99,8 +93,6 @@ class Component extends DCLogic {
       text: dark ? '#f7fbff' : '#12181f',
       muted: dark ? '#a9b9cb' : '#5b6673',
       divider: dark ? 'rgba(255,255,255,.16)' : 'rgba(18,24,31,.08)',
-      hintBg: dark ? '#0c1830' : '#ffffff',
-      hintBorder: dark ? 'rgba(255,255,255,.18)' : 'rgba(18,24,31,.14)',
       gradientBg: dark ? 'linear-gradient(115deg,#ffffff 0%,#77c9ff 27%,#ff3d66 60%,#ffb347 88%)' : 'linear-gradient(115deg,#061b35 0%,#0b72b9 27%,#ff3d66 60%,#f58220 88%)',
       boxBg: dark ? 'linear-gradient(115deg,rgba(6,27,53,.97) 0%,rgba(59,20,58,.95) 50%,rgba(80,40,20,.92) 100%) padding-box, linear-gradient(135deg,#38bdf8,#ff3d66,#ffb347) border-box' : '#ffffff',
       boxBorder: dark ? '2px solid transparent' : '1px solid rgba(18,24,31,.16)',

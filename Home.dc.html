@@ -15,10 +15,16 @@
 body{margin:0}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes shimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes themeHintOneSecond{0%{opacity:0;transform:translateY(-6px)}12%{opacity:1;transform:translateY(0)}78%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-6px);visibility:hidden}}
 a{color:inherit}
 </style>
 </helmet>
 <div style="font-family:'Inter',ui-sans-serif,system-ui,sans-serif;background:{{bg}};color:{{text}};min-height:100vh;transition:background .3s ease,color .3s ease">
+
+  <div style="position:fixed;top:34px;left:266px;z-index:1000;display:flex;align-items:center;gap:10px;max-width:300px;padding:12px 16px;background:{{hintBg}};border:1px solid {{hintBorder}};border-radius:2px;box-shadow:0 12px 30px rgba(0,0,0,.12);animation:themeHintOneSecond 1s ease forwards;pointer-events:none">
+    <span style="font-size:.82rem;line-height:1.35;color:{{text}}">Tip: click <strong>Pencil Analytics</strong> to switch the website theme.</span>
+  </div>
+
 
   <aside style="position:fixed;top:0;left:0;width:250px;height:100vh;background:#050d1a;display:flex;flex-direction:column;justify-content:space-between;padding:36px 26px;box-sizing:border-box;z-index:10">
     <div>
@@ -63,7 +69,7 @@ a{color:inherit}
 
     <section style="max-width:900px;padding:96px 0 56px">
       <div style="font-size:.76rem;font-weight:700;letter-spacing:.18em;margin-bottom:18px;animation:fadeUp .7s ease both"><span style="color:#0b72b9">VISIBILITY</span><span style="color:{{muted}}"> · </span><span style="color:#cf123f">OPTIMISATION</span><span style="color:{{muted}}"> · </span><span style="color:#f58220">SYNERGY</span></div>
-      <h1 style="font-size:clamp(2.6rem,5.2vw,4.6rem);line-height:1.05;letter-spacing:-0.02em;font-weight:800;margin:0 0 20px;animation:fadeUp .7s ease .08s both"><span style="background:{{gradientBg}};background-size:220% 220%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shimmer 8s ease-in-out infinite">We turn financial and operational complexity into sustainable growth.</span></h1>
+      <h1 style="font-size:clamp(2.6rem,5.2vw,4.6rem);line-height:1.05;letter-spacing:-0.02em;font-weight:800;margin:0 0 20px;animation:fadeUp .7s ease .08s both;color:{{text}}">We turn financial and operational complexity into sustainable growth.</h1>
       <p style="font-size:1.1rem;line-height:1.65;color:{{muted}};max-width:680px;margin:0 0 26px;animation:fadeUp .7s ease .16s both">Pencil Analytics connects pricing, sales, margins, cash flow, risk, market dynamics, and operations into a centralized view, helping leadership manage risks, identify opportunities, respond to market shifts, and focus growth where it creates the greatest value.</p>
       <div style="display:flex;gap:14px;animation:fadeUp .7s ease .24s both">
         <a href="FMCG-Retail.dc.html" style="display:inline-flex;align-items:center;padding:14px 28px;background:#0c1830;color:#fff;text-decoration:none;font-weight:700;font-size:.9rem;border-radius:2px;transition:background .2s ease" style-hover="background:#0b72b9">See our retail work</a>
@@ -91,19 +97,17 @@ a{color:inherit}
       <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.01em;margin:0 0 36px;max-width:760px">Advisory analytics that moves beyond the report.</h2>
       <div ref="{{reveal1Ref}}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;opacity:{{reveal1Opacity}};transform:{{reveal1Transform}};transition:opacity .8s cubic-bezier(.16,.84,.44,1),transform .8s cubic-bezier(.16,.84,.44,1)">
         <div style="padding:24px;border:{{boxBorder}};border-radius:8px;background:{{boxBg}}">
-          <div style="font-size:.78rem;font-weight:700;color:#0b72b9;margin-bottom:12px">01</div>
           <div style="height:2px;width:36px;background:#0b72b9;margin-bottom:18px"></div>
           <h3 style="font-size:1.15rem;font-weight:700;margin:0 0 10px;color:{{text}}">Vision</h3>
           <p style="color:{{muted}};line-height:1.65;font-size:.94rem;margin:0">To be the intelligence layer that lets organisations see performance clearly, align decisions across functions and turn complexity into sustained value.</p>
         </div>
         <div style="padding:24px;border:{{boxBorder}};border-radius:8px;background:{{boxBg}}">
-          <div style="font-size:.78rem;font-weight:700;color:#cf123f;margin-bottom:12px">02</div>
           <div style="height:2px;width:36px;background:#cf123f;margin-bottom:18px"></div>
           <h3 style="font-size:1.15rem;font-weight:700;margin:0 0 10px;color:{{text}}">Mission</h3>
           <p style="color:{{muted}};line-height:1.65;font-size:.94rem;margin:0">To build decision systems that connect financial outcomes to operational behaviour, so leaders act earlier, protect margin and execute with discipline.</p>
         </div>
         <div style="padding:24px;border:{{boxBorder}};border-radius:8px;background:{{boxBg}}">
-          <div style="width:40px;height:40px;border-radius:12px;background:rgba(245,130,32,.10);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#f58220;margin-bottom:16px">&#10022;</div>
+          <div style="height:2px;width:36px;background:#f58220;margin-bottom:18px"></div>
           <h3 style="font-size:1.15rem;font-weight:700;margin:0 0 10px;color:{{text}}">Our standard</h3>
           <p style="color:{{muted}};line-height:1.65;font-size:.94rem;margin:0"><span style="background:linear-gradient(90deg,#7c5cff,#ff3d66);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;font-weight:800">Perfection is a moving target</span>. Every engagement leaves a business with clearer visibility, stronger control and a faster route from insight to action.</p>
         </div>
@@ -114,24 +118,20 @@ a{color:inherit}
       <div style="font-size:.74rem;font-weight:700;letter-spacing:.14em;color:{{muted}};margin-bottom:12px">RETAIL &amp; FMCG DECISION ECOSYSTEM</div>
       <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;letter-spacing:-0.01em;margin:0 0 36px;max-width:760px">Performance, priced in financial terms.</h2>
       <div ref="{{reveal2Ref}}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;opacity:{{reveal2Opacity}};transform:{{reveal2Transform}};transition:opacity .8s cubic-bezier(.16,.84,.44,1),transform .8s cubic-bezier(.16,.84,.44,1)">
-        <div style="padding:26px;border:{{softBorder}};border-radius:20px;background:{{softBg}};box-shadow:{{softShadow}}">
-          <div style="width:40px;height:40px;border-radius:12px;background:rgba(11,114,185,.10);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#0b72b9;margin-bottom:16px">&#8600;</div>
-          <h3 style="font-size:1rem;font-weight:700;margin:0 0 10px;color:{{text}}">Margin &amp; P&amp;L landing</h3>
+        <div style="padding:26px;border:{{boxBorder}};border-radius:8px;background:{{boxBg}}">
+                    <h3 style="font-size:1rem;font-weight:700;margin:0 0 10px;color:{{text}}">Margin &amp; P&amp;L landing</h3>
           <p style="color:{{muted}};line-height:1.6;font-size:.88rem;margin:0">Pricing, mix, cost and promotion inputs rolled forward into expected gross profit and P&amp;L movement.</p>
         </div>
-        <div style="padding:26px;border:{{softBorder}};border-radius:20px;background:{{softBg}};box-shadow:{{softShadow}}">
-          <div style="width:40px;height:40px;border-radius:12px;background:rgba(207,18,63,.10);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#cf123f;margin-bottom:16px">&#8776;</div>
-          <h3 style="font-size:1rem;font-weight:700;margin:0 0 10px;color:{{text}}">Cash flow optimisation</h3>
+        <div style="padding:26px;border:{{boxBorder}};border-radius:8px;background:{{boxBg}}">
+                    <h3 style="font-size:1rem;font-weight:700;margin:0 0 10px;color:{{text}}">Cash flow optimisation</h3>
           <p style="color:{{muted}};line-height:1.6;font-size:.88rem;margin:0">Inventory pressure, payment timing and commercial terms mapped to their true cash impact.</p>
         </div>
-        <div style="padding:26px;border:{{softBorder}};border-radius:20px;background:{{softBg}};box-shadow:{{softShadow}}">
-          <div style="width:40px;height:40px;border-radius:12px;background:rgba(245,130,32,.10);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#f58220;margin-bottom:16px">&#10022;</div>
-          <h3 style="font-size:1rem;font-weight:700;margin:0 0 10px;color:{{text}}">Promotion impact</h3>
+        <div style="padding:26px;border:{{boxBorder}};border-radius:8px;background:{{boxBg}}">
+                    <h3 style="font-size:1rem;font-weight:700;margin:0 0 10px;color:{{text}}">Promotion impact</h3>
           <p style="color:{{muted}};line-height:1.6;font-size:.88rem;margin:0">Planned promotion economics checked against actual sales, margin and repeat behaviour.</p>
         </div>
-        <div style="padding:26px;border:{{softBorder}};border-radius:20px;background:{{softBg}};box-shadow:{{softShadow}}">
-          <div style="width:40px;height:40px;border-radius:12px;background:rgba(11,114,185,.10);display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:#0b72b9;margin-bottom:16px">&Sigma;</div>
-          <h3 style="font-size:1rem;font-weight:700;margin:0 0 10px;color:{{text}}">Actuarial pricing</h3>
+        <div style="padding:26px;border:{{boxBorder}};border-radius:8px;background:{{boxBg}}">
+                    <h3 style="font-size:1rem;font-weight:700;margin:0 0 10px;color:{{text}}">Actuarial pricing</h3>
           <p style="color:{{muted}};line-height:1.6;font-size:.88rem;margin:0">Price adequacy, credibility weighting and downside scenarios applied to commercial decisions.</p>
         </div>
       </div>
@@ -187,6 +187,8 @@ class Component extends DCLogic {
       muted: dark ? '#a9b9cb' : '#5b6673',
       panelBorder: dark ? 'rgba(255,255,255,.16)' : 'rgba(18,24,31,.16)',
       divider: dark ? 'rgba(255,255,255,.16)' : 'rgba(18,24,31,.08)',
+      hintBg: dark ? '#0c1830' : '#ffffff',
+      hintBorder: dark ? 'rgba(255,255,255,.18)' : 'rgba(18,24,31,.14)',
       boxBg: dark ? 'linear-gradient(115deg,rgba(6,27,53,.97) 0%,rgba(59,20,58,.95) 50%,rgba(80,40,20,.92) 100%) padding-box, linear-gradient(135deg,#38bdf8,#ff3d66,#ffb347) border-box' : '#ffffff',
       boxBorder: dark ? '2px solid transparent' : '1px solid rgba(18,24,31,.16)',
       softBg: dark ? 'linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.02))' : 'linear-gradient(135deg,#ffffff,#f4f2fb)',
