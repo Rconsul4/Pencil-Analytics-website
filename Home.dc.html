@@ -17,9 +17,82 @@ body{margin:0}
 @keyframes shimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 @keyframes themeHintOneSecond{0%{opacity:0;transform:translateY(-6px)}12%{opacity:1;transform:translateY(0)}78%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-6px);visibility:hidden}}
 a{color:inherit}
+
+
+
+/* Mobile responsive layout */
+[data-mobile-nav-btn],[data-mobile-overlay],[data-mobile-close]{display:none}
+@media (max-width: 900px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden}
+  body{-webkit-text-size-adjust:100%}
+
+  [data-mobile-nav-btn]{display:flex!important}
+  [data-mobile-overlay]{display:block!important}
+  [data-mobile-close]{display:flex!important}
+
+  aside[style*="width:250px"]{
+    position:fixed!important;top:0!important;left:0!important;width:min(82vw,320px)!important;height:100dvh!important;
+    padding:20px 18px 18px!important;box-sizing:border-box!important;z-index:1100!important;overflow-y:auto!important;
+    transform:translateX(calc(-100% - 24px));transition:transform .28s ease, box-shadow .28s ease!important;
+    box-shadow:0 18px 40px rgba(0,0,0,.32)!important
+  }
+  [data-mobile-nav-open="true"] aside[style*="width:250px"]{transform:translateX(0)!important}
+  [data-mobile-nav-open="true"] [data-mobile-overlay]{opacity:1!important;pointer-events:auto!important}
+
+  aside[style*="width:250px"] > div:first-child > a:first-child{margin-bottom:10px!important}
+  aside[style*="width:250px"] > div:first-child > div:nth-child(3){margin:2px 0 26px 38px!important}
+  aside[style*="width:250px"] nav{display:flex!important;flex-direction:column!important;gap:6px!important;width:100%!important}
+  aside[style*="width:250px"] nav a{padding:12px 10px!important;gap:12px!important;justify-content:flex-start!important;border-left-width:2px!important}
+  aside[style*="width:250px"] nav a span:first-child{display:inline!important}
+  aside[style*="width:250px"] nav a span:last-child{font-size:.98rem!important;line-height:1.25!important;white-space:normal!important;text-align:left!important}
+  aside[style*="width:250px"] > div:last-child{display:block!important;margin-top:24px!important}
+
+  main[style*="margin-left:250px"]{margin-left:0!important;width:100%!important;box-sizing:border-box!important;padding:0 16px!important;min-height:auto!important;display:block!important}
+  main[style*="margin-left:250px"] > section:first-child{padding-top:90px!important}
+  main > section{padding-top:40px!important;padding-bottom:40px!important}
+  main h1{font-size:clamp(2.1rem,11vw,3rem)!important;line-height:1.05!important;overflow-wrap:anywhere}
+  main h2{font-size:clamp(1.55rem,8vw,2.1rem)!important;line-height:1.12!important;overflow-wrap:anywhere}
+  main h3{line-height:1.28!important}
+  main p{overflow-wrap:anywhere}
+
+  main [style*="display:grid"]{grid-template-columns:1fr!important;gap:16px!important}
+  main section[style*="grid-template-columns:repeat(3"]{display:grid!important;grid-template-columns:1fr!important;gap:0!important}
+  main section[style*="grid-template-columns:repeat(3"] > div{padding:14px 0!important;border-left:0!important;border-top:1px solid rgba(255,255,255,.12)!important}
+  main section[style*="grid-template-columns:repeat(3"] > div:first-child{border-top:0!important}
+  main [style*="display:flex"][style*="justify-content:space-between"]{flex-direction:column!important;align-items:flex-start!important}
+  main [style*="display:flex"][style*="gap:14px"]{flex-direction:column!important;align-items:stretch!important;width:100%!important}
+  main [style*="display:flex"][style*="gap:14px"] > a{justify-content:center!important;text-align:center!important}
+  main [style*="display:flex"][style*="gap:24px"]{gap:14px!important}
+  main [style*="width:260px"]{width:auto!important;min-width:0!important}
+
+  main section[style*="margin:0 -72px"]{margin-left:-16px!important;margin-right:-16px!important;padding-left:16px!important;padding-right:16px!important}
+  main [style*="padding:56px"]{padding:24px!important}
+  main [style*="padding:52px 72px"]{padding:24px 16px!important}
+  main [style*="padding:44px"]{padding:24px!important}
+  main [style*="padding:26px"]{padding:20px!important}
+  main [style*="padding:24px"]{padding:20px!important}
+  main svg{max-width:100%!important;height:auto!important}
+  main a[href^="mailto:"]{max-width:100%!important;box-sizing:border-box!important;font-size:.86rem!important;padding:14px 18px!important;overflow-wrap:anywhere;word-break:break-word}
+  footer{padding-bottom:26px!important}
+
+  div[style*="position:fixed"][style*="left:266px"]{left:16px!important;right:16px!important;top:66px!important;max-width:none!important;width:auto!important;box-sizing:border-box!important;z-index:1001!important}
+}
+@media (max-width: 420px){
+  main[style*="margin-left:250px"]{padding-left:14px!important;padding-right:14px!important}
+  main section[style*="margin:0 -72px"]{margin-left:-14px!important;margin-right:-14px!important;padding-left:14px!important;padding-right:14px!important}
+  main > section:first-child{padding-top:84px!important}
+  aside[style*="width:250px"]{width:min(86vw,300px)!important;padding-left:16px!important;padding-right:16px!important}
+  main h1{font-size:clamp(1.95rem,10.5vw,2.6rem)!important}
+  main h2{font-size:clamp(1.42rem,7.6vw,1.9rem)!important}
+}
+
 </style>
 </helmet>
-<div style="font-family:'Inter',ui-sans-serif,system-ui,sans-serif;background:{{bg}};color:{{text}};min-height:100vh;transition:background .3s ease,color .3s ease">
+<div data-mobile-nav-open="{{mobileNavOpenAttr}}" style="font-family:'Inter',ui-sans-serif,system-ui,sans-serif;background:{{bg}};color:{{text}};min-height:100vh;transition:background .3s ease,color .3s ease;overflow-x:hidden">
+
+  <button data-mobile-nav-btn onClick="{{toggleMobileNav}}" aria-label="Toggle navigation" style="display:none;position:fixed;top:14px;left:14px;z-index:1200;width:46px;height:46px;border:1px solid {{panelBorder}};border-radius:10px;background:rgba(5,13,26,.92);color:#f2f5f8;align-items:center;justify-content:center;padding:0;box-shadow:0 10px 24px rgba(0,0,0,.18);backdrop-filter:blur(10px);cursor:pointer"><span style="font-size:1.35rem;line-height:1">{{mobileNavIcon}}</span></button>
+  <div data-mobile-overlay onClick="{{closeMobileNav}}" style="display:none;position:fixed;inset:0;background:rgba(2,8,20,.46);opacity:{{mobileOverlayOpacity}};pointer-events:{{mobileOverlayEvents}};transition:opacity .28s ease;z-index:1090"></div>
+
 
   <div style="position:fixed;top:34px;left:266px;z-index:1000;display:flex;align-items:center;gap:10px;max-width:300px;padding:12px 16px;background:{{hintBg}};border:1px solid {{hintBorder}};border-radius:2px;box-shadow:0 12px 30px rgba(0,0,0,.12);animation:themeHintOneSecond 1s ease forwards;pointer-events:none">
     <span style="font-size:.82rem;line-height:1.35;color:{{text}}">Tip: click <strong>Pencil Analytics</strong> to switch the website theme.</span>
@@ -28,6 +101,7 @@ a{color:inherit}
 
   <aside style="position:fixed;top:0;left:0;width:250px;height:100vh;background:#050d1a;display:flex;flex-direction:column;justify-content:space-between;padding:36px 26px;box-sizing:border-box;z-index:10">
     <div>
+      <div data-mobile-close style="display:none;justify-content:flex-end;margin-bottom:10px"><button onClick="{{closeMobileNav}}" aria-label="Close navigation" style="width:38px;height:38px;border:1px solid rgba(255,255,255,.16);border-radius:10px;background:rgba(255,255,255,.06);color:#f2f5f8;font-size:1.25rem;display:flex;align-items:center;justify-content:center;cursor:pointer">×</button></div>
       <a href="#" onClick="{{toggleTheme}}" title="Click to switch light and dark mode" style="display:flex;align-items:center;gap:12px;text-decoration:none;margin-bottom:6px;cursor:pointer">
         <svg width="26" height="34" viewBox="0 0 44 56" style="flex:none">
           <rect x="4" y="30" width="8" height="14" fill="#3a5978"></rect>
@@ -151,7 +225,7 @@ a{color:inherit}
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { theme: 'light', revealed: {} };
+  state = { theme: 'light', revealed: {} , mobileNavOpen: false};
   revealRefs = [];
   componentDidMount() {
     try { if (localStorage.getItem('paTheme') === 'dark') this.setState({ theme: 'dark' }); } catch (e) {}
@@ -181,6 +255,12 @@ class Component extends DCLogic {
     }
     return {
       year: new Date().getFullYear(),
+      mobileNavOpenAttr: this.state.mobileNavOpen ? 'true' : 'false',
+      mobileNavIcon: this.state.mobileNavOpen ? '×' : '☰',
+      mobileOverlayOpacity: this.state.mobileNavOpen ? 1 : 0,
+      mobileOverlayEvents: this.state.mobileNavOpen ? 'auto' : 'none',
+      toggleMobileNav: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState(s => ({ mobileNavOpen: !s.mobileNavOpen })); },
+      closeMobileNav: (e) => { if (e && e.preventDefault) e.preventDefault(); if (this.state.mobileNavOpen) this.setState({ mobileNavOpen: false }); },
       toggleTheme: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState(s => { const next = s.theme === 'dark' ? 'light' : 'dark'; try { localStorage.setItem('paTheme', next); } catch (err) {} return { theme: next }; }); },
       bg: dark ? 'radial-gradient(circle at 88% 10%,rgba(207,18,63,.46) 0,transparent 24%),radial-gradient(circle at 76% 86%,rgba(255,211,119,.27) 0,transparent 31%),radial-gradient(circle at 14% 10%,rgba(11,114,185,.35) 0,transparent 26%),linear-gradient(135deg,#020814 0%,#041225 45%,#091d38 100%)' : '#f7f6f2',
       text: dark ? '#f7fbff' : '#12181f',
